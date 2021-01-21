@@ -1,4 +1,6 @@
-var Encore = require('@symfony/webpack-encore');
+const path = require('path')
+const Encore = require('@symfony/webpack-encore')
+const CopyPlugin = require('copy-webpack-plugin')
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
@@ -22,9 +24,6 @@ Encore
      */
     .addEntry('app', './assets/app.js')
 
-    // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
-    .enableStimulusBridge('./assets/controllers.json')
-
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
 
@@ -44,6 +43,12 @@ Encore
     .enableSourceMaps(!Encore.isProduction())
     // enables hashed filenames (e.g. app.abc123.css)
     .enableVersioning(Encore.isProduction())
+    .enablePostCssLoader()
+    .addPlugin(
+        new CopyPlugin({
+            patterns: [{ from: path.join(__dirname, 'assets'), to: 'assets' }],
+        })
+    )
 
     // .configureBabel((config) => {
     //     config.plugins.push('@babel/plugin-proposal-class-properties');
@@ -55,23 +60,9 @@ Encore
     //     config.corejs = 3;
     // })
 
-    // enables Sass/SCSS support
-    //.enableSassLoader()
-
-    // uncomment if you use TypeScript
-    //.enableTypeScriptLoader()
-
-    // uncomment if you use React
-    //.enableReactPreset()
-
     // uncomment to get integrity="..." attributes on your script & link tags
     // requires WebpackEncoreBundle 1.4 or higher
     //.enableIntegrityHashes(Encore.isProduction())
-
-    // uncomment if you're having problems with a jQuery plugin
-    //.autoProvidejQuery()
-
-    .enableVersioning()
 ;
 
 module.exports = Encore.getWebpackConfig();

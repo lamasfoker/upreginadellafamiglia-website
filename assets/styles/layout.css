@@ -1,0 +1,7 @@
+/**
+ * layout
+ */
+
+body {
+    @apply p-10;
+}

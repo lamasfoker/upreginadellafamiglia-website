@@ -1,12 +1,31 @@
-/*
- * Welcome to your app's main JavaScript file!
- *
- * We recommend including the built version of this JavaScript file
- * (and its CSS file) in your base layout (base.html.twig).
+import './styles/app.css'
+
+import { Xt } from 'xtendui'
+import 'xtendui/src/core/drop'
+import gsap from 'gsap'
+
+/**
+ * animations setup
  */
 
-// any CSS you import will output into a single css file (app.css in this case)
-import './styles/app.css';
+gsap.config({ force3D: false })
 
-// start the Stimulus application
-import './bootstrap';
+if (Xt.durationTimescale === 1000) {
+    // instant animations accessibility
+    gsap.globalTimeline.timeScale(1000)
+    // double auto time accessibility
+    Xt.autoTimescale = 0.5
+}
+
+const animationResponsive = () => {
+    // faster javascript animations on small screens
+    if (Xt.durationTimescale !== 1000 && matchMedia('(max-width: 767px)').matches) {
+        gsap.globalTimeline.timeScale(1.5)
+        Xt.durationTimescale = 1.5
+    } else {
+        gsap.globalTimeline.timeScale(1)
+        Xt.durationTimescale = 1
+    }
+}
+addEventListener('resize', animationResponsive)
+animationResponsive()
