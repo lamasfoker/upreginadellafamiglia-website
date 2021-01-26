@@ -1,242 +1,351 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <a class="no-underline" href="#">
-        <div class="row row-3 items-center mb-8">
-            <div class="w-8/12">
-                <div class="w-full">
-                    <h2 class="mb-8">Lorem Ipsum</h2>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu risus ac ligula mollis finibus bibendum at nisi. Donec non leo non ipsum rhoncus placerat. Cras faucibus neque et elit rhoncus consequat. Morbi urna ipsum, pulvinar eu maximus at, rutrum id arcu. Nunc interdum suscipit ipsum, non porta felis placerat vitae. Morbi efficitur pretium neque ac tempus. Aliquam vel nibh elit. Quisque at arcu eget lectus hendrerit venenatis.</span>
+    <div class="container mb-8">
+        <a class="no-underline" href="#">
+            <div class="row row-3 items-center">
+                <div class="w-8/12">
+                    <div class="w-full">
+                        <h2 class="h2 mb-8">Lorem Ipsum</h2>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu risus ac ligula mollis finibus bibendum at nisi. Donec non leo non ipsum rhoncus placerat. Cras faucibus neque et elit rhoncus consequat. Morbi urna ipsum, pulvinar eu maximus at, rutrum id arcu. Nunc interdum suscipit ipsum, non porta felis placerat vitae. Morbi efficitur pretium neque ac tempus. Aliquam vel nibh elit. Quisque at arcu eget lectus hendrerit venenatis.</span>
+                    </div>
+                </div>
+                <div class="w-4/12">
+                    <div class="media-container" style="padding-bottom: 71.4%">
+                        <div class="media-inner">
+                            <img class="media object-cover object-center" src="https://cdn.statically.io/img/upload.wikimedia.org/w=700,h=500/wikipedia/commons/6/66/Chiesa_del_Sacro_Cuore%2C_Livorno.jpg" loading="lazy" alt/>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="w-4/12">
-                <div>
-                    <img class="w-full" src="https://cdn.statically.io/img/upload.wikimedia.org/w=700,h=500/wikipedia/commons/6/66/Chiesa_del_Sacro_Cuore%2C_Livorno.jpg"  loading="lazy" alt>
-                </div>
+        </a>
+    </div>
+
+    <div class="container mb-10">
+        <h2 class="h2 text-center">Calendario</h2>
+        <div class="row row-4 justify-between items-center">
+            <div class="w-2/12 list list-2 flex-col items-center">
+                <button type="button" class="btn btn-md rounded-md font-boldlack links-default bg-gray-200 hover:bg-gray-300 active:bg-gray-400">
+                    Filtro
+                </button>
+                <button type="button" class="btn btn-md rounded-md font-boldlack links-default bg-gray-200 hover:bg-gray-300 active:bg-gray-400">
+                    Filtro
+                </button>
+                <button type="button" class="btn btn-md rounded-md font-boldlack links-default bg-gray-200 hover:bg-gray-300 active:bg-gray-400" data-xt-toggle>
+                    Filtro
+                </button>
+                <button type="button" class="btn btn-md rounded-md font-boldlack links-default bg-gray-200 hover:bg-gray-300 active:bg-gray-400" data-xt-toggle>
+                    Filtro
+                </button>
+            </div>
+            <div class="w-10/12">
+                <table class="table-fixed">
+                    <thead>
+                    <tr>
+                        <th class="text-center w-1/7">Lunedì</th>
+                        <th class="text-center w-1/7">Martedì</th>
+                        <th class="text-center w-1/7">Mercoledì</th>
+                        <th class="text-center w-1/7">Giovedì</th>
+                        <th class="text-center w-1/7">venerdì</th>
+                        <th class="text-center w-1/7">Sabato</th>
+                        <th class="text-center w-1/7">Domenica</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div class="list list-1 flex-col h-28">
+                                <div class="self-center mb-2 font-bold">1</div>
+                                <a href="#" class="row flex-nowrap row-0.5 items-center overflow-hidden overflow-ellipsis rounded-md hover:bg-accent-100 inline-block whitespace-nowrap w-full">
+                                    <div class="p-1 rounded bg-red-400 inline-block"></div>
+                                    <span>12:00</span>
+                                    <span class="font-bold">Messa Gazzata</span>
+                                </a>
+                                <a href="#" class="row flex-nowrap row-0.5 items-center overflow-hidden overflow-ellipsis rounded-md hover:bg-accent-100 inline-block whitespace-nowrap w-full">
+                                    <div class="p-1 rounded bg-red-400 inline-block"></div>
+                                    <span>12:00</span>
+                                    <span class="font-bold">Messa Gazzata</span>
+                                </a>
+                                <a href="#" class="row flex-nowrap row-0.5 items-center overflow-hidden overflow-ellipsis rounded-md hover:bg-accent-100 inline-block whitespace-nowrap w-full">
+                                    <div class="p-1 rounded bg-red-400 inline-block"></div>
+                                    <span>12:00</span>
+                                    <span class="font-bold">Messa Gazzata</span>
+                                </a>
+                                <a href="#" class="row flex-nowrap row-0.5 items-center overflow-hidden overflow-ellipsis rounded-md hover:bg-accent-100 inline-block whitespace-nowrap w-full">
+                                    <div class="p-1 rounded bg-red-400 inline-block"></div>
+                                    <span>12:00</span>
+                                    <span class="font-bold">Messa Gazzata</span>
+                                </a>
+
+                            </div>
+                        </td>
+                        <td>
+                            <div class="list list-1 flex-col h-28">
+                                <div class="self-center mb-2 font-bold">1</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="list list-1 flex-col h-28">
+                                <div class="self-center mb-2 font-bold">1</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="list list-1 flex-col h-28">
+                                <div class="self-center mb-2 font-bold">1</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="list list-1 flex-col h-28">
+                                <div class="self-center mb-2 font-bold">1</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="list list-1 flex-col h-28">
+                                <div class="self-center mb-2 font-bold">1</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="list list-1 flex-col h-28">
+                                <div class="self-center mb-2 font-bold">1</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="list list-1 flex-col h-28">
+                                <div class="self-center mb-2 font-bold">1</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="list list-1 flex-col h-28">
+                                <div class="self-center mb-2 font-bold">1</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="list list-1 flex-col h-28">
+                                <div class="self-center mb-2 font-bold">1</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="list list-1 flex-col h-28">
+                                <div class="self-center mb-2 font-bold">1</div>
+                                <a href="#" class="row flex-nowrap row-0.5 items-center overflow-hidden overflow-ellipsis rounded-md hover:bg-accent-100 inline-block whitespace-nowrap w-full">
+                                    <div class="p-1 rounded bg-red-400 inline-block"></div>
+                                    <span>12:00</span>
+                                    <span class="font-bold">Messa Gazzata</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="list list-1 flex-col h-28">
+                                <div class="self-center mb-2 font-bold">1</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="list list-1 flex-col h-28">
+                                <div class="self-center mb-2 font-bold">1</div>
+                                <a href="#" class="row flex-nowrap row-0.5 items-center overflow-hidden overflow-ellipsis rounded-md hover:bg-accent-100 inline-block whitespace-nowrap w-full">
+                                    <div class="p-1 rounded bg-red-400 inline-block"></div>
+                                    <span>12:00</span>
+                                    <span class="font-bold">Messa Gazzata</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="list list-1 flex-col h-28">
+                                <div class="self-center mb-2 font-bold">1</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="list list-1 flex-col h-28">
+                                <div class="self-center mb-2 font-bold">1</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="list list-1 flex-col h-28">
+                                <div class="self-center mb-2 font-bold">1</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="list list-1 flex-col h-28">
+                                <div class="self-center mb-2 font-bold">1</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="list list-1 flex-col h-28">
+                                <div class="self-center mb-2 font-bold">1</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="list list-1 flex-col h-28">
+                                <div class="self-center mb-2 font-bold">1</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="list list-1 flex-col h-28">
+                                <div class="self-center mb-2 font-bold">1</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="list list-1 flex-col h-28">
+                                <div class="self-center mb-2 font-bold">1</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="list list-1 flex-col h-28">
+                                <div class="self-center mb-2 font-bold">1</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="list list-1 flex-col h-28">
+                                <div class="self-center mb-2 font-bold">1</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="list list-1 flex-col h-28">
+                                <div class="self-center mb-2 font-bold">1</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="list list-1 flex-col h-28">
+                                <div class="self-center mb-2 font-bold">1</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="list list-1 flex-col h-28">
+                                <div class="self-center mb-2 font-bold">1</div>
+                                <a href="#" class="row flex-nowrap row-0.5 items-center overflow-hidden overflow-ellipsis rounded-md hover:bg-accent-100 inline-block whitespace-nowrap w-full">
+                                    <div class="p-1 rounded bg-red-400 inline-block"></div>
+                                    <span>12:00</span>
+                                    <span class="font-bold">Messa Gazzata</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="list list-1 flex-col h-28">
+                                <div class="self-center mb-2 font-bold">1</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="list list-1 flex-col h-28">
+                                <div class="self-center mb-2 font-bold">1</div>
+                                <a href="#" class="row flex-nowrap row-0.5 items-center overflow-hidden overflow-ellipsis rounded-md hover:bg-accent-100 inline-block whitespace-nowrap w-full">
+                                    <div class="p-1 rounded bg-red-400 inline-block"></div>
+                                    <span>12:00</span>
+                                    <span class="font-bold">Messa Gazzata</span>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-    </a>
+    </div>
 
-    <div class="row row-4 justify-between items-center">
-        <div class="w-2/12 list list-2 flex-col items-center">
-            <button type="button" class="btn btn-md rounded-md font-boldlack links-default bg-gray-200 hover:bg-gray-300 active:bg-gray-400">
-                Filtro
-            </button>
-            <button type="button" class="btn btn-md rounded-md font-boldlack links-default bg-gray-200 hover:bg-gray-300 active:bg-gray-400">
-                Filtro
-            </button>
-            <button type="button" class="btn btn-md rounded-md font-boldlack links-default bg-gray-200 hover:bg-gray-300 active:bg-gray-400" data-xt-toggle>
-                Filtro
-            </button>
-            <button type="button" class="btn btn-md rounded-md font-boldlack links-default bg-gray-200 hover:bg-gray-300 active:bg-gray-400" data-xt-toggle>
-                Filtro
-            </button>
-        </div>
-        <div class="w-10/12">
-            <table class="table-fixed">
-                <thead>
-                <tr>
-                    <th class="text-center w-1/7">Lunedì</th>
-                    <th class="text-center w-1/7">Martedì</th>
-                    <th class="text-center w-1/7">Mercoledì</th>
-                    <th class="text-center w-1/7">Giovedì</th>
-                    <th class="text-center w-1/7">venerdì</th>
-                    <th class="text-center w-1/7">Sabato</th>
-                    <th class="text-center w-1/7">Domenica</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>
-                        <div class="list list-1 flex-col h-28">
-                            <div class="self-center mb-2 font-bold">1</div>
-                            <a href="#" class="row flex-nowrap row-0.5 items-center overflow-hidden overflow-ellipsis rounded-md hover:bg-accent-100">
-                                <div class="p-1 rounded bg-red-400"></div>
-                                <span>12:00</span>
-                                <span class="font-bold">Messa Gazzata</span>
-                            </a>
-                            <a href="#" class="row flex-nowrap row-0.5 items-center overflow-hidden overflow-ellipsis rounded-md hover:bg-accent-100">
-                                <div class="p-1 rounded bg-red-400"></div>
-                                <span>12:00</span>
-                                <span class="font-bold">Messa Gazzata</span>
-                            </a>
-                            <a href="#" class="row flex-nowrap row-0.5 items-center overflow-hidden overflow-ellipsis rounded-md hover:bg-accent-100">
-                                <div class="p-1 rounded bg-red-400"></div>
-                                <span>12:00</span>
-                                <span class="font-bold">Messa Gazzata</span>
-                            </a>
-                            <a href="#" class="row flex-nowrap row-0.5 items-center overflow-hidden overflow-ellipsis rounded-md hover:bg-accent-100">
-                                <div class="p-1 rounded bg-red-400"></div>
-                                <span>12:00</span>
-                                <span class="font-bold">Messa Gazzata</span>
-                            </a>
+    <div class="container">
+        <h2 class="h2">Eventi</h2>
+        <div class="slider" data-xt-slider>
 
+            <div class="slides">
+                <div class="slides-inner row row-2">
+
+                    <div class="slide w-6/12 sm:w-4/12 opacity-50 active:opacity-100">
+                        <div class="card rounded-md text-black links-default bg-gray-200">
+                            <div class="media-container rounded-t-md ratio-37.5">
+                                <div class="media-inner">
+                                    <img class="media object-cover object-center" src="https://cdn.statically.io/img/upload.wikimedia.org/w=300,h=300/wikipedia/commons/6/66/Chiesa_del_Sacro_Cuore%2C_Livorno.jpg" loading="lazy" alt>
+                                </div>
+                            </div>
+                            <div class="card-md">
+                                <div class="h4">Lorem ipsum</div>
+                                <p><strong>Lorem ipsum</strong> dolor sit amet, <a href="#">consectetur adipiscing</a> elit. Nullam suscipit, velit eu tristique mollis, dui felis dictum turpis, a auctor est odio ac diam. Sed mauris augue, sagittis vitae magna eget, vehicula scelerisque elit.</p>
+                            </div>
                         </div>
-                    </td>
-                    <td>
-                        <div class="list list-1 flex-col h-28">
-                            <div class="self-center mb-2 font-bold">1</div>
+                    </div>
+
+                    <div class="slide w-6/12 sm:w-4/12 opacity-50 active:opacity-100">
+                        <div class="card rounded-md text-black links-default bg-gray-200">
+                            <div class="media-container rounded-t-md ratio-37.5">
+                                <div class="media-inner">
+                                    <img class="media object-cover object-center" src="https://cdn.statically.io/img/upload.wikimedia.org/w=300,h=300/wikipedia/commons/6/66/Chiesa_del_Sacro_Cuore%2C_Livorno.jpg" loading="lazy" alt>
+                                </div>
+                            </div>
+                            <div class="card-md">
+                                <div class="h4">Lorem ipsum</div>
+                                <p><strong>Lorem ipsum</strong> dolor sit amet, <a href="#">consectetur adipiscing</a> elit. Nullam suscipit, velit eu tristique mollis, dui felis dictum turpis, a auctor est odio ac diam. Sed mauris augue, sagittis vitae magna eget, vehicula scelerisque elit.</p>
+                            </div>
                         </div>
-                    </td>
-                    <td>
-                        <div class="list list-1 flex-col h-28">
-                            <div class="self-center mb-2 font-bold">1</div>
+                    </div>
+
+                    <div class="slide w-6/12 sm:w-4/12 opacity-50 active:opacity-100">
+                        <div class="card rounded-md text-black links-default bg-gray-200">
+                            <div class="media-container rounded-t-md ratio-37.5">
+                                <div class="media-inner">
+                                    <img class="media object-cover object-center" src="https://cdn.statically.io/img/upload.wikimedia.org/w=300,h=300/wikipedia/commons/6/66/Chiesa_del_Sacro_Cuore%2C_Livorno.jpg" loading="lazy" alt>
+                                </div>
+                            </div>
+                            <div class="card-md">
+                                <div class="h4">Lorem ipsum</div>
+                                <p><strong>Lorem ipsum</strong> dolor sit amet, <a href="#">consectetur adipiscing</a> elit. Nullam suscipit, velit eu tristique mollis, dui felis dictum turpis, a auctor est odio ac diam. Sed mauris augue, sagittis vitae magna eget, vehicula scelerisque elit.</p>
+                            </div>
                         </div>
-                    </td>
-                    <td>
-                        <div class="list list-1 flex-col h-28">
-                            <div class="self-center mb-2 font-bold">1</div>
+                    </div>
+
+                    <div class="slide w-6/12 sm:w-4/12 opacity-50 active:opacity-100">
+                        <div class="card rounded-md text-black links-default bg-gray-200">
+                            <div class="media-container rounded-t-md ratio-37.5">
+                                <div class="media-inner">
+                                    <img class="media object-cover object-center" src="https://cdn.statically.io/img/upload.wikimedia.org/w=300,h=300/wikipedia/commons/6/66/Chiesa_del_Sacro_Cuore%2C_Livorno.jpg" loading="lazy" alt>
+                                </div>
+                            </div>
+                            <div class="card-md">
+                                <div class="h4">Lorem ipsum</div>
+                                <p><strong>Lorem ipsum</strong> dolor sit amet, <a href="#">consectetur adipiscing</a> elit. Nullam suscipit, velit eu tristique mollis, dui felis dictum turpis, a auctor est odio ac diam. Sed mauris augue, sagittis vitae magna eget, vehicula scelerisque elit.</p>
+                            </div>
                         </div>
-                    </td>
-                    <td>
-                        <div class="list list-1 flex-col h-28">
-                            <div class="self-center mb-2 font-bold">1</div>
+                    </div>
+
+                    <div class="slide w-6/12 sm:w-4/12 opacity-50 active:opacity-100">
+                        <div class="card rounded-md text-black links-default bg-gray-200">
+                            <div class="media-container rounded-t-md ratio-37.5">
+                                <div class="media-inner">
+                                    <img class="media object-cover object-center" src="https://cdn.statically.io/img/upload.wikimedia.org/w=300,h=300/wikipedia/commons/6/66/Chiesa_del_Sacro_Cuore%2C_Livorno.jpg" loading="lazy" alt>
+                                </div>
+                            </div>
+                            <div class="card-md">
+                                <div class="h4">Lorem ipsum</div>
+                                <p><strong>Lorem ipsum</strong> dolor sit amet, <a href="#">consectetur adipiscing</a> elit. Nullam suscipit, velit eu tristique mollis, dui felis dictum turpis, a auctor est odio ac diam. Sed mauris augue, sagittis vitae magna eget, vehicula scelerisque elit.</p>
+                            </div>
                         </div>
-                    </td>
-                    <td>
-                        <div class="list list-1 flex-col h-28">
-                            <div class="self-center mb-2 font-bold">1</div>
+                    </div>
+
+                    <div class="slide w-6/12 sm:w-4/12 opacity-50 active:opacity-100">
+                        <div class="card rounded-md text-black links-default bg-gray-200">
+                            <div class="media-container rounded-t-md ratio-37.5">
+                                <div class="media-inner">
+                                    <img class="media object-cover object-center" src="https://cdn.statically.io/img/upload.wikimedia.org/w=300,h=300/wikipedia/commons/6/66/Chiesa_del_Sacro_Cuore%2C_Livorno.jpg" loading="lazy" alt>
+                                </div>
+                            </div>
+                            <div class="card-md">
+                                <div class="h4">Lorem ipsum</div>
+                                <p><strong>Lorem ipsum</strong> dolor sit amet, <a href="#">consectetur adipiscing</a> elit. Nullam suscipit, velit eu tristique mollis, dui felis dictum turpis, a auctor est odio ac diam. Sed mauris augue, sagittis vitae magna eget, vehicula scelerisque elit.</p>
+                            </div>
                         </div>
-                    </td>
-                    <td>
-                        <div class="list list-1 flex-col h-28">
-                            <div class="self-center mb-2 font-bold">1</div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="list list-1 flex-col h-28">
-                            <div class="self-center mb-2 font-bold">1</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="list list-1 flex-col h-28">
-                            <div class="self-center mb-2 font-bold">1</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="list list-1 flex-col h-28">
-                            <div class="self-center mb-2 font-bold">1</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="list list-1 flex-col h-28">
-                            <div class="self-center mb-2 font-bold">1</div>
-                            <a href="#" class="row flex-nowrap row-0.5 items-center overflow-hidden overflow-ellipsis rounded-md hover:bg-accent-100">
-                                <div class="p-1 rounded bg-red-400"></div>
-                                <span>12:00</span>
-                                <span class="font-bold">Messa Gazzata</span>
-                            </a>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="list list-1 flex-col h-28">
-                            <div class="self-center mb-2 font-bold">1</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="list list-1 flex-col h-28">
-                            <div class="self-center mb-2 font-bold">1</div>
-                            <a href="#" class="row flex-nowrap row-0.5 items-center overflow-hidden overflow-ellipsis rounded-md hover:bg-accent-100">
-                                <div class="p-1 rounded bg-red-400"></div>
-                                <span>12:00</span>
-                                <span class="font-bold">Messa Gazzata</span>
-                            </a>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="list list-1 flex-col h-28">
-                            <div class="self-center mb-2 font-bold">1</div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="list list-1 flex-col h-28">
-                            <div class="self-center mb-2 font-bold">1</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="list list-1 flex-col h-28">
-                            <div class="self-center mb-2 font-bold">1</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="list list-1 flex-col h-28">
-                            <div class="self-center mb-2 font-bold">1</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="list list-1 flex-col h-28">
-                            <div class="self-center mb-2 font-bold">1</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="list list-1 flex-col h-28">
-                            <div class="self-center mb-2 font-bold">1</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="list list-1 flex-col h-28">
-                            <div class="self-center mb-2 font-bold">1</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="list list-1 flex-col h-28">
-                            <div class="self-center mb-2 font-bold">1</div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="list list-1 flex-col h-28">
-                            <div class="self-center mb-2 font-bold">1</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="list list-1 flex-col h-28">
-                            <div class="self-center mb-2 font-bold">1</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="list list-1 flex-col h-28">
-                            <div class="self-center mb-2 font-bold">1</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="list list-1 flex-col h-28">
-                            <div class="self-center mb-2 font-bold">1</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="list list-1 flex-col h-28">
-                            <div class="self-center mb-2 font-bold">1</div>
-                            <a href="#" class="row flex-nowrap row-0.5 items-center overflow-hidden overflow-ellipsis rounded-md hover:bg-accent-100">
-                                <div class="p-1 rounded bg-red-400"></div>
-                                <span>12:00</span>
-                                <span class="font-bold">Messa Gazzata</span>
-                            </a>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="list list-1 flex-col h-28">
-                            <div class="self-center mb-2 font-bold">1</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="list list-1 flex-col h-28">
-                            <div class="self-center mb-2 font-bold">1</div>
-                            <a href="#" class="row flex-nowrap row-0.5 items-center overflow-hidden overflow-ellipsis rounded-md hover:bg-accent-100">
-                                <div class="p-1 rounded bg-red-400"></div>
-                                <span>12:00</span>
-                                <span class="font-bold">Messa Gazzata</span>
-                            </a>
-                        </div>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+                    </div>
+
+                </div>
+            </div>
+
+            <nav class="slider-pagination w-full list list-2">
+                <button type="button" class="btn text-black links-default bg-gray-200 hover:bg-gray-300 active:bg-gray-400 xt-ignore" data-xt-pag title="Slide xt-num">
+                </button>
+            </nav>
+
         </div>
     </div>
 {% endblock %}
