@@ -4,6 +4,7 @@ import { Xt } from 'xtendui'
 import 'xtendui/src/core/drop'
 import gsap from 'gsap'
 import 'xtendui/src/core/slider'
+import 'xtendui/src/core/toggle'
 import './scripts/layout'
 
 /**

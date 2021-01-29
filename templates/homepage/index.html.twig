@@ -24,18 +24,18 @@
     <div class="container mb-10" id="calendario">
         <h2 class="h2 text-center">Calendario</h2>
         <div class="row row-4 justify-between items-center">
-            <div class="w-2/12 list list-2 flex-col items-center">
-                <button type="button" class="btn btn-md rounded-md font-boldlack links-default bg-gray-200 hover:bg-gray-300 active:bg-gray-400">
-                    Filtro
+            <div class="w-2/12 list list-2 flex-col items-baseline">
+                <button type="button" class="btn in-toggle btn-md rounded-md bg-gray-200 active:bg-gray-300" data-xt-toggle title="Gazzata">
+                    Gazzata
                 </button>
-                <button type="button" class="btn btn-md rounded-md font-boldlack links-default bg-gray-200 hover:bg-gray-300 active:bg-gray-400">
-                    Filtro
+                <button type="button" class="btn in-toggle btn-md rounded-md bg-gray-200 active:bg-gray-300" data-xt-toggle title="Prato">
+                    Prato
                 </button>
-                <button type="button" class="btn btn-md rounded-md font-boldlack links-default bg-gray-200 hover:bg-gray-300 active:bg-gray-400" data-xt-toggle>
-                    Filtro
+                <button type="button" class="btn in-toggle btn-md rounded-md bg-gray-200 active:bg-gray-300" data-xt-toggle title="San Martino">
+                    San Martino
                 </button>
-                <button type="button" class="btn btn-md rounded-md font-boldlack links-default bg-gray-200 hover:bg-gray-300 active:bg-gray-400" data-xt-toggle>
-                    Filtro
+                <button type="button" class="btn in-toggle btn-md rounded-md bg-gray-200 active:bg-gray-300" data-xt-toggle title="Giovani">
+                    Giovani
                 </button>
             </div>
             <div class="w-10/12">
@@ -268,7 +268,7 @@
                         </div>
                     </div>
 
-                    <div class="slide w-6/12 sm:w-4/12 opacity-50 active:opacity-100">
+                    <div class="slide in-slider w-6/12 sm:w-4/12 opacity-50 active:opacity-100">
                         <div class="card rounded-md text-black links-default bg-gray-200">
                             <div class="media-container rounded-t-md ratio-37.5">
                                 <div class="media-inner">
@@ -282,7 +282,7 @@
                         </div>
                     </div>
 
-                    <div class="slide in-slider w-6/12 sm:w-4/12 opacity-50 active:opacity-100">
+                    <div class="slide w-6/12 sm:w-4/12 opacity-50 active:opacity-100">
                         <div class="card rounded-md text-black links-default bg-gray-200">
                             <div class="media-container rounded-t-md ratio-37.5">
                                 <div class="media-inner">
@@ -342,8 +342,7 @@
             </div>
 
             <nav class="slider-pagination w-full list list-2">
-                <button type="button" class="btn text-black links-default bg-gray-200 hover:bg-gray-300 active:bg-gray-400 xt-ignore" data-xt-pag title="Slide xt-num">
-                </button>
+                <button type="button" class="btn text-black bg-gray-200 hover:bg-gray-300 active:bg-gray-400" data-xt-pag title="Notizia xt-num"></button>
             </nav>
 
         </div>
