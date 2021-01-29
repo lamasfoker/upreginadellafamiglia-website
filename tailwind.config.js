@@ -15,6 +15,11 @@ module.exports = {
         extend: {
             width: {
                 '1/7': '14.2857143%'
+            },
+            colors: {
+                "blue-logo": {
+                    DEFAULT: '#2b4f7f'
+                }
             }
         }
     }
