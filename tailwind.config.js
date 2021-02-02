@@ -58,6 +58,16 @@ module.exports = {
             fontFamily: {
                 sans: ['"Nunito"', ...defaultTheme.fontFamily.sans],
             }
-        }
+        },
+        xtendui: {
+            layout: {
+                component: theme => ({
+                    '::selection': {
+                        backgroundColor: theme('colors.theme-1.DEFAULT'),
+                        color: theme('colors.theme-2.light')
+                    },
+                }),
+            },
+        },
     }
 }
