@@ -1,3 +1,7 @@
 homepage:
   path: /
   controller: \App\Controller\Homepage::index
+
+news:
+  path: /notizie
+  controller: \App\Controller\News::list
