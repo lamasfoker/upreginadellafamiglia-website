@@ -272,89 +272,11 @@
                 <div class="slides">
                     <div class="slides-inner row row-2">
 
-                        <div class="slide w-6/12 sm:w-4/12 opacity-100">
-                            <div class="card rounded-md text-black links-default bg-white">
-                                <div class="media-container rounded-t-md ratio-37.5">
-                                    <div class="media-inner">
-                                        <img class="media object-cover object-center" src="https://cdn.statically.io/img/upload.wikimedia.org/w=800,h=300/wikipedia/commons/6/66/Chiesa_del_Sacro_Cuore%2C_Livorno.jpg" loading="lazy" alt>
-                                    </div>
-                                </div>
-                                <div class="card-md">
-                                    <div class="h4">Lorem ipsum</div>
-                                    <p><strong>Lorem ipsum</strong> dolor sit amet, <a href="#">consectetur adipiscing</a> elit. Nullam suscipit, velit eu tristique mollis, dui felis dictum turpis, a auctor est odio ac diam. Sed mauris augue, sagittis vitae magna eget, vehicula scelerisque elit.</p>
-                                </div>
+                        {% for i in 0..6 %}
+                            <div class="slide w-1/4 md:w-1/3 sm:w-1/2 opacity-100 {{ i is same as 2 ? 'in-slider' : '' }}">
+                                {% include 'components/card.html.twig' %}
                             </div>
-                        </div>
-
-                        <div class="slide in-slider w-6/12 sm:w-4/12 opacity-100">
-                            <div class="card rounded-md text-black links-default bg-white">
-                                <div class="media-container rounded-t-md ratio-37.5">
-                                    <div class="media-inner">
-                                        <img class="media object-cover object-center" src="https://cdn.statically.io/img/upload.wikimedia.org/w=800,h=300/wikipedia/commons/6/66/Chiesa_del_Sacro_Cuore%2C_Livorno.jpg" loading="lazy" alt>
-                                    </div>
-                                </div>
-                                <div class="card-md">
-                                    <div class="h4">Lorem ipsum</div>
-                                    <p><strong>Lorem ipsum</strong> dolor sit amet, <a href="#">consectetur adipiscing</a> elit. Nullam suscipit, velit eu tristique mollis, dui felis dictum turpis, a auctor est odio ac diam. Sed mauris augue, sagittis vitae magna eget, vehicula scelerisque elit.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="slide w-6/12 sm:w-4/12 opacity-100">
-                            <div class="card rounded-md text-black links-default bg-white">
-                                <div class="media-container rounded-t-md ratio-37.5">
-                                    <div class="media-inner">
-                                        <img class="media object-cover object-center" src="https://cdn.statically.io/img/upload.wikimedia.org/w=800,h=300/wikipedia/commons/6/66/Chiesa_del_Sacro_Cuore%2C_Livorno.jpg" loading="lazy" alt>
-                                    </div>
-                                </div>
-                                <div class="card-md">
-                                    <div class="h4">Lorem ipsum</div>
-                                    <p><strong>Lorem ipsum</strong> dolor sit amet, <a href="#">consectetur adipiscing</a> elit. Nullam suscipit, velit eu tristique mollis, dui felis dictum turpis, a auctor est odio ac diam. Sed mauris augue, sagittis vitae magna eget, vehicula scelerisque elit.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="slide w-6/12 sm:w-4/12 opacity-100">
-                            <div class="card rounded-md text-black links-default bg-white">
-                                <div class="media-container rounded-t-md ratio-37.5">
-                                    <div class="media-inner">
-                                        <img class="media object-cover object-center" src="https://cdn.statically.io/img/upload.wikimedia.org/w=800,h=300/wikipedia/commons/6/66/Chiesa_del_Sacro_Cuore%2C_Livorno.jpg" loading="lazy" alt>
-                                    </div>
-                                </div>
-                                <div class="card-md">
-                                    <div class="h4">Lorem ipsum</div>
-                                    <p><strong>Lorem ipsum</strong> dolor sit amet, <a href="#">consectetur adipiscing</a> elit. Nullam suscipit, velit eu tristique mollis, dui felis dictum turpis, a auctor est odio ac diam. Sed mauris augue, sagittis vitae magna eget, vehicula scelerisque elit.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="slide w-6/12 sm:w-4/12 opacity-100">
-                            <div class="card rounded-md text-black links-default bg-white">
-                                <div class="media-container rounded-t-md ratio-37.5">
-                                    <div class="media-inner">
-                                        <img class="media object-cover object-center" src="https://cdn.statically.io/img/upload.wikimedia.org/w=800,h=300/wikipedia/commons/6/66/Chiesa_del_Sacro_Cuore%2C_Livorno.jpg" loading="lazy" alt>
-                                    </div>
-                                </div>
-                                <div class="card-md">
-                                    <div class="h4">Lorem ipsum</div>
-                                    <p><strong>Lorem ipsum</strong> dolor sit amet, <a href="#">consectetur adipiscing</a> elit. Nullam suscipit, velit eu tristique mollis, dui felis dictum turpis, a auctor est odio ac diam. Sed mauris augue, sagittis vitae magna eget, vehicula scelerisque elit.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="slide w-6/12 sm:w-4/12 opacity-100">
-                            <div class="card rounded-md text-black links-default bg-white">
-                                <div class="media-container rounded-t-md ratio-37.5">
-                                    <div class="media-inner">
-                                        <img class="media object-cover object-center" src="https://cdn.statically.io/img/upload.wikimedia.org/w=800,h=300/wikipedia/commons/6/66/Chiesa_del_Sacro_Cuore%2C_Livorno.jpg" loading="lazy" alt>
-                                    </div>
-                                </div>
-                                <div class="card-md">
-                                    <div class="h4">Lorem ipsum</div>
-                                    <p><strong>Lorem ipsum</strong> dolor sit amet, <a href="#">consectetur adipiscing</a> elit. Nullam suscipit, velit eu tristique mollis, dui felis dictum turpis, a auctor est odio ac diam. Sed mauris augue, sagittis vitae magna eget, vehicula scelerisque elit.</p>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
 
                     </div>
                 </div>
