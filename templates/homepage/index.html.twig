@@ -25,36 +25,14 @@
         <h2 class="h2 text-center">Calendario</h2>
         <div class="row row-4 justify-between items-center">
             <div class="w-2/12 list list-2 flex-col items-baseline">
-                <div class="w-full">
-                    <label class="form-label-check">
-                        <input type="checkbox" class="form-check form-switch rounded-full border text-theme-1 border-gray-400 bg-gray-200">
-                        <span class="ml-3 uppercase">Gazzata</span>
-                    </label>
-                </div>
-                <div class="w-full">
-                    <label class="form-label-check">
-                        <input type="checkbox" class="form-check form-switch rounded-full border text-theme-1 border-gray-400 bg-gray-200">
-                        <span class="ml-3 uppercase">Prato</span>
-                    </label>
-                </div>
-                <div class="w-full">
-                    <label class="form-label-check">
-                        <input type="checkbox" class="form-check form-switch rounded-full border text-theme-1 border-gray-400 bg-gray-200">
-                        <span class="ml-3 uppercase">Stiolo</span>
-                    </label>
-                </div>
-                <div class="w-full">
-                    <label class="form-label-check">
-                        <input type="checkbox" class="form-check form-switch rounded-full border text-theme-1 border-gray-400 bg-gray-200">
-                        <span class="ml-3 uppercase">San Martino</span>
-                    </label>
-                </div>
-                <div class="w-full">
-                    <label class="form-label-check">
-                        <input type="checkbox" class="form-check form-switch rounded-full border text-theme-1 border-gray-400 bg-gray-200">
-                        <span class="ml-3 uppercase">Giovani</span>
-                    </label>
-                </div>
+                {% for i in 0..4 %}
+                    <div class="w-full">
+                        <label class="form-label-check">
+                            <input type="checkbox" class="form-check form-switch rounded-full border text-theme-1 border-gray-400 bg-gray-200">
+                            <span class="ml-3 uppercase">Gazzata</span>
+                        </label>
+                    </div>
+                {% endfor %}
             </div>
             <div class="w-10/12">
                 <table class="table-fixed">
@@ -96,53 +74,22 @@
                                 </button>
                             </div>
                         </td>
-                        <td>
-                            <div class="list list-1 flex-col h-28">
-                                <div class="self-center mb-2 font-bold uppercase">1 OTT</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="list list-1 flex-col h-28">
-                                <div class="self-center mb-2 font-bold uppercase">1 OTT</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="list list-1 flex-col h-28">
-                                <div class="self-center mb-2 font-bold uppercase">1 OTT</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="list list-1 flex-col h-28">
-                                <div class="self-center mb-2 font-bold uppercase">1 OTT</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="list list-1 flex-col h-28">
-                                <div class="self-center mb-2 font-bold uppercase">1 OTT</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="list list-1 flex-col h-28">
-                                <div class="self-center mb-2 font-bold uppercase">1 OTT</div>
-                            </div>
-                        </td>
+                        {% for i in 0..5 %}
+                            <td>
+                                <div class="list list-1 flex-col h-28">
+                                    <div class="self-center mb-2 font-bold uppercase">1 OTT</div>
+                                </div>
+                            </td>
+                        {% endfor %}
                     </tr>
                     <tr>
-                        <td>
-                            <div class="list list-1 flex-col h-28">
-                                <div class="self-center mb-2 font-bold uppercase">1 OTT</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="list list-1 flex-col h-28">
-                                <div class="self-center mb-2 font-bold uppercase">1 OTT</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="list list-1 flex-col h-28">
-                                <div class="self-center mb-2 font-bold uppercase">1 OTT</div>
-                            </div>
-                        </td>
+                        {% for i in 0..2 %}
+                            <td>
+                                <div class="list list-1 flex-col h-28">
+                                    <div class="self-center mb-2 font-bold uppercase">1 OTT</div>
+                                </div>
+                            </td>
+                        {% endfor %}
                         <td>
                             <div class="list list-1 flex-col h-28">
                                 <div class="self-center mb-2 font-bold uppercase">1 OTT</div>
@@ -175,63 +122,22 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <div class="list list-1 flex-col h-28">
-                                <div class="self-center mb-2 font-bold uppercase">1 OTT</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="list list-1 flex-col h-28">
-                                <div class="self-center mb-2 font-bold uppercase">1 OTT</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="list list-1 flex-col h-28">
-                                <div class="self-center mb-2 font-bold uppercase">1 OTT</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="list list-1 flex-col h-28">
-                                <div class="self-center mb-2 font-bold uppercase">1 OTT</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="list list-1 flex-col h-28">
-                                <div class="self-center mb-2 font-bold uppercase">1 OTT</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="list list-1 flex-col h-28">
-                                <div class="self-center mb-2 font-bold uppercase">1 OTT</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="list list-1 flex-col h-28">
-                                <div class="self-center mb-2 font-bold uppercase">1 OTT</div>
-                            </div>
-                        </td>
+                        {% for i in 0..6 %}
+                            <td>
+                                <div class="list list-1 flex-col h-28">
+                                    <div class="self-center mb-2 font-bold uppercase">1 OTT</div>
+                                </div>
+                            </td>
+                        {% endfor %}
                     </tr>
                     <tr>
-                        <td>
-                            <div class="list list-1 flex-col h-28">
-                                <div class="self-center mb-2 font-bold uppercase">1 OTT</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="list list-1 flex-col h-28">
-                                <div class="self-center mb-2 font-bold uppercase">1 OTT</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="list list-1 flex-col h-28">
-                                <div class="self-center mb-2 font-bold uppercase">1 OTT</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="list list-1 flex-col h-28">
-                                <div class="self-center mb-2 font-bold uppercase">1 OTT</div>
-                            </div>
-                        </td>
+                        {% for i in 0..3 %}
+                            <td>
+                                <div class="list list-1 flex-col h-28">
+                                    <div class="self-center mb-2 font-bold uppercase">1 OTT</div>
+                                </div>
+                            </td>
+                        {% endfor %}
                         <td>
                             <div class="list list-1 flex-col h-28">
                                 <div class="self-center mb-2 font-bold uppercase">1 OTT</div>
