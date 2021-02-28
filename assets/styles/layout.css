@@ -2,3 +2,16 @@
  * layout
  */
 
+html {
+    font-size: 56.25%;
+}
+@media (min-width: 992px) {
+    html {
+        font-size: 62.5%;
+    }
+}
+@media (min-width: 1600px) {
+    html {
+        font-size: 68.75%;
+    }
+}

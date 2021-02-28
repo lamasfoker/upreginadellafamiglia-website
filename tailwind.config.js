@@ -59,6 +59,14 @@ module.exports = {
                 sans: ['"Nunito"', ...defaultTheme.fontFamily.sans],
             }
         },
+        screens: {
+            'xxs': '370px',
+            'xs': '576px',
+            'sm': '768px',
+            'md': '992px',
+            'lg': '1200px',
+            'xl': '1600px',
+        },
         xtendui: {
             layout: {
                 component: theme => ({
