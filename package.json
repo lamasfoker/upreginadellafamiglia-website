@@ -26,6 +26,6 @@
     "dependencies": {
         "gsap": "^3.6.0",
         "tailwindcss": "^2.0.2",
-        "xtendui": "^1.0.0-beta.2"
+        "xtendui": "^1.0.0-beta.5"
     }
 }
