@@ -17,11 +17,11 @@ module.exports = {
         container: {
             center: true,
             padding: {
-                DEFAULT: '0',
-                sm: '2rem',
-                md: '2.25rem',
-                lg: '2.5rem',
-                xl: '2.75rem',
+                DEFAULT: '0.75rem',
+                sm: '1.5rem',
+                md: '1.5rem',
+                lg: '2rem',
+                xl: '2rem',
             },
         },
         extend: {

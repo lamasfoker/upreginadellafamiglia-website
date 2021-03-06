@@ -3,10 +3,10 @@
 {% block body %}
     <div class="bg-theme-3-light">
         <div class="container py-12">
-            <div class="xt-row xt-row-3 items-center">
-                <div class="w-8/12 text-3xl">
-                    <h2 class="xt-h2 text-4xl">Lorem Ipsum</h2>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu risus ac ligula mollis finibus bibendum at nisi. Donec non leo non ipsum rhoncus placerat. Cras faucibus neque et elit rhoncus consequat. Morbi urna ipsum, pulvinar eu maximus at, rutrum id arcu. Nunc interdum suscipit ipsum, non porta felis placerat vitae. Morbi efficitur pretium neque ac tempus. Aliquam vel nibh elit. Quisque at arcu eget lectus hendrerit venenatis.</span>
+            <div class="xt-row xt-row-x-3 items-center">
+                <div class="w-8/12">
+                    <h2 class="xt-h2 text-5xl">Lorem Ipsum</h2>
+                    <div class="text-3xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu risus ac ligula mollis finibus bibendum at nisi. Donec non leo non ipsum rhoncus placerat. Cras faucibus neque et elit rhoncus consequat. Morbi urna ipsum, pulvinar eu maximus at, rutrum id arcu. Nunc interdum suscipit ipsum, non porta felis placerat vitae. Morbi efficitur pretium neque ac tempus. Aliquam vel nibh elit. Quisque at arcu eget lectus hendrerit venenatis.</div>
                 </div>
                 <a href="#" class="w-4/12">
                     <div class="xt-media-container rounded-md" style="padding-bottom: 71.4%">
@@ -20,16 +20,17 @@
     </div>
 
     <div class="container py-12 h-96" id="calendario">
-        <h2 class="xt-h2 text-center text-4xl">Calendario</h2>
+        <h2 class="xt-h2 text-center text-5xl">Calendario</h2>
+
     </div>
 
     <div class="bg-theme-3-light">
         <div class="container py-12">
-            <h2 class="xt-h2 text-4xl">Notizie</h2>
+            <h2 class="xt-h2 text-5xl">Notizie</h2>
             <div class="xt-slider" data-xt-slider>
 
                 <div class="xt-slides">
-                    <div class="xt-slides-inner xt-row xt-row-8">
+                    <div class="xt-slides-inner xt-row xt-row-x-8">
 
                         {% for i in 0..6 %}
                             <div class="xt-slide w-1/4 md:w-1/3 sm:w-1/2 opacity-100 {{ i is same as 2 ? 'in-slider' : '' }}">
