@@ -2,6 +2,10 @@ homepage:
   path: /
   controller: \App\Controller\Homepage::index
 
-news:
+news_listing:
   path: /notizie
   controller: \App\Controller\News::list
+
+news_index:
+  path: /notizia/{slug}
+  controller: \App\Controller\News::index

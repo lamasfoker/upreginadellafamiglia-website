@@ -12,4 +12,9 @@ final class News extends AbstractController
     {
         return $this->render('news/list.html.twig');
     }
+
+    public function index(): Response
+    {
+        return $this->render('news/index.html.twig');
+    }
 }
