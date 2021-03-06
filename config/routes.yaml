@@ -9,3 +9,7 @@ news_listing:
 news_index:
   path: /notizia/{slug}
   controller: \App\Controller\News::index
+
+forms_listing:
+  path: /modulistica
+  controller: \App\Controller\Forms::list
