@@ -1,5 +1,3 @@
-const path = require('path')
-
 module.exports = {
     presets: [
         [
@@ -9,8 +7,5 @@ module.exports = {
                 corejs: 3,
             },
         ],
-    ],
-    plugins: [
-        [require.resolve('@babel/plugin-transform-runtime')],
     ],
 }

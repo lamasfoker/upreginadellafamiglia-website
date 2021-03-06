@@ -3,7 +3,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
     presets: [require('tailwindcss/defaultConfig'), require('xtendui/tailwind.preset')],
     purge: {
-        content: ['./assets/**/*.css', './assets/**/*.js'], // put your purge content
+        content: ['./node_modules/xtendui/src/**/*[!.css].js', './src/**/*.ejs', './src/**/*.css', './src/**/*.js'],
         options: {
             safelist: {
                 greedy: [

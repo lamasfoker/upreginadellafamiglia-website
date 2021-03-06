@@ -1,6 +1,4 @@
-const path = require('path')
 const Encore = require('@symfony/webpack-encore')
-const CopyPlugin = require('copy-webpack-plugin')
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
@@ -44,11 +42,10 @@ Encore
     // enables hashed filenames (e.g. app.abc123.css)
     .enableVersioning(Encore.isProduction())
     .enablePostCssLoader()
-    .addPlugin(
-        new CopyPlugin({
-            patterns: [{ from: path.join(__dirname, 'assets'), to: 'assets' }],
-        })
-    )
+    .copyFiles({
+        from: './assets',
+        to: 'assets/[path][name].[ext]',
+    })
 
     // .configureBabel((config) => {
     //     config.plugins.push('@babel/plugin-proposal-class-properties');
