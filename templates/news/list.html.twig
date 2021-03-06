@@ -1,6 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div class="container py-12">
+        {% include 'components/breadcrumbs.html.twig' %}
+        <h1 class="xt-h1 text-center text-7xl">Notizie</h1>
+    </div>
 
+    <div class="container py-12">
+        <div class="xt-row xt-row-4">
+            {% for i in 0..16 %}
+                <div class="w-1/4">
+                    {% include 'components/card.html.twig' %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
-
