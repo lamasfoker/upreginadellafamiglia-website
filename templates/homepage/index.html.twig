@@ -3,15 +3,15 @@
 {% block body %}
     <div class="bg-theme-3-light">
         <div class="container py-12">
-            <div class="row row-3 items-center">
+            <div class="xt-row xt-row-3 items-center">
                 <div class="w-8/12 text-3xl">
-                    <h2 class="h2 text-4xl">Lorem Ipsum</h2>
+                    <h2 class="xt-h2 text-4xl">Lorem Ipsum</h2>
                     <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu risus ac ligula mollis finibus bibendum at nisi. Donec non leo non ipsum rhoncus placerat. Cras faucibus neque et elit rhoncus consequat. Morbi urna ipsum, pulvinar eu maximus at, rutrum id arcu. Nunc interdum suscipit ipsum, non porta felis placerat vitae. Morbi efficitur pretium neque ac tempus. Aliquam vel nibh elit. Quisque at arcu eget lectus hendrerit venenatis.</span>
                 </div>
                 <a href="#" class="w-4/12">
-                    <div class="media-container rounded-md" style="padding-bottom: 71.4%">
-                        <div class="media-inner">
-                            <img class="media object-cover object-center" src="https://cdn.statically.io/img/upload.wikimedia.org/w=700,h=500/wikipedia/commons/6/66/Chiesa_del_Sacro_Cuore%2C_Livorno.jpg" loading="lazy" alt/>
+                    <div class="xt-media-container rounded-md" style="padding-bottom: 71.4%">
+                        <div class="xt-media-inner">
+                            <img class="xt-media object-cover object-center" src="https://cdn.statically.io/img/upload.wikimedia.org/w=700,h=500/wikipedia/commons/6/66/Chiesa_del_Sacro_Cuore%2C_Livorno.jpg" loading="lazy" alt/>
                         </div>
                     </div>
                 </a>
@@ -20,19 +20,19 @@
     </div>
 
     <div class="container py-12 h-96" id="calendario">
-        <h2 class="h2 text-center text-4xl">Calendario</h2>
+        <h2 class="xt-h2 text-center text-4xl">Calendario</h2>
     </div>
 
     <div class="bg-theme-3-light">
         <div class="container py-12">
-            <h2 class="h2 text-4xl">Notizie</h2>
-            <div class="slider" data-xt-slider>
+            <h2 class="xt-h2 text-4xl">Notizie</h2>
+            <div class="xt-slider" data-xt-slider>
 
-                <div class="slides">
-                    <div class="slides-inner row row-2">
+                <div class="xt-slides">
+                    <div class="xt-slides-inner xt-row xt-row-8">
 
                         {% for i in 0..6 %}
-                            <div class="slide w-1/4 md:w-1/3 sm:w-1/2 opacity-100 {{ i is same as 2 ? 'in-slider' : '' }}">
+                            <div class="xt-slide w-1/4 md:w-1/3 sm:w-1/2 opacity-100 {{ i is same as 2 ? 'in-slider' : '' }}">
                                 {% include 'components/card.html.twig' %}
                             </div>
                         {% endfor %}
@@ -40,8 +40,8 @@
                     </div>
                 </div>
 
-                <nav class="slider-pagination w-full list list-2">
-                    <button type="button" class="btn text-black bg-gray-200 hover:bg-gray-300 active:bg-gray-400" data-xt-pag title="Notizia xt-num"></button>
+                <nav class="xt-slider-pagination w-full xt-list xt-list-2">
+                    <button type="button" class="xt-button text-black bg-gray-200 hover:bg-gray-300 active:bg-gray-400 xt-ignore" data-xt-pag title="Notizia xt-num"></button>
                 </nav>
 
             </div>
