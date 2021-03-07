@@ -19,8 +19,26 @@
         </div>
     </div>
 
-    <div class="container py-12 h-96" id="calendario">
-        <h2 class="xt-h2 text-center text-5xl">Calendario</h2>
+    <div class="container py-12" id="calendario">
+        <h2 class="xt-h2 text-center text-5xl mb-12">Calendario</h2>
+
+        <div class="xt-row xt-row-y-6 flex-col items-center">
+            {% for i in 0..6 %}
+                <div class="flex items-center border-b-2 border-theme-1">
+                    <div class="w-1/6 h3 text-4xl uppercase text-center text-theme-3 font-bold">Dom<br/>7</div>
+                    <div class="w-5/6 flex flex-col">
+                        {% for i in 0..2 %}
+                            <div class="flex flex-col mb-3">
+                                <div class="text-3xl font-bold">San Martino</div>
+                                {% for i in 0..1 %}
+                                    <div class="text-2xl">S. Messa – Suffragio Di Luca Giovanni e fam., De Rosa Carmelo e fam., Di Cristo Ciro e fam.</div>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
 
     </div>
 
