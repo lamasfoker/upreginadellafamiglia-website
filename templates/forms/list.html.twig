@@ -3,10 +3,34 @@
 {% block body %}
     <div class="container py-12">
         {% include 'components/breadcrumbs.html.twig' %}
-        <h1 class="xt-h1 text-center text-7xl">Modulistica</h1>
+        <h1 class="xt-h1 text-center text-7xl">Moduli</h1>
     </div>
 
     <div class="container py-12">
+        <div class="text-3xl mb-12">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        </div>
 
+        <div class="mb-12 xt-row xt-row-y-12 max-w-7xl m-auto">
+            {% for i in 0..12 %}
+                <a href="#" target="_blank" class="w-1/2 xt-list xt-list-x-4 flex-nowrap">
+                    <div class="border-2 border-theme-3 p-2">
+                        <div class="xt-media-container xt-ratio-100 w-40">
+                            <div class="xt-media-inner">
+                                <img class="xt-media object-cover object-center" src="https://cdn.statically.io/img/bussola.s3-eu-west-1.amazonaws.com/w=800,h=300/131674/30320161239335.jpg" loading="lazy" alt>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-t-4 border-theme-3 py-8">
+                        <h3 class="xt-h3 text-2xl">Lorem Ipsum is simply dummy</h3>
+                        <div class="xt-list xt-list-x-2 text-xl items-center uppercase font-bold text-theme-1 text-xl">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="xt-icon text-xl ml-1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            <span>Scarica</span>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}
