@@ -1,20 +1,39 @@
-<header class="border-b-4 border-theme-1">
-    <div class="container py-6">
-        <div class="xt-list justify-between items-center text-theme-4">
-            <a href="/" title="home" class="xt-list xt-list-y-0.5 items-center">
-                <img src="{{ asset('build/assets/images/logo.svg') }}" loading="eager" alt="upreginadellafamiglia logo" class="h-24"/>
-                <div class="leading-none text-3xl">
-                    <span class="uppercase">unità pastorale</span><br/>
-                    <span class="uppercase font-bold">maria</span><br/>
-                    <span class="uppercase font-bold">regina <span class="lowercase font-normal">della</span> famiglia</span>
+<header>
+    <div class="border-b-4 border-theme-1">
+        <div class="container py-6">
+            <nav class="xt-list justify-between items-center text-theme-4">
+                <a href="/" title="home" class="xt-list xt-list-y-0.5 items-center" data-xt-toggle="{ targets: '#desktop-dropdown-menu', on: 'mouseenter', off: 'mouseleave' }">
+                    <img src="{{ asset('build/assets/images/logo.svg') }}" loading="eager" alt="upreginadellafamiglia logo" class="h-24"/>
+                    <div class="leading-none text-3xl">
+                        <span class="uppercase">unità pastorale</span><br/>
+                        <span class="uppercase font-bold">maria</span><br/>
+                        <span class="uppercase font-bold">regina <span class="lowercase font-normal">della</span> famiglia</span>
+                    </div>
+                </a>
+
+                <div class="xt-list xt-list-x-8 uppercase text-3xl">
+                    <a href="{{ path('news_listing') }}" class="no-underline hover:text-theme-4-light">Notizie</a>
+                    <a href="{{ path('homepage', {'_fragment': 'calendario'}) }}" class="no-underline hover:text-theme-4-light">Calendario</a>
+                    <a href="{{ path('forms_listing') }}" class="no-underline hover:text-theme-4-light">Moduli</a>
+                    <a href="#" class="no-underline hover:text-theme-4-light">Contatti</a>
                 </div>
-            </a>
-            <nav class="xt-list xt-list-x-8 uppercase text-3xl">
-                <a href="{{ path('news_listing') }}" class="no-underline hover:text-theme-4-light">Notizie</a>
-                <a href="{{ path('homepage', {'_fragment': 'calendario'}) }}" class="no-underline hover:text-theme-4-light">Calendario</a>
-                <a href="{{ path('forms_listing') }}" class="no-underline hover:text-theme-4-light">Moduli</a>
-                <a href="#" class="no-underline hover:text-theme-4-light">Contatti</a>
             </nav>
+        </div>
+    </div>
+
+    <div class="absolute xt-card xt-toggle xt-links-default bg-white z-10 transform transition ease-out duration-500 opacity-0 -translate-y-4 active:opacity-100 active:translate-y-0" data-xt-duration="500" id="desktop-dropdown-menu">
+        <div class="container py-12">
+            <div class="xt-list flex-col" style="max-height: 50vh;">
+                {% for i in 0..5 %}
+                    <div class="pb-8 xt-list xt-list-y-2 flex-col">
+                        <div class="xt-h4 text-2xl">Celebrazioni</div>
+                        <a class="text-2xl hover:text-theme-4-light" href="#">Messse</a>
+                        <a class="text-2xl hover:text-theme-4-light" href="#">Confessioni</a>
+                        <a class="text-2xl hover:text-theme-4-light" href="#">Adorazione Perpetua</a>
+                        <a class="text-2xl hover:text-theme-4-light" href="#">Matrimoni</a>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 </header>
