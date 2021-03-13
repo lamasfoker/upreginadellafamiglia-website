@@ -1,8 +1,8 @@
-<header>
+<header data-xt-toggle="{ targets: '#desktop-dropdown-menu', on: false, off: 'mouseleave', groupElements: true }">
     <div class="border-b-4 border-theme-1">
         <div class="container py-6">
             <nav class="xt-list justify-between items-center text-theme-4">
-                <a href="/" title="home" class="xt-list xt-list-y-0.5 items-center" data-xt-toggle="{ targets: '#desktop-dropdown-menu', on: 'mouseenter', off: 'mouseleave' }">
+                <a href="/" title="home" class="xt-list xt-list-y-0.5 items-center" data-xt-toggle="{ targets: '#desktop-dropdown-menu', on: 'mouseenter', off: false, groupElements: true }">
                     <img src="{{ asset('build/assets/images/logo.svg') }}" loading="eager" alt="upreginadellafamiglia logo" class="h-24"/>
                     <div class="leading-none text-3xl">
                         <span class="uppercase">unità pastorale</span><br/>
@@ -11,7 +11,7 @@
                     </div>
                 </a>
 
-                <div class="xt-list xt-list-x-8 uppercase text-3xl">
+                <div class="xt-list xt-list-x-8 uppercase text-3xl" data-xt-toggle="{ targets: '#desktop-dropdown-menu', on: false, off: 'mouseenter', groupElements: true }">
                     <a href="{{ path('news_listing') }}" class="no-underline hover:text-theme-4-light">Notizie</a>
                     <a href="{{ path('homepage', {'_fragment': 'calendario'}) }}" class="no-underline hover:text-theme-4-light">Calendario</a>
                     <a href="{{ path('forms_listing') }}" class="no-underline hover:text-theme-4-light">Moduli</a>
@@ -27,10 +27,10 @@
                 {% for i in 0..5 %}
                     <div class="pb-8 xt-list xt-list-y-2 flex-col">
                         <div class="xt-h4 text-2xl">Celebrazioni</div>
-                        <a class="text-2xl hover:text-theme-4-light" href="#">Messse</a>
-                        <a class="text-2xl hover:text-theme-4-light" href="#">Confessioni</a>
-                        <a class="text-2xl hover:text-theme-4-light" href="#">Adorazione Perpetua</a>
-                        <a class="text-2xl hover:text-theme-4-light" href="#">Matrimoni</a>
+                        <a class="text-2xl hover:text-theme-4-light" href="{{ path('cms_page', {'slug': 'confessioni'}) }}">Messse</a>
+                        <a class="text-2xl hover:text-theme-4-light" href="{{ path('cms_page', {'slug': 'confessioni'}) }}">Confessioni</a>
+                        <a class="text-2xl hover:text-theme-4-light" href="{{ path('cms_page', {'slug': 'confessioni'}) }}">Adorazione Perpetua</a>
+                        <a class="text-2xl hover:text-theme-4-light" href="{{ path('cms_page', {'slug': 'confessioni'}) }}">Matrimoni</a>
                     </div>
                 {% endfor %}
             </div>
