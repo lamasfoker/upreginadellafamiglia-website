@@ -11,7 +11,7 @@ news_index:
   controller: \App\Controller\News::index
 
 forms_listing:
-  path: /moduli
+  path: /modulistica
   controller: \App\Controller\Forms::list
 
 cms_page:
