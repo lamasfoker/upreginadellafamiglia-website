@@ -13,3 +13,7 @@ news_index:
 forms_listing:
   path: /moduli
   controller: \App\Controller\Forms::list
+
+cms_page:
+  path: /{slug}
+  controller: \App\Controller\Cms::index
