@@ -3,19 +3,19 @@
 {% block body %}
     <div class="bg-theme-3-light">
         <div class="container py-12">
-            <div class="xt-row xt-row-x-3 items-center">
+            <a href="{{ path('news_index', {slug: 'lorem-ipsum'}) }}" class="xt-row xt-row-x-3 items-center">
                 <div class="w-8/12">
                     <h2 class="xt-h2 text-5xl">Lorem Ipsum</h2>
                     <div class="text-3xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu risus ac ligula mollis finibus bibendum at nisi. Donec non leo non ipsum rhoncus placerat. Cras faucibus neque et elit rhoncus consequat. Morbi urna ipsum, pulvinar eu maximus at, rutrum id arcu. Nunc interdum suscipit ipsum, non porta felis placerat vitae. Morbi efficitur pretium neque ac tempus. Aliquam vel nibh elit. Quisque at arcu eget lectus hendrerit venenatis.</div>
                 </div>
-                <a href="{{ path('news_index', {slug: 'lorem-ipsum'}) }}" class="w-4/12">
+                <div class="w-4/12">
                     <div class="xt-media-container rounded-md xt-ratio-75">
                         <div class="xt-media-inner">
                             <img class="xt-media object-cover object-center" src="https://cdn.statically.io/img/upload.wikimedia.org/w=700,h=500/wikipedia/commons/6/66/Chiesa_del_Sacro_Cuore%2C_Livorno.jpg" loading="lazy" alt/>
                         </div>
                     </div>
-                </a>
-            </div>
+                </div>
+            </a>
         </div>
     </div>
 
