@@ -1,10 +1,13 @@
-<a href="{{ path('news_index', {slug: 'lorem-ipsum'}) }}" class="xt-card rounded-md text-black links-default bg-white">
-    <div class="xt-media-container rounded-t-md xt-ratio-75">
-        <div class="xt-media-inner">
-            <img class="xt-media object-cover object-center" src="https://cdn.statically.io/img/upload.wikimedia.org/w=800,h=300/wikipedia/commons/6/66/Chiesa_del_Sacro_Cuore%2C_Livorno.jpg" loading="lazy" alt>
-        </div>
+<a href="{{ path('news_index', {slug: 'lorem-ipsum'}) }}" class="xt-row items-center {{ flexDirection ?? '' }}">
+    <div class="w-8/12 p-4">
+        <h2 class="xt-h2 text-5xl">Lorem Ipsum</h2>
+        <div class="text-3xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu risus ac ligula mollis finibus bibendum at nisi. Donec non leo non ipsum rhoncus placerat. Cras faucibus neque et elit rhoncus consequat. Morbi urna ipsum, pulvinar eu maximus at, rutrum id arcu. Nunc interdum suscipit ipsum, non porta felis placerat vitae. Morbi efficitur pretium neque ac tempus. Aliquam vel nibh elit. Quisque at arcu eget lectus hendrerit venenatis.</div>
     </div>
-    <div class="text-base py-8 px-9">
-        <div class="xt-h5 text-3xl">Lorem ipsum dolor sit amet consectetur adipiscing</div>
+    <div class="w-4/12">
+        <div class="xt-media-container rounded-md xt-ratio-75">
+            <div class="xt-media-inner">
+                <img class="xt-media object-cover object-center rounded-3xl" src="https://cdn.statically.io/img/upload.wikimedia.org/w=700,h=500/wikipedia/commons/6/66/Chiesa_del_Sacro_Cuore%2C_Livorno.jpg" loading="lazy" alt/>
+            </div>
+        </div>
     </div>
 </a>

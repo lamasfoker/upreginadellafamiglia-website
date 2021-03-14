@@ -7,11 +7,13 @@
     </div>
 
     <div class="container py-12">
-        <div class="xt-row xt-row-4">
-            {% for i in 0..16 %}
-                <div class="w-1/4">
-                    {% include 'components/card.html.twig' %}
+        <div class="xt-list xt-list-y-8">
+            {% for i in 0..4 %}
+
+                <div class="bg-gray-100 rounded-3xl">
+                    {% include 'components/card.html.twig' with {'flexDirection': (i%2 == 0 ? 'flex-row' : 'flex-row-reverse')} %}
                 </div>
+
             {% endfor %}
         </div>
     </div>
