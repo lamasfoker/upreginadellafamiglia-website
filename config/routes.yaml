@@ -14,6 +14,10 @@ forms_listing:
   path: /modulistica
   controller: \App\Controller\Forms::list
 
+contact_page:
+  path: /contatti
+  controller: \App\Controller\Contact::index
+
 cms_page:
   path: /{slug}
   controller: \App\Controller\Cms::index
