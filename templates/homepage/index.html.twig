@@ -2,24 +2,24 @@
 
 {% block body %}
     <div class="bg-theme-3-light">
-        <div class="container py-12">
+        <div class="container py-10">
             {% include 'components/card.html.twig' %}
         </div>
     </div>
 
-    <div class="container py-12">
-        <h2 class="xt-h2 text-center text-5xl mb-12">Calendario</h2>
+    <div class="container py-10">
+        <h2 class="xt-h2 text-center text-4xl mb-10">Calendario</h2>
 
         <div class="xt-row xt-row-y-6 flex-col items-center">
             {% for i in 0..6 %}
                 <div class="flex items-center border-b-2 border-theme-1">
-                    <div class="w-2/6 h3 text-8xl uppercase text-center text-theme-3 font-bold">Dom<br/>7</div>
+                    <div class="w-2/6 h3 text-7xl uppercase text-center text-theme-3 font-bold">Dom<br/>7</div>
                     <div class="w-4/6 flex flex-col">
                         {% for i in 0..2 %}
                             <div class="flex flex-col mb-3">
-                                <div class="text-3xl font-bold">San Martino</div>
+                                <div class="text-2xl font-bold">San Martino</div>
                                 {% for i in 0..1 %}
-                                    <a href="#" class="text-2xl"><span class="font-bold">9:00</span><span class="font-bold mx-2">-</span>S. Messa – Suffragio Di Luca Giovanni e fam., De Rosa Carmelo e fam., Di Cristo Ciro e fam.</a>
+                                    <a href="#" class="text-xl"><span class="font-bold">9:00</span><span class="font-bold mx-2">-</span>S. Messa – Suffragio Di Luca Giovanni e fam., De Rosa Carmelo e fam., Di Cristo Ciro e fam.</a>
                                 {% endfor %}
                             </div>
                         {% endfor %}
@@ -31,12 +31,12 @@
     </div>
 
     <div class="bg-theme-3-light">
-        <div class="container py-12">
+        <div class="container py-10">
             <div class="xt-list justify-between">
-                <h2 class="xt-h2 text-5xl">Notizie</h2>
-                <a href="{{ path('news_listing') }}" class="xt-button text-2xl py-2 px-3.5 rounded-md text-theme-1 font-semibold leading-snug tracking-wider uppercase hover:text-theme-1-light active:text-theme-1-light transition">
+                <h2 class="xt-h2 text-4xl">Notizie</h2>
+                <a href="{{ path('news_listing') }}" class="xt-button text-xl py-2 px-3.5 rounded-md text-theme-1 font-semibold leading-snug tracking-wider uppercase hover:text-theme-1-light active:text-theme-1-light transition">
                     Vedi Tutto
-                    <svg xmlns="http://www.w3.org/2000/svg" class="xt-icon text-3xl ml-1"  width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="xt-icon text-2xl ml-1"  width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
             </div>
             <div class="xt-slider" data-xt-slider="{ wheel: { selector: '.xt-slides-inner', jump: false, loop: false } }">
@@ -54,7 +54,7 @@
                                         </div>
                                     </div>
                                     <div class="text-base py-8 px-9">
-                                        <div class="xt-h5 text-3xl">Lorem ipsum dolor sit amet consectetur adipiscing</div>
+                                        <div class="xt-h5 text-2xl">Lorem ipsum dolor sit amet consectetur adipiscing</div>
                                     </div>
                                 </a>
 
