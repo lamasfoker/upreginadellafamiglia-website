@@ -19,14 +19,16 @@ jobs:
         with:
           path: /tmp/composer-cache
           key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
-      - name: Install PHP dependencies
+      - name: Configure PHP and Composer
         uses: php-actions/composer@v5
         with:
           php_version: 7.4
           version: 2
-          command: |
-            composer install -n --prefer-dist
-            composer dump-autoload --optimize
+          command: -V
+      - name: Install PHP dependencies
+        run: |
+          composer install -n --prefer-dist
+          composer dump-autoload --optimize
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -38,18 +40,24 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-      - uses: borales/actions-yarn@v2.0.0
+      - uses: actions/setup-node@v2
         with:
-          cmd: install
-      - uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: run build
+          node-version: '15.x'
+      - name: Install Javascript dependencies
+        run: |
+          yarn install
+          yarn run build
 
       - name: Compress the artifact
         run: zip --symlinks -q -r build.zip . -x "./node_modules/*"
+      - name: Archive the artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifact-build
+          path: build.zip
 
   deploy:
-    name: Deploy to prod
+    name: Deploy to production
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -58,8 +66,19 @@ jobs:
         uses: shivammathur/setup-php@master
         with:
           php-version: 7.4
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: artifact-build
+
       - name: Add hosts.yml
         run: echo '${{ secrets.HOSTS_YML }}' > $GITHUB_WORKSPACE/hosts.yml
+      - name: Install Deploy
+        run: |
+          curl -LO https://deployer.org/releases/v6.8.0/deployer.phar
+          mv deployer.phar $GITHUB_WORKSPACE/bin/dep
+          sudo chmod +x $GITHUB_WORKSPACE/bin/dep
       - name: Deploy
         uses: deployphp/action@master
         with:
