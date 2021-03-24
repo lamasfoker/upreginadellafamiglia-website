@@ -3,7 +3,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
     presets: [require('tailwindcss/defaultConfig'), require('xtendui/tailwind.preset')],
     purge: {
-        content: ['./node_modules/xtendui/src/**/*[!.css].js', './src/**/*.ejs', './src/**/*.css', './src/**/*.js'],
+        content: ['./node_modules/xtendui/src/**/*[!.css].js', './templates/**/*.html.twig', './assets/**/*.css', './assets/**/*.js'],
         options: {
             safelist: {
                 greedy: [
@@ -14,17 +14,17 @@ module.exports = {
         },
     },
     theme: {
-        container: {
-            center: true,
-            padding: {
-                DEFAULT: '0.75rem',
-                sm: '1.5rem',
-                md: '1.5rem',
-                lg: '2rem',
-                xl: '2rem',
-            },
-        },
         extend: {
+            container: {
+                center: true,
+                padding: {
+                    DEFAULT: '1.25rem',
+                    sm: '1.5rem',
+                    md: '1.5rem',
+                    lg: '2rem',
+                    xl: '2rem',
+                },
+            },
             width: {
                 '1/7': '14.2857143%'
             },
@@ -58,14 +58,6 @@ module.exports = {
             fontFamily: {
                 sans: ['"Nunito"', ...defaultTheme.fontFamily.sans],
             }
-        },
-        screens: {
-            'xxs': '370px',
-            'xs': '576px',
-            'sm': '768px',
-            'md': '992px',
-            'lg': '1200px',
-            'xl': '1600px',
         },
         xtendui: {
             layout: {
