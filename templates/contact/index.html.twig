@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container py-10">
+    <div class="container pt-10">
         {% include 'components/breadcrumbs.html.twig' %}
-        <h1 class="xt-h1 text-center text-5xl lg:text-7xl">Contattaci</h1>
+        <h1 class="{{ h1 }} text-center">Contattaci</h1>
     </div>
 
-    <div class="container xt-row py-10">
-        <div class="w-full md:w-3/6 text-xl lg:text-3xl mb-10">
-            <h2 class="xt-h1 text-3xl lg:text-5xl mb-10">Segreteria</h2>
+    <div class="container max-w-7xl xt-row py-10">
+        <div class="w-full md:w-3/6 text-xl lg:text-2xl mb-10">
+            <h2 class="{{ h2 }} mb-10">Segreteria</h2>
             <div class="xt-list xt-list-x-4 mb-6">
                 <svg xmlns="http://www.w3.org/2000/svg" class="xt-icon xt-icon-md" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                 <span>
@@ -31,7 +31,7 @@
             </a>
         </div>
 
-        <form class="w-full md:w-3/6 text-xl lg:text-3xl p-10 bg-gray-200 rounded-md">
+        <form class="w-full md:w-3/6 text-xl lg:text-2xl p-10 bg-gray-200 rounded-md">
             <div class="xt-row xt-row-x-6 xt-row-y-4">
 
                 <div class="w-full">

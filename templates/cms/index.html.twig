@@ -1,19 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container py-10">
+    <div class="container pt-10">
         {% include 'components/breadcrumbs.html.twig' %}
-        <h1 class="xt-h1 text-center text-5xl lg:text-7xl">Lorem Ipsum Doloret et Signora</h1>
+        <h1 class="{{ h1 }} text-center">Lorem Ipsum Doloret et Signora</h1>
     </div>
 
-    <div class="container py-10 max-w-6xl">
+    <div class="container py-10 max-w-4xl">
         <div class="xt-media-container mb-10 xt-ratio-75">
             <div class="xt-media-inner">
                 <img class="xt-media object-cover object-center" src="https://cdn.statically.io/img/upload.wikimedia.org/w=1000,h=500/wikipedia/commons/6/66/Chiesa_del_Sacro_Cuore%2C_Livorno.jpg" loading="lazy" alt>
             </div>
         </div>
 
-        <div class="text-xl lg:text-3xl">
+        <div class="{{ p }}">
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br>
             Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br><br>
 
@@ -21,10 +21,10 @@
         </div>
     </div>
 
-    <div class="container pb-10 max-w-6xl">
-        <h4 class="xt-h5 mb-5 text-center text-2xl lg:text-4xl">Vuoi Saperne di più?</h4>
+    <div class="container pb-10 max-w-4xl">
+        <h2 class="{{ h2 }} mb-5 text-center">Vuoi Saperne di più?</h2>
         <div class="flex justify-center">
-            <a href="{{ path('contact_page', {'_fragment': 'test'}) }}" class="xt-button text-xl lg:text-2xl py-2 px-3.5 rounded-md text-white font-semibold leading-snug tracking-wider uppercase bg-theme-3-light hover:bg-theme-3 active:bg-theme-3 transition">Contattaci</a>
+            <a href="{{ path('contact_page', {'_fragment': 'test'}) }}" class="xt-button text-xl py-2 px-3.5 rounded-md text-white font-semibold leading-snug tracking-wider uppercase bg-theme-3-light hover:bg-theme-3 active:bg-theme-3 transition">Contattaci</a>
         </div>
     </div>
 
