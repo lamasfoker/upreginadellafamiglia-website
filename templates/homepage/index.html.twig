@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="bg-theme-3-light">
+    <div class="bg-color-1">
         <div class="container py-10">
             {% include 'components/card.html.twig' %}
         </div>
@@ -12,15 +12,15 @@
 
         <div class="xt-row xt-row-y-6 flex-col items-center">
             {% for i in 0..6 %}
-                <div class="flex flex-col md:flex-row items-center border-b-2 border-theme-1">
-                    <h3 class="w-full md:w-2/6 xt-h3 text-7xl uppercase text-center text-theme-3">Dom<br/>7</h3>
+                <div class="flex flex-col md:flex-row items-center border-b-2 border-color-1">
+                    <h3 class="w-full md:w-2/6 xt-h3 text-7xl uppercase text-center text-color-1">Dom<br/>7</h3>
                     <div class="w-full md:w-4/6 flex flex-col">
                         {% for i in 0..1 %}
                             <div class="flex flex-col mb-6">
                                 <h4 class="{{ h4 }}">San Martino</h4>
                                 <div class="{{ p }}"><span class="font-bold">9:00</span><span class="font-bold mx-2">-</span>S. Messa<span class="font-bold mx-2">-</span>Suffragio Di Luca Giovanni e fam., De Rosa Carmelo e fam., Di Cristo Ciro e fam.</div>
                                 <a href="{{ path('news_index', {slug: 'lorem-ipsum'}) }}" title="Vai alla Notizia"  class="group relative">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="group-hover:text-theme-4-light xt-icon xt-icon-md absolute -left-6 bottom-1/3" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="ArrowForwardThick"><path d="M22 11l-7-9v5C3.047 7 1.668 16.678 2 22c.502-2.685.735-7 13-7v5l7-9z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="group-hover:text-color-1-light xt-icon xt-icon-md absolute -left-6 bottom-1/3" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="ArrowForwardThick"><path d="M22 11l-7-9v5C3.047 7 1.668 16.678 2 22c.502-2.685.735-7 13-7v5l7-9z"/></svg>
                                     <div class="{{ p }}"><span class="font-bold">9:00</span><span class="font-bold mx-2">-</span>S. Messa<span class="font-bold mx-2">-</span>Suffragio Di Luca Giovanni e fam., De Rosa Carmelo e fam., Di Cristo Ciro e fam.</div>
                                 </a>
                             </div>
@@ -32,13 +32,13 @@
 
     </div>
 
-    <div class="bg-theme-3-light">
+    <div class="bg-color-1">
         <div class="container py-10">
             <div class="xt-list justify-between mb-4">
                 <h2 class="{{ h2 }} mb-0">Notizie</h2>
-                <a href="{{ path('news_listing') }}" class="xt-button text-xl px-3.5 rounded-md text-theme-1 font-semibold leading-snug tracking-wider uppercase hover:text-theme-1-light active:text-theme-1-light transition">
+                <a href="{{ path('news_listing') }}" class="xt-button text-xl px-3.5 rounded-md text-white font-semibold leading-snug tracking-wider uppercase hover:text-color-1-light active:text-color-1-light transition">
                     Vedi Tutto
-                    <svg xmlns="http://www.w3.org/2000/svg" class="xt-icon text-2xl ml-1"  width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="xt-icon text-2xl ml-1"  width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
             </div>
             <div class="xt-slider" data-xt-slider="{ wheel: { selector: '.xt-slides-inner', jump: false, loop: false } }">
