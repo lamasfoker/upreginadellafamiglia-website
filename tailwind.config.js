@@ -49,8 +49,8 @@ module.exports = {
             layout: {
                 component: theme => ({
                     '::selection': {
-                        backgroundColor: theme('colors.theme-1.DEFAULT'),
-                        color: theme('colors.theme-2.light')
+                        backgroundColor: theme('colors.color-1.DEFAULT'),
+                        color: theme('colors.white')
                     },
                 }),
             },
