@@ -2,6 +2,7 @@
     <div class="border-b-4 border-color-1-dark">
         <div class="container py-6">
             <nav class="flex flex-wrap justify-between items-center text-color-1-dark text-lg md:text-xl">
+
                 <div class="flex w-full lg:w-auto justify-between">
                     <a href="{{ path('homepage') }}" title="home" class="mb-6 lg:mb-0 xt-list xt-list-y-0.5 items-center" data-xt-toggle="{ targets: '#desktop-dropdown-menu', on: false, off: 'mouseenter', groupElements: true }">
                         <img src="{{ asset('build/assets/images/logo.svg') }}" loading="eager" alt="upreginadellafamiglia logo" class="h-16 md:h-20 lg:h-24"/>
@@ -11,7 +12,8 @@
                             <span class="uppercase font-bold">regina <span class="lowercase font-normal">della</span> famiglia</span>
                         </div>
                     </a>
-                    <button type="button" class="xt-button py-2 px-3.5 rounded-md text-black font-semibold leading-snug tracking-wider uppercase hover:text-opacity-60 active:text-opacity-100 transition lg:hidden items-baseline">
+
+                    <button type="button" class="xt-button py-2 px-3.5 rounded-md text-black font-semibold leading-snug tracking-wider uppercase hover:text-opacity-60 active:text-opacity-100 transition lg:hidden items-baseline" data-xt-toggle="{ targets: '#mobile-overlay-menu'}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
                     </button>
                 </div>
@@ -34,6 +36,7 @@
                         <span>Contatti</span>
                     </a>
                 </div>
+
             </nav>
         </div>
     </div>
@@ -53,4 +56,77 @@
             </div>
         </div>
     </div>
+
+    <div class="xt-overlay bg-color-1-dark" id="mobile-overlay-menu">
+
+        <button type="button" class="xt-button xt-dismiss absolute z-last top-0 right-0 p-8 text-2xl text-white transition" aria-label="Close" data-xt-toggle="{ targets: '#mobile-overlay-menu'}">
+            <svg xmlns="http://www.w3.org/2000/svg" class="xt-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="Cross"><path d="M20 20L4 4m16 0L4 20"/></svg>
+        </button>
+
+        <div class="xt-overlay-container p-0 w-screen max-w-md ml-auto mr-0 text-white">
+            <div class="xt-overlay-inner">
+
+                <div class="multilevel relative demo--multilevel" data-xt-toggle="{
+                            elements: '.multilevel-reset, .multilevel-list > button',
+                            targets: ':scope > .xt-toggle',
+                            min: 1,
+                            duration: 500,
+                            queue: false
+                          }">
+
+                    <nav class="xt-toggle xt-toggle-absolute transform ease-out duration-500 -translate-x-10 opacity-0 active:ease-out active:delay-200 active:translate-x-0 active:opacity-100" data-xt-group="initial">
+
+                        <div class="xt-h5  flex items-center justify-between">
+                            <div>
+                                Menu
+                            </div>
+                            <button type="button" class="hidden multilevel-reset" data-xt-group="initial">
+                                Back
+                            </button>
+                        </div>
+
+                        <nav class="xt-list flex-col multilevel-list">
+                            {% for i in 0..2 %}
+                                <button type="button" class="xt-button text-xs py-2 px-3.5 font-semibold leading-snug tracking-wider uppercase transition" data-xt-group="cat-{{ i }}">
+                                    Category {{ i }}
+                                </button>
+                            {% endfor %}
+                            {% for i in 0..1 %}
+                                <a href="#" class="xt-button text-xs py-2 px-3.5 font-semibold leading-snug tracking-wider uppercase transition">
+                                    Link {{ i }}
+                                </a>
+                            {% endfor %}
+                        </nav>
+
+                    </nav>
+
+                    {% for i in 0..2 %}
+                        <nav class="xt-toggle xt-toggle-absolute transform ease-out duration-500 -translate-x-10 opacity-0 active:ease-out active:delay-200 active:translate-x-0 active:opacity-100" data-xt-group="cat-{{ i }}">
+
+                            <div class="xt-h5  flex items-center justify-between">
+                                <div>
+                                    Category {{ i }}
+                                </div>
+                                <button type="button" class="xt-button text-3xs py-1.5 px-2.5 font-semibold leading-snug tracking-wider uppercase transition multilevel-reset" data-xt-group="initial">
+                                    Back
+                                </button>
+                            </div>
+
+                            <nav class="xt-list flex-col multilevel-list">
+                                {% for i in 0..3 %}
+                                    <a href="#" class="xt-button text-xs py-2 px-3.5 font-semibold leading-snug tracking-wider uppercase transition">
+                                        Link {{ i }}
+                                    </a>
+                                {% endfor %}
+                            </nav>
+
+                        </nav>
+                    {% endfor %}
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 </header>
