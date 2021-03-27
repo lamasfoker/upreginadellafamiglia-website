@@ -11,7 +11,19 @@
             {% for i in 0..4 %}
 
                 <div class="bg-color-1 rounded-3xl">
-                    {% include 'components/card.html.twig' with {'flexDirection': (i%2 == 0 ? 'flex-row' : 'flex-row-reverse')} %}
+                    <a href="{{ path('news_index', {slug: 'lorem-ipsum'}) }}" class="xt-row items-center {{ (i%2 == 0 ? 'md:flex-row' : 'md:flex-row-reverse') }}">
+                        <div class="w-full md:w-4/12">
+                            <div class="xt-media-container xt-ratio-50 md:xt-ratio-75">
+                                <div class="xt-media-inner">
+                                    <img class="xt-media object-cover object-center rounded-t-3xl md:rounded-3xl" src="https://cdn.statically.io/img/upload.wikimedia.org/w=700,h=500/wikipedia/commons/6/66/Chiesa_del_Sacro_Cuore%2C_Livorno.jpg" loading="lazy" alt/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-8/12 p-4">
+                            <h2 class="{{ h2 }}">Lorem Ipsum</h2>
+                            <div class="{{ p }}">METTI UN TESTO LUNGO COSì, consectetur adipiscing elit. Integer eu risus ac ligula mollis finibus bibendum at nisi. Donec non leo non ipsum rhoncus placerat. Cras faucibus neque et elit rhoncus consequat. Morbi urna ipsum, pulvinar eu maximus at, rutrum id arcu. Ipsum, non porta felis placerat vitae. Quisque at arcu eget lectus hendrerit venenatis. Ipsum, non porta felis placerat vitae. Quisque at arcu eget lectus hendrerit venenatis. Ipsum, non porta felis placerat vitae. Quisque at arcu eget lectus hendrerit venenatis.</div>
+                        </div>
+                    </a>
                 </div>
 
             {% endfor %}

@@ -3,7 +3,19 @@
 {% block body %}
     <div class="bg-color-1">
         <div class="container py-10">
-            {% include 'components/card.html.twig' %}
+            <a href="{{ path('news_index', {slug: 'lorem-ipsum'}) }}" class="xt-row items-center md:flex-row">
+                <div class="w-full md:w-4/12">
+                    <div class="xt-media-container rounded-md xt-ratio-50 md:xt-ratio-75">
+                        <div class="xt-media-inner">
+                            <img class="xt-media object-cover object-center rounded-3xl" src="https://cdn.statically.io/img/upload.wikimedia.org/w=700,h=500/wikipedia/commons/6/66/Chiesa_del_Sacro_Cuore%2C_Livorno.jpg" loading="lazy" alt/>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-8/12 pt-4 md:pt-0 md:p-4">
+                    <h2 class="{{ h2 }}">Lorem Ipsum</h2>
+                    <div class="{{ p }}">METTI UN TESTO LUNGO COSì, consectetur adipiscing elit. Integer eu risus ac ligula mollis finibus bibendum at nisi. Donec non leo non ipsum rhoncus placerat. Cras faucibus neque et elit rhoncus consequat. Morbi urna ipsum, pulvinar eu maximus at, rutrum id arcu. Ipsum, non porta felis placerat vitae. Quisque at arcu eget lectus hendrerit venenatis. Ipsum, non porta felis placerat vitae. Quisque at arcu eget lectus hendrerit venenatis. Ipsum, non porta felis placerat vitae. Quisque at arcu eget lectus hendrerit venenatis.</div>
+                </div>
+            </a>
         </div>
     </div>
 
