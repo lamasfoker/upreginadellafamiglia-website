@@ -6,7 +6,9 @@ import gsap from 'gsap'
 import 'xtendui/src/core/form'
 import 'xtendui/src/core/slider'
 import 'xtendui/src/core/toggle'
+import 'xtendui/src/core/overlay'
 import './scripts/layout'
+import './scripts/mobile-menu'
 
 /**
  * animations setup

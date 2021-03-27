@@ -57,76 +57,37 @@
         </div>
     </div>
 
-    <div class="xt-overlay bg-color-1-dark" id="mobile-overlay-menu">
+    <div data-xt-overlay>
 
-        <button type="button" class="xt-button xt-dismiss absolute z-last top-0 right-0 p-8 text-2xl text-white transition" aria-label="Close" data-xt-toggle="{ targets: '#mobile-overlay-menu'}">
-            <svg xmlns="http://www.w3.org/2000/svg" class="xt-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="Cross"><path d="M20 20L4 4m16 0L4 20"/></svg>
-        </button>
+        <div id="mobile-overlay-menu" class="xt-overlay">
+            <div class="xt-backdrop bg-color-1-dark"></div>
+            <div class="xt-overlay-container">
 
-        <div class="xt-overlay-container p-0 w-screen max-w-md ml-auto mr-0 text-white">
-            <div class="xt-overlay-inner">
+                <button type="button" class="xt-button xt-dismiss absolute z-last top-0 right-0 p-8 text-2xl text-white transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="xt-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="Cross"><path d="M20 20L4 4m16 0L4 20"/></svg>
+                </button>
 
-                <div class="multilevel relative demo--multilevel" data-xt-toggle="{
-                            elements: '.multilevel-reset, .multilevel-list > button',
-                            targets: ':scope > .xt-toggle',
-                            min: 1,
-                            duration: 500,
-                            queue: false
-                          }">
-
-                    <nav class="xt-toggle xt-toggle-absolute transform ease-out duration-500 -translate-x-10 opacity-0 active:ease-out active:delay-200 active:translate-x-0 active:opacity-100" data-xt-group="initial">
-
-                        <div class="xt-h5  flex items-center justify-between">
-                            <div>
-                                Menu
-                            </div>
-                            <button type="button" class="hidden multilevel-reset" data-xt-group="initial">
-                                Back
+                <div class="xt-overlay-inner">
+                    <div class="xt-card text-4xl xt-links-default text-white text-center">
+                        {% for j in 'a'..'e' %}
+                            <button type="button" class="xt-button text-5xl font-semibold leading-snug tracking-wider transition justify-center" data-xt-toggle="{ targets: '#toggle--unique-0-{{ j }}, #toggle--unique-1-{{ j }}' }">
+                                Toggle
                             </button>
-                        </div>
 
-                        <nav class="xt-list flex-col multilevel-list">
-                            {% for i in 0..2 %}
-                                <button type="button" class="xt-button text-xs py-2 px-3.5 font-semibold leading-snug tracking-wider uppercase transition" data-xt-group="cat-{{ i }}">
-                                    Category {{ i }}
-                                </button>
-                            {% endfor %}
-                            {% for i in 0..1 %}
-                                <a href="#" class="xt-button text-xs py-2 px-3.5 font-semibold leading-snug tracking-wider uppercase transition">
-                                    Link {{ i }}
-                                </a>
-                            {% endfor %}
-                        </nav>
-
-                    </nav>
-
-                    {% for i in 0..2 %}
-                        <nav class="xt-toggle xt-toggle-absolute transform ease-out duration-500 -translate-x-10 opacity-0 active:ease-out active:delay-200 active:translate-x-0 active:opacity-100" data-xt-group="cat-{{ i }}">
-
-                            <div class="xt-h5  flex items-center justify-between">
-                                <div>
-                                    Category {{ i }}
-                                </div>
-                                <button type="button" class="xt-button text-3xs py-1.5 px-2.5 font-semibold leading-snug tracking-wider uppercase transition multilevel-reset" data-xt-group="initial">
-                                    Back
-                                </button>
-                            </div>
-
-                            <nav class="xt-list flex-col multilevel-list">
+                            <div>
                                 {% for i in 0..3 %}
-                                    <a href="#" class="xt-button text-xs py-2 px-3.5 font-semibold leading-snug tracking-wider uppercase transition">
-                                        Link {{ i }}
-                                    </a>
+                                    <div class="xt-card xt-toggle justify-center" id="toggle--unique-{{ i }}-{{ j }}">
+                                        Target {{ i }}-{{ j }}
+                                    </div>
                                 {% endfor %}
-                            </nav>
-
-                        </nav>
-                    {% endfor %}
+                            </div>
+                        {% endfor %}
+                    </div>
 
                 </div>
-
             </div>
         </div>
     </div>
+
 
 </header>
