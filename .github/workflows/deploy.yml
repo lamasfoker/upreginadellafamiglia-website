@@ -27,6 +27,8 @@ jobs:
           command: -V
       - name: Install PHP dependencies and compile assets
         run: |
+          export APP_ENV=prod # Ensures that APP_ENV is "prod" in the build step
+          export APP_DEBUG=0 # Ensures that APP_DEBUG is "0" in the build step
           # I have to disable the post install script in order to disable Contentful cache warmup. I cannot use --no-script
           # because otherwise also 3rd party plugins will not run.
           # See: https://github.com/composer/composer/issues/9083#issuecomment-665828702
