@@ -1,23 +1,23 @@
 homepage:
   path: /
-  controller: \App\Controller\Homepage::index
+  controller: app.controller.homepage:index
 
 news_listing:
   path: /notizie
-  controller: \App\Controller\News::list
+  controller: app.controller.news:list
 
 news_index:
   path: /notizia/{slug}
-  controller: \App\Controller\News::index
+  controller: app.controller.news:index
 
 forms_listing:
   path: /modulistica
-  controller: \App\Controller\Forms::list
+  controller: app.controller.forms:list
 
 contact_page:
   path: /contatti
-  controller: \App\Controller\Contact::index
+  controller: app.controller.contact:index
 
 cms_page:
   path: /{slug}
-  controller: \App\Controller\Cms::index
+  controller: app.controller.cms_page:index

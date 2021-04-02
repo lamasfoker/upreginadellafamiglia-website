@@ -1,0 +1,16 @@
+services:
+  _defaults:
+    autowire: false
+    autoconfigure: false
+    public: false
+
+  app.contentful.query_factory:
+    class: App\Contentful\QueryFactory
+
+  app.contentful.rich_text.node_renderer.image:
+    class: App\Contentful\RichText\Image
+
+  app.contentful.rich_text.renderer:
+    class: Contentful\RichText\Renderer
+    arguments:
+      - '@app.contentful.rich_text.node_renderer.image'

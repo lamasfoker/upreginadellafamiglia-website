@@ -1,0 +1,14 @@
+services:
+  _defaults:
+    autowire: false
+    autoconfigure: false
+    public: false
+
+  _instanceof:
+    Twig\Extension\AbstractExtension:
+      tags: ['twig.extension']
+
+  app.twig.contentful_extension:
+    class: Contentful\RichText\Bridge\TwigExtension
+    arguments:
+      - '@app.contentful.rich_text.renderer'

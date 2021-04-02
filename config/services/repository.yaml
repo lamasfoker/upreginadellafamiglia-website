@@ -1,0 +1,11 @@
+services:
+  _defaults:
+    autowire: false
+    autoconfigure: false
+    public: false
+
+  app.repository.cms_page:
+    class: App\Repository\CmsPageRepository
+    arguments:
+      - '@contentful.delivery.client'
+      - '@app.contentful.query_factory'

@@ -1,0 +1,26 @@
+services:
+  _defaults:
+    autowire: true # see https://github.com/symfony/symfony/issues/36495
+    autoconfigure: false
+    public: true
+
+  _instanceof:
+    Symfony\Bundle\FrameworkBundle\Controller\AbstractController:
+      tags: ['controller.service_arguments']
+
+  app.controller.cms_page:
+    class: App\Controller\CmsPage
+    arguments:
+      - '@app.repository.cms_page'
+
+  app.controller.contact:
+    class: App\Controller\Contact
+
+  app.controller.forms:
+    class: App\Controller\Forms
+
+  app.controller.homepage:
+    class: App\Controller\Homepage
+
+  app.controller.news:
+    class: App\Controller\News
