@@ -107,19 +107,12 @@ jobs:
         run: |
           curl -LO https://github.com/maglnet/ComposerRequireChecker/releases/download/3.2.0/composer-require-checker.phar
           sudo chmod +x composer-require-checker.phar
-          pwd
-          ls -la
-          ./composer-require-checker.phar -V
           wget https://get.symfony.com/cli/installer -O - | bash
-          pwd
 
       - name: Run Static test and Code validation
         run: |
-          pwd
-          composer-require-checker.phar -V
-          pwd
           composer validate --no-check-publish
-          composer-require-checker.phar check
+          ./composer-require-checker.phar check
           ~/.symfony/bin/symfony security:check
           vendor/bin/ecs check src
           vendor/bin/phpstan analyse -c phpstan.neon
