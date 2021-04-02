@@ -105,14 +105,14 @@ jobs:
 
       - name: Install ComposerRequireChecker and Symfony CLI command
         run: |
-          export PATH=$(composer global config bin-dir --absolute --quiet):$PATH
-          composer global require maglnet/composer-require-checker
+          curl -LO https://github.com/maglnet/ComposerRequireChecker/releases/download/3.2.0/composer-require-checker.phar
+          sudo chmod +x composer-require-checker.phar
           wget https://get.symfony.com/cli/installer -O - | bash
 
       - name: Run Static test and Code validation
         run: |
           composer validate --no-check-publish
-          composer-require-checker check
+          composer-require-checker.phar check
           ~/.symfony/bin/symfony security:check
           vendor/bin/ecs check src
           vendor/bin/phpstan analyse -c phpstan.neon
