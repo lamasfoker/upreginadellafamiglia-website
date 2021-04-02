@@ -1,0 +1,56 @@
+{
+  "commit-msg": {
+    "enabled": false,
+    "actions": []
+  },
+  "pre-push": {
+    "enabled": true,
+    "actions": [
+      {
+        "action": "composer validate --no-check-publish",
+        "options": []
+      },
+      {
+        "action": "symfony security:check",
+        "options": []
+      },
+      {
+        "action": "vendor/bin/ecs check src",
+        "options": []
+      },
+      {
+        "action": "vendor/bin/phpstan analyse -c phpstan.neon",
+        "options": []
+      }
+    ]
+  },
+  "pre-commit": {
+    "enabled": true,
+    "actions": [
+      {
+        "action": "\\CaptainHook\\App\\Hook\\PHP\\Action\\Linting",
+        "options": []
+      },
+      {
+        "action": "yarn run eslint .eslintrc.js",
+        "options": []
+      },
+      {
+        "action": "bin/console lint:twig templates/",
+        "options": []
+      }
+    ]
+  },
+  "prepare-commit-msg": {
+    "enabled": false,
+    "actions": []
+  },
+  "post-commit": {
+    "enabled": false,
+    "actions": []
+  },
+  "post-merge": {
+    "enabled": false,
+    "actions": []
+  }
+}
