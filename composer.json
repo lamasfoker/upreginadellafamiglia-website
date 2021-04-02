@@ -1,6 +1,14 @@
 {
+    "name": "lamasfoker/upreginadellafamiglia-website",
+    "description": "website developed for San Martino in Rio parish",
     "type": "project",
-    "license": "proprietary",
+    "license": "MIT",
+    "homepage": "https://upreginadellafamiglia.it",
+    "authors": [
+        {
+            "name": "Giacomo Moscardini"
+        }
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
@@ -41,6 +49,7 @@
         "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
+        "roave/security-advisories": "dev-latest",
         "symfony/browser-kit": "^5.2",
         "symfony/css-selector": "^5.2",
         "symfony/debug-bundle": "^5.2",
