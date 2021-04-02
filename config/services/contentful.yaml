@@ -13,4 +13,4 @@ services:
   app.contentful.rich_text.renderer:
     class: Contentful\RichText\Renderer
     arguments:
-      - '@app.contentful.rich_text.node_renderer.image'
+      - ['@app.contentful.rich_text.node_renderer.image']
