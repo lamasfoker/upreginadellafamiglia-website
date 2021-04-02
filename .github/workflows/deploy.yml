@@ -11,11 +11,6 @@ jobs:
   build:
     name: Build the artifact
     runs-on: ubuntu-latest
-    env:
-      APP_ENV: prod
-      APP_DEBUG: 0
-      CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
-      CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
     steps:
       - uses: actions/checkout@v2
 
@@ -31,6 +26,11 @@ jobs:
           version: 2
           command: -V
       - name: Install PHP dependencies and compile assets
+        env:
+          APP_ENV: prod
+          APP_DEBUG: 0
+          CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+          CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
         run: |
           composer install --verbose --prefer-dist --no-progress --no-interaction --no-dev --optimize-autoloader
           # The following is needed because otherwise the next command will try to warmup the cache with even optional warmers
@@ -67,9 +67,6 @@ jobs:
     name: Test
     needs: build
     runs-on: ubuntu-latest
-    env:
-      CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
-      CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
     steps:
       - uses: actions/checkout@v2
 
@@ -85,6 +82,9 @@ jobs:
           version: 2
           command: -V
       - name: Install PHP dependencies
+        env:
+          CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+          CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
         run: composer install -n --prefer-dist
 
       - name: Get yarn cache directory path
@@ -107,8 +107,9 @@ jobs:
         run: |
           curl -LO https://github.com/maglnet/ComposerRequireChecker/releases/download/3.2.0/composer-require-checker.phar
           sudo chmod +x composer-require-checker.phar
-          composer-require-checker.phar -V
           pwd
+          ls -la
+          ./composer-require-checker.phar -V
           wget https://get.symfony.com/cli/installer -O - | bash
           pwd
 
