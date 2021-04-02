@@ -11,6 +11,11 @@ jobs:
   build:
     name: Build the artifact
     runs-on: ubuntu-latest
+    env:
+      APP_ENV: prod
+      APP_DEBUG: 0
+      CONTENTFUL_SPACE_ID: secrets.CONTENTFUL_SPACE_ID
+      CONTENTFUL_ACCESS_TOKEN: secrets.CONTENTFUL_ACCESS_TOKEN
     steps:
       - uses: actions/checkout@v2
 
@@ -27,13 +32,7 @@ jobs:
           command: -V
       - name: Install PHP dependencies and compile assets
         run: |
-          export APP_ENV=prod # Ensures that APP_ENV is "prod" in the build step
-          export APP_DEBUG=0 # Ensures that APP_DEBUG is "0" in the build step
-          # I have to disable the post install script in order to disable Contentful cache warmup. I cannot use --no-script
-          # because otherwise also 3rd party plugins will not run.
-          # See: https://github.com/composer/composer/issues/9083#issuecomment-665828702
-          composer config scripts.post-install-cmd --unset
-          composer install --verbose --prefer-dist --no-progress --no-interaction --no-dev --optimize-autoloader --no-suggest
+          composer install --verbose --prefer-dist --no-progress --no-interaction --no-dev --optimize-autoloader
           # The following is needed because otherwise the next command will try to warmup the cache with even optional warmers
           bin/console cache:warmup --no-optional-warmers --no-debug -vvv
           bin/console assets:install public --no-debug -vvv
