@@ -1,5 +1,2 @@
-imports:
-    - { resource: "xtendui.yaml" }
-
 twig:
     default_path: '%kernel.project_dir%/templates'
