@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Contentful\RichText;
@@ -19,10 +20,13 @@ final class Image implements NodeRendererInterface
 
     public function render(RendererInterface $renderer, NodeInterface $node, array $context = []): string
     {
-        /* @var EmbeddedAssetBlock $node */
+        /** @var EmbeddedAssetBlock $node */
         if (!$this->supports($node)) {
-            throw new LogicException(sprintf('Trying to use node renderer "%s" to render unsupported node of class "%s".',
-                __CLASS__, get_class($node)));
+            throw new LogicException(sprintf(
+                'Trying to use node renderer "%s" to render unsupported node of class "%s".',
+                __CLASS__,
+                get_class($node)
+            ));
         }
 
         return '<img src="' . $node->getAsset()->jsonSerialize()['fields']->file->getUrl() . '" alt="' . $node->getAsset()->jsonSerialize()['fields']->title . '" loading="lazy" />';
