@@ -129,18 +129,18 @@ jobs:
           coverage: none
           tools: deployer:v6.8.0
 
+      - name: Setup SSH connection
+        uses: webfactory/ssh-agent@v0.5.1
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
       - name: Download artifact
         uses: actions/download-artifact@v2
         with:
           name: artifact-build
 
-      - name: Add hosts.yml
-        run: |
-          which deployer && which dep && which deployer.php
-          echo '${{ secrets.HOSTS_YML }}' > hosts.yml
       - name: Deploy to Production
-        uses: deployphp/action@master
-        with:
-          private-key: ${{ secrets.PRIVATE_KEY }}
-          known-hosts: ${{ secrets.KNOWN_HOSTS }}
-          dep: deploy production -vvv
+        run: |
+          echo '${{ secrets.KNOWN_HOSTS }}' >> ~/.ssh/known_hosts
+          echo '${{ secrets.HOSTS_YML }}' > hosts.yml
+          deployer deploy production -vvv
