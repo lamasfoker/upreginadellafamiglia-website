@@ -19,12 +19,15 @@ jobs:
         with:
           path: /tmp/composer-cache
           key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
-      - name: Configure PHP and Composer
-        uses: php-actions/composer@v5
+      - name: Setup PHP
+        uses: shivammathur/setup-php@master
         with:
-          php_version: 7.4
-          version: 2
-          command: -V
+          php-version: 7.4
+          coverage: none
+      - name: Install Composer
+        run: |
+          wget https://raw.githubusercontent.com/composer/getcomposer.org/master/web/installer -O - -q | php -- --quiet
+          composer self-update --stable --2
       - name: Install PHP dependencies and compile assets
         env:
           APP_ENV: prod
@@ -75,12 +78,16 @@ jobs:
         with:
           path: /tmp/composer-cache
           key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
-      - name: Configure PHP and Composer
-        uses: php-actions/composer@v5
+      - name: Setup PHP
+        uses: shivammathur/setup-php@master
         with:
-          php_version: 7.4
-          version: 2
-          command: -V
+          php-version: 7.4
+          coverage: none
+      - name: Install Composer
+        run: |
+          wget https://raw.githubusercontent.com/composer/getcomposer.org/master/web/installer -O - -q | php -- --quiet
+          composer self-update --stable --2
+
       - name: Install PHP dependencies
         env:
           CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
@@ -128,6 +135,7 @@ jobs:
         uses: shivammathur/setup-php@master
         with:
           php-version: 7.4
+          coverage: none
 
       - name: Download build artifact
         uses: actions/download-artifact@v2
@@ -136,7 +144,7 @@ jobs:
 
       - name: Add hosts.yml
         run: echo '${{ secrets.HOSTS_YML }}' > hosts.yml
-      - name: Add hosts.yml
+      - name: Add deploy.php
         run: curl -LO https://raw.githubusercontent.com/lamasfoker/upreginadellafamiglia-website/master/deploy.php
       - name: Install Deploy
         run: |
