@@ -132,7 +132,7 @@ jobs:
       - name: Setup SSH connection
         uses: webfactory/ssh-agent@v0.5.1
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh-private-key: ${{ secrets.PRIVATE_KEY }}
 
       - name: Download artifact
         uses: actions/download-artifact@v2
