@@ -78,7 +78,7 @@ jobs:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
-      - name: Setup PHP and Composer
+      - name: Setup PHP and other tools
         uses: shivammathur/setup-php@master
         with:
           php-version: 7.4
@@ -108,7 +108,7 @@ jobs:
       - name: Run Static test and Code validation
         run: |
           composer validate --no-check-publish
-          composer-require-checker.phar check
+          composer-require-checker check
           symfony security:check
           vendor/bin/ecs check src
           vendor/bin/phpstan analyse -c phpstan.neon
@@ -122,7 +122,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: Setup PHP
+      - name: Setup PHP and Deployer
         uses: shivammathur/setup-php@master
         with:
           php-version: 7.4
