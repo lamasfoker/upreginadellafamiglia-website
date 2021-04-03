@@ -135,7 +135,9 @@ jobs:
           name: artifact-build
 
       - name: Add hosts.yml
-        run: echo '${{ secrets.HOSTS_YML }}' > hosts.yml
+        run: |
+          which deployer && which dep && which deployer.php
+          echo '${{ secrets.HOSTS_YML }}' > hosts.yml
       - name: Deploy to Production
         uses: deployphp/action@master
         with:
