@@ -11,10 +11,6 @@
         "options": []
       },
       {
-        "action": "symfony security:check",
-        "options": []
-      },
-      {
         "action": "vendor/bin/ecs check src",
         "options": []
       },

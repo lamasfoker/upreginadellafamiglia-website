@@ -14,20 +14,20 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Cache Composer dependencies
-        uses: actions/cache@v2
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+      - uses: actions/cache@v2
         with:
-          path: /tmp/composer-cache
-          key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
-      - name: Setup PHP
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+      - name: Setup PHP and Composer
         uses: shivammathur/setup-php@master
         with:
           php-version: 7.4
+          tools: composer:v2
           coverage: none
-      - name: Install Composer
-        run: |
-          wget https://raw.githubusercontent.com/composer/getcomposer.org/master/web/installer -O - -q | php -- --quiet
-          composer self-update --stable --2
       - name: Install PHP dependencies and compile assets
         env:
           APP_ENV: prod
@@ -36,8 +36,6 @@ jobs:
           CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
         run: |
           composer install --verbose --prefer-dist --no-progress --no-interaction --no-dev --optimize-autoloader
-          # The following is needed because otherwise the next command will try to warmup the cache with even optional warmers
-          bin/console cache:warmup --no-optional-warmers --no-debug -vvv
           bin/console assets:install public --no-debug -vvv
 
       - name: Get yarn cache directory path
@@ -48,8 +46,7 @@ jobs:
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          restore-keys: ${{ runner.os }}-yarn-
       - uses: actions/setup-node@v2
         with:
           node-version: '15.x'
@@ -73,21 +70,20 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Cache Composer dependencies
-        uses: actions/cache@v2
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+      - uses: actions/cache@v2
         with:
-          path: /tmp/composer-cache
-          key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
-      - name: Setup PHP
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+      - name: Setup PHP and Composer
         uses: shivammathur/setup-php@master
         with:
           php-version: 7.4
+          tools: composer:v2, composer-require-checker, symfony-cli
           coverage: none
-      - name: Install Composer
-        run: |
-          wget https://raw.githubusercontent.com/composer/getcomposer.org/master/web/installer -O - -q | php -- --quiet
-          composer self-update --stable --2
-
       - name: Install PHP dependencies
         env:
           CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
@@ -102,25 +98,18 @@ jobs:
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          restore-keys: ${{ runner.os }}-yarn-
       - uses: actions/setup-node@v2
         with:
           node-version: '15.x'
       - name: Install Javascript dependencies
         run: yarn install
 
-      - name: Install ComposerRequireChecker and Symfony CLI command
-        run: |
-          curl -LO https://github.com/maglnet/ComposerRequireChecker/releases/download/3.2.0/composer-require-checker.phar
-          sudo chmod +x composer-require-checker.phar
-          wget https://get.symfony.com/cli/installer -O - | bash
-
       - name: Run Static test and Code validation
         run: |
           composer validate --no-check-publish
-          ./composer-require-checker.phar check
-          ~/.symfony/bin/symfony security:check
+          composer-require-checker.phar check
+          symfony security:check
           vendor/bin/ecs check src
           vendor/bin/phpstan analyse -c phpstan.neon
           bin/console lint:twig templates/
@@ -138,20 +127,16 @@ jobs:
         with:
           php-version: 7.4
           coverage: none
+          tools: deployer:v6.8.0
 
-      - name: Download build artifact
+      - name: Download artifact
         uses: actions/download-artifact@v2
         with:
           name: artifact-build
 
       - name: Add hosts.yml
         run: echo '${{ secrets.HOSTS_YML }}' > hosts.yml
-      - name: Install Deploy
-        run: |
-          curl -LO https://deployer.org/releases/v6.8.0/deployer.phar
-          mv deployer.phar $GITHUB_WORKSPACE/bin/dep
-          sudo chmod +x $GITHUB_WORKSPACE/bin/dep
-      - name: Deploy
+      - name: Deploy to Production
         uses: deployphp/action@master
         with:
           private-key: ${{ secrets.PRIVATE_KEY }}
