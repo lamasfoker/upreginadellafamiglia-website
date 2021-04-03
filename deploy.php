@@ -15,12 +15,7 @@ task('deploy:upload', function () {
 
 desc('Clear cache');
 task('deploy:cache:clear', function () {
-    run('{{bin/php}} {{release_path}}/bin/console cache:clear --no-interaction --no-warmup');
-});
-
-desc('Warm up cache');
-task('deploy:cache:warmup', function () {
-    run('{{bin/php}} {{release_path}}/bin/console cache:warmup --no-interaction');
+    run('{{bin/php}} {{release_path}}/bin/console cache:clear --no-interaction');
 });
 
 desc('Deploy the project');
@@ -32,10 +27,8 @@ task('deploy', [
     'deploy:upload',
     'deploy:shared',
     'deploy:cache:clear',
-    'deploy:cache:warmup',
     'deploy:writable',
     'deploy:symlink',
     'deploy:unlock',
     'cleanup',
 ]);
-
