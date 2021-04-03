@@ -131,6 +131,8 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v1
+
       - name: Setup PHP
         uses: shivammathur/setup-php@master
         with:
@@ -144,14 +146,11 @@ jobs:
 
       - name: Add hosts.yml
         run: echo '${{ secrets.HOSTS_YML }}' > hosts.yml
-      - name: Add deploy.php
-        run: |
-          curl -LO https://raw.githubusercontent.com/lamasfoker/upreginadellafamiglia-website/master/deploy.php
-          sudo chmod +x deploy.php
       - name: Install Deploy
         run: |
           curl -LO https://deployer.org/releases/v6.8.0/deployer.phar
-          sudo chmod +x deployer.phar
+          mv deployer.phar $GITHUB_WORKSPACE/bin/dep
+          sudo chmod +x $GITHUB_WORKSPACE/bin/dep
       - name: Deploy
         uses: deployphp/action@master
         with:
