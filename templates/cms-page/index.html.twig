@@ -11,7 +11,7 @@
     <div class="container py-10 max-w-4xl">
         <div class="xt-media-container mb-10 xt-ratio-75">
             <div class="xt-media-inner">
-                <img class="xt-media object-cover object-center" src="{{ page.immagine.file.url }}" loading="lazy" alt>
+                <img class="xt-media object-cover object-center" src="{{ contentful_image_render(page.immagine.file.url) }}" loading="lazy" alt>
             </div>
         </div>
 

@@ -12,3 +12,6 @@ services:
     class: Contentful\RichText\Bridge\TwigExtension
     arguments:
       - '@app.contentful.rich_text.renderer'
+
+  app.twig.contentful_image:
+    class: App\Twig\ImageExtension

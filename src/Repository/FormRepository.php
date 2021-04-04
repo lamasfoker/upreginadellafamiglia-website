@@ -5,11 +5,9 @@ declare(strict_types=1);
 namespace App\Repository;
 
 use App\Contentful\QueryFactory;
-use Contentful\Core\Resource\ResourceInterface;
 use Contentful\Delivery\Client\ClientInterface;
-use Exception;
 
-final class CmsPageRepository implements CmsPageRepositoryInterface
+final class FormRepository implements FormRepositoryInterface
 {
     private ClientInterface $client;
 
@@ -22,16 +20,14 @@ final class CmsPageRepository implements CmsPageRepositoryInterface
     }
 
     /**
-     * @throws Exception
+     * @inheritDoc
      */
-    public function getBySlug(string $slug): ?ResourceInterface
+    public function getAll(): array
     {
         $query = $this->queryFactory->create()
             ->setContentType(self::CONTENTFUL_ENTITY_TYPE_ID)
-            ->where(self::CONTENTFUL_SLUG_FIELD_ID, $slug)
-            ->orderBy(self::CONTENTFUL_ENTITY_CREATED_AT_FIELD_ID, true)
-        ;
+            ->orderBy(self::CONTENTFUL_ENTITY_UPDATED_AT_FIELD_ID, true);
 
-        return $this->client->getEntries($query)->getIterator()->current();
+        return $this->client->getEntries($query)->getItems();
     }
 }

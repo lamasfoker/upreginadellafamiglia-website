@@ -18,6 +18,8 @@ services:
 
   app.controller.forms:
     class: App\Controller\Forms
+    arguments:
+      - '@app.repository.form'
 
   app.controller.homepage:
     class: App\Controller\Homepage

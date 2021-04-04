@@ -12,19 +12,19 @@
         </div>
 
         <div class="flex flex-wrap max-w-4xl m-auto">
-            {% for i in 0..12 %}
-                <a href="#" target="_blank" class="w-full md:w-1/2 flex flex-nowrap mb-8 md:pr-4">
+            {% for form in forms %}
+                <a href="{{ form.pdf.file.url }}" target="_blank" class="w-full md:w-1/2 flex flex-nowrap mb-8 md:pr-4">
                     <div class="border-2 border-color-1 p-2 mr-4">
                         <div class="xt-media-container xt-ratio-100 w-32 lg:w-40">
                             <div class="xt-media-inner">
-                                <img class="xt-media object-cover object-center" src="https://cdn.statically.io/img/bussola.s3-eu-west-1.amazonaws.com/w=800,h=300/131674/30320161239335.jpg" loading="lazy" alt>
+                                <img class="xt-media object-cover object-center" src="{{ contentful_image_render(form.immagine.file.url) }}" loading="lazy" alt=>
                             </div>
                         </div>
                     </div>
 
                     <div class="w-full border-t-4 border-color-1 flex items-center">
                         <div>
-                            <h2 class="{{ h5 }}">Lorem Ipsum is simply dummy</h2>
+                            <h2 class="{{ h5 }}">{{ form.titolo }}</h2>
                             <div class="xt-list xt-list-x-2 text-lg md:text-md lg:text-lg items-center uppercase font-bold text-color-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="xt-icon text-lg ml-1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                                 <span>Scarica</span>
