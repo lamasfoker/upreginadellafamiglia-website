@@ -23,6 +23,8 @@ services:
 
   app.controller.homepage:
     class: App\Controller\Homepage
+    arguments:
+      - '@app.repository.new'
 
   app.controller.news:
     class: App\Controller\News

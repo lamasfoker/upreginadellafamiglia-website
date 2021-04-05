@@ -12,10 +12,14 @@ interface NewRepositoryInterface extends RepositoryInterface
 
     public const CONTENTFUL_SLUG_FIELD_ID = 'fields.slug';
 
+    public const CONTENTFUL_IN_HOMEPAGE_FIELD_ID = 'fields.inEvidenza';
+
     public function getBySlug(string $slug): ?ResourceInterface;
 
     /**
      * @return ResourceInterface[]
      */
     public function getAllPaginated(int $page, int $size = 5): array;
+
+    public function getInHomepageNews(): ?ResourceInterface;
 }

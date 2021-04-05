@@ -45,4 +45,15 @@ final class NewRepository implements NewRepositoryInterface
 
         return $this->client->getEntries($query)->getItems();
     }
+
+    public function getInHomepageNews(): ?ResourceInterface
+    {
+        $query = $this->queryFactory->create()
+            ->setContentType(self::CONTENTFUL_ENTITY_TYPE_ID)
+            ->where(self::CONTENTFUL_IN_HOMEPAGE_FIELD_ID, true)
+            ->orderBy(self::CONTENTFUL_ENTITY_UPDATED_AT_FIELD_ID, true)
+        ;
+
+        return $this->client->getEntries($query)->getIterator()->current();
+    }
 }
