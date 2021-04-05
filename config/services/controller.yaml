@@ -26,3 +26,5 @@ services:
 
   app.controller.news:
     class: App\Controller\News
+    arguments:
+      - '@app.repository.new'

@@ -4,18 +4,28 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Repository\NewRepositoryInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 final class News extends AbstractController
 {
-    public function list(): Response
+    private NewRepositoryInterface $newRepository;
+
+    public function __construct(NewRepositoryInterface $newRepository)
     {
-        return $this->render('news/list.html.twig');
+        $this->newRepository = $newRepository;
     }
 
-    public function index(): Response
+    public function list(Request $request): Response
     {
-        return $this->render('news/index.html.twig');
+        $page = $request->query->getInt('pagina', 1);
+        return $this->render('news/list.html.twig', ['news' => $this->newRepository->getAllPaginated($page)]);
+    }
+
+    public function index(string $slug): Response
+    {
+        return $this->render('news/index.html.twig', ['news' => $this->newRepository->getBySlug($slug)]);
     }
 }
