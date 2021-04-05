@@ -4,16 +4,15 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Repository\FormRepository;
+use App\Repository\FormRepositoryInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
 final class Forms extends AbstractController
 {
-    /** @var FormRepository */
-    private FormRepository $formRepository;
+    private FormRepositoryInterface $formRepository;
 
-    public function __construct(FormRepository $formRepository)
+    public function __construct(FormRepositoryInterface $formRepository)
     {
         $this->formRepository = $formRepository;
     }
