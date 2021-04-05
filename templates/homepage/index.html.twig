@@ -60,17 +60,17 @@
                 <div class="xt-slides">
                     <div class="xt-slides-inner xt-row xt-row-x-8">
 
-                        {% for i in 0..6 %}
-                            <div class="xt-slide w-full md:w-1/2 lg:w-1/4 opacity-100 {{ i is same as 2 ? 'in-slider' : '' }}">
+                        {% for slide in slider %}
+                            <div class="xt-slide w-full md:w-1/2 lg:w-1/4 opacity-100 {{ loop.index is same as 2 ? 'in-slider' : '' }}">
 
-                                <a href="{{ path('news_index', {slug: 'lorem-ipsum'}) }}" class="xt-card rounded-md text-black links-default bg-white">
+                                <a href="{{ path('news_index', {slug: slide.slug}) }}" class="xt-card rounded-md text-black links-default bg-white">
                                     <div class="xt-media-container xt-ratio-75">
                                         <div class="xt-media-inner">
-                                            <img class="xt-media object-cover object-center rounded-t-md" src="https://cdn.statically.io/img/upload.wikimedia.org/w=800,h=300/wikipedia/commons/6/66/Chiesa_del_Sacro_Cuore%2C_Livorno.jpg" loading="lazy" alt>
+                                            <img class="xt-media object-cover object-center rounded-t-md" src="{{ contentful_image_render(slide.immagine.file.url) }}" loading="lazy" alt>
                                         </div>
                                     </div>
                                     <div class="py-6 lg:py-8 px-7 lg:px-9">
-                                        <h3 class="{{ h3 }}">Lorem ipsum dolor sit amet consectetur adipiscing</h3>
+                                        <h3 class="{{ h3 }}">{{ slide.titolo }}</h3>
                                     </div>
                                 </a>
 
