@@ -50,7 +50,7 @@ final class NewRepository implements NewRepositoryInterface
     {
         $query = $this->queryFactory->create()
             ->setContentType(self::CONTENTFUL_ENTITY_TYPE_ID)
-            ->where(self::CONTENTFUL_IN_HOMEPAGE_FIELD_ID, true)
+            ->where(self::CONTENTFUL_IN_HOMEPAGE_FIELD_ID, 'true')
             ->orderBy(self::CONTENTFUL_ENTITY_UPDATED_AT_FIELD_ID, true)
         ;
 
