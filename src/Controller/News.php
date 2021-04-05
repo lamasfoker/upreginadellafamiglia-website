@@ -11,6 +11,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 final class News extends AbstractController
 {
+    private const NUMBER_OF_NEWS_PER_PAGE = 5;
+
     private NewRepositoryInterface $newRepository;
 
     public function __construct(NewRepositoryInterface $newRepository)
@@ -21,7 +23,11 @@ final class News extends AbstractController
     public function list(Request $request): Response
     {
         $page = $request->query->getInt('pagina', 1);
-        return $this->render('news/list.html.twig', ['news' => $this->newRepository->getAllPaginated($page)]);
+
+        return $this->render(
+            'news/list.html.twig',
+            ['news' => $this->newRepository->getAllPaginated($page, self::NUMBER_OF_NEWS_PER_PAGE)]
+        );
     }
 
     public function index(string $slug): Response
