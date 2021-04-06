@@ -15,3 +15,8 @@ services:
 
   app.twig.contentful_image:
     class: App\Twig\ImageExtension
+
+  app.twig.slug:
+    class: App\Twig\SlugExtension
+    arguments:
+      - '@slugger'
