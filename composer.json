@@ -15,6 +15,7 @@
         "php": ">=7.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "ext-json": "*",
         "contentful/contentful": "^6.1",
         "contentful/contentful-bundle": "^6.2",
         "contentful/core": "^3.1",

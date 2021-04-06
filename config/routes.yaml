@@ -1,3 +1,7 @@
+header:
+  path: /_header
+  controller: app.controller.header:index
+
 homepage:
   path: /
   controller: app.controller.homepage:index

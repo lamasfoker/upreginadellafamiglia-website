@@ -16,7 +16,7 @@
     </head>
     <body>
         <div class="overflow-hidden">
-            {% include 'header.html.twig' %}
+            {{ render(path('header')) }}
             <main>
                 {% block body %}{% endblock %}
             </main>
