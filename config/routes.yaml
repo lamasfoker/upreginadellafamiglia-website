@@ -1,31 +1,31 @@
 header:
   path: /_header
-  controller: app.controller.header:index
+  controller: app.controller.header::index
 
 footer:
   path: /_footer
-  controller: app.controller.footer:index
+  controller: app.controller.footer::index
 
 homepage:
   path: /
-  controller: app.controller.homepage:index
+  controller: app.controller.homepage::index
 
 news_listing:
   path: /notizie
-  controller: app.controller.news:list
+  controller: app.controller.news::list
 
 news_index:
   path: /notizia/{slug}
-  controller: app.controller.news:index
+  controller: app.controller.news::index
 
 forms_listing:
   path: /modulistica
-  controller: app.controller.forms:list
+  controller: app.controller.forms::list
 
 contact_page:
   path: /contatti
-  controller: app.controller.contact:index
+  controller: app.controller.contact::index
 
 cms_page:
   path: /{slug}
-  controller: app.controller.cms_page:index
+  controller: app.controller.cms_page::index
