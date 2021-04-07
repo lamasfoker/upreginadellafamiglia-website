@@ -20,7 +20,7 @@
             <main>
                 {% block body %}{% endblock %}
             </main>
-            {% include 'footer.html.twig' %}
+            {{ render(path('footer')) }}
         </div>
     </body>
 </html>

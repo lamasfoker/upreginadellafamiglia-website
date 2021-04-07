@@ -2,6 +2,10 @@ header:
   path: /_header
   controller: app.controller.header:index
 
+footer:
+  path: /_footer
+  controller: app.controller.footer:index
+
 homepage:
   path: /
   controller: app.controller.homepage:index

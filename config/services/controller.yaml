@@ -33,3 +33,10 @@ services:
 
   app.controller.header:
     class: App\Controller\Header
+    arguments:
+      - '@serializer.encoder.json'
+
+  app.controller.footer:
+    class: App\Controller\Footer
+    arguments:
+      - '@serializer.encoder.json'
