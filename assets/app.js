@@ -1,13 +1,12 @@
 import './styles/app.css'
 
 import { Xt } from 'xtendui'
-import 'xtendui/src/core/drop'
+import 'xtendui/src/drop'
 import gsap from 'gsap'
-import 'xtendui/src/core/form'
-import 'xtendui/src/core/slider'
-import 'xtendui/src/core/toggle'
-import 'xtendui/src/core/overlay'
-import './scripts/layout'
+import 'xtendui/src/form'
+import 'xtendui/src/slider'
+import 'xtendui/src/toggle'
+import 'xtendui/src/overlay'
 import './scripts/mobile-menu'
 
 /**
