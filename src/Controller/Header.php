@@ -3,34 +3,34 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use JsonException;
+use App\Repository\CmsPageRepositoryInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Serializer\Encoder\DecoderInterface;
+use Symfony\Component\Serializer\Encoder\JsonDecode;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
 
 final class Header extends AbstractController
 {
-    private const HEADER_FILE_LOCATION = __DIR__ . '/../../var/data/links.json';
+    private DecoderInterface $decoder;
+
+    public function __construct(DecoderInterface $decoder)
+    {
+        $this->decoder = $decoder;
+    }
 
     public function index(): Response
     {
-        $header = $this->extractHeaderData();
+        $json = $this->decoder->decode(
+            file_get_contents(CmsPageRepositoryInterface::CMS_PAGE_FILE_LOCATION),
+            JsonEncoder::FORMAT,
+            [JsonDecode::ASSOCIATIVE => true]
+        );
 
-        if (!$header) {
+        if (!is_array($json)) {
             return $this->json('NOT FOUND');
         }
 
-        return $this->render('header.html.twig', ['header' => $header]);
-    }
-
-    private function extractHeaderData(): ?array
-    {
-        $header = file_get_contents(self::HEADER_FILE_LOCATION);
-        try {
-            $header = json_decode($header, true, 512, JSON_THROW_ON_ERROR);
-        } catch (JsonException $e) {
-            return null;
-        }
-
-        return is_array($header) ? $header : null;
+        return $this->render('header.html.twig', ['header' => $json['header']]);
     }
 }
