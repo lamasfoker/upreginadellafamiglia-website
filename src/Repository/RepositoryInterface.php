@@ -13,4 +13,6 @@ interface RepositoryInterface
     public const CONTENTFUL_GREATER_THAN_OR_EQUAL_TO_OPERATOR = '[gte]';
 
     public const CONTENTFUL_LESS_THAN_OR_EQUAL_TO_OPERATOR = '[lte]';
+
+    public const CONTENTFUL_EXISTS_OPERATOR = '[exists]';
 }
