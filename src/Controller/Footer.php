@@ -22,8 +22,13 @@ final class Footer extends AbstractController
 
     public function index(): Response
     {
+        $contents = file_get_contents(CmsPageRepositoryInterface::CMS_PAGE_FILE_LOCATION);
+        if (!is_string($contents)) {
+            return $this->json('NOT FOUND');
+        }
+
         $json = $this->decoder->decode(
-            file_get_contents(CmsPageRepositoryInterface::CMS_PAGE_FILE_LOCATION),
+            $contents,
             JsonEncoder::FORMAT,
             [JsonDecode::ASSOCIATIVE => true]
         );
