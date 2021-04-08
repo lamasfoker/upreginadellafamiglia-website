@@ -30,15 +30,16 @@
                         {{ week_day_mapping[day.date|date('w')] }}<br/>{{ day.date|date('j') }}
                     </h3>
                     <div class="w-full md:w-4/6 flex flex-col">
-                        {% for section in day.sections %}
-                            <div class="flex flex-col mb-6">
-                                <h4 class="{{ h4 }}">{{ section.place }}</h4>
-                                {% for event in section.events %}
+                        {% if day.sections is defined %}
+                            {% for section in day.sections %}
+                                <div class="flex flex-col mb-6">
+                                    <h4 class="{{ h4 }}">{{ section.place }}</h4>
+                                    {% for event in section.events %}
 
-                                    {% if event.notizia is not null %}
-                                        <a href="{{ path('news_index', {slug: event.notizia.slug }) }}" title="Vai alla Notizia" class="group relative">
+                                        {% if event.notizia is not null %}
+                                            <a href="{{ path('news_index', {slug: event.notizia.slug }) }}" title="Vai alla Notizia" class="group relative">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="group-hover:text-color-1-light xt-icon xt-icon-md absolute -left-6 bottom-1/3" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="ArrowForwardThick"><path d="M22 11l-7-9v5C3.047 7 1.668 16.678 2 22c.502-2.685.735-7 13-7v5l7-9z"/></svg>
-                                    {% endif %}
+                                        {% endif %}
                                         <div class="{{ p }}">
                                             <span class="font-bold">{{ event.data|date('H:i') }}</span>
                                             <span class="font-bold mx-2">-</span>
@@ -47,13 +48,14 @@
                                                 <span class="font-bold mx-2">-</span>{{ event.descrizione }}
                                             {% endif %}
                                         </div>
-                                    {% if event.notizia is not null %}
-                                        </a>
-                                    {% endif %}
+                                        {% if event.notizia is not null %}
+                                            </a>
+                                        {% endif %}
 
-                                {% endfor %}
-                            </div>
-                        {% endfor %}
+                                    {% endfor %}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
                     </div>
                 </div>
             {% endfor %}

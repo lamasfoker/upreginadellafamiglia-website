@@ -7,6 +7,8 @@ namespace App\Controller;
 use App\Repository\EventRepositoryInterface;
 use App\Repository\NewsRepositoryInterface;
 use Contentful\Core\Resource\ResourceInterface;
+use DateTime;
+use DateTimeInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -33,7 +35,12 @@ final class Homepage extends AbstractController
             [
                 'news' => $this->newsRepository->getInHomepageNews(),
                 'slider' => $this->newsRepository->getAllPaginated(1, self::NUMBER_OF_NEWS_IN_THE_SLIDER),
-                'days' => $this->groupEventsForDayAndPlace($this->eventRepository->getNextEvents(self::NUMBER_OF_DAYS_IN_HOMEPAGE_CALENDAR))
+                'days' => $this->groupEventsForDayAndPlace(
+                    array_merge(
+                        $this->eventRepository->getNextEvents(self::NUMBER_OF_DAYS_IN_HOMEPAGE_CALENDAR),
+                        $this->eventRepository->getNextRecurringEvents()
+                    )
+                )
             ]
         );
     }
@@ -48,15 +55,14 @@ final class Homepage extends AbstractController
         $places = $this->getPlaces($events);
 
         for ($day = 0; $day < self::NUMBER_OF_DAYS_IN_HOMEPAGE_CALENDAR; $day++) {
-            $currentDate = date('Y-m-d', strtotime('+' . $day . ' day'));
+            $data[$day]['date'] = $this->getDateOfTheDayFromToday($day);
 
             foreach ($places as $currentPlace) {
-                $eventsOfCurrentPlaceAndDate = $this->getEventsForCurrentPlaceAndDate($events, $currentDate, $currentPlace);
+                $eventsOfCurrentPlaceAndDate = $this->getEventsForCurrentPlaceAndDate($events, $data[$day]['date'], $currentPlace);
                 if (count($eventsOfCurrentPlaceAndDate) === 0) {
                     continue;
                 }
 
-                $data[$day]['date'] = $eventsOfCurrentPlaceAndDate[0][EventRepositoryInterface::CONTENTFUL_RESOURCE_DATE_FIELD_ID];
                 $data[$day]['sections'][] = [
                     'place' => $currentPlace,
                     'events' => $eventsOfCurrentPlaceAndDate
@@ -86,17 +92,30 @@ final class Homepage extends AbstractController
      * @param ResourceInterface[] $events
      * @return ResourceInterface[]
      */
-    private function getEventsForCurrentPlaceAndDate(array $events, string $currentDate, string $currentPlace): array
+    private function getEventsForCurrentPlaceAndDate(array $events, DateTimeInterface $currentDate, string $currentPlace): array
     {
         return array_values(
             array_filter(
                 $events,
                 static function (ResourceInterface $event) use ($currentDate, $currentPlace) {
-                    return
-                        $event[EventRepositoryInterface::CONTENTFUL_RESOURCE_DATE_FIELD_ID]->format('Y-m-d') === $currentDate &&
-                        $event[EventRepositoryInterface::CONTENTFUL_RESOURCE_PLACE_FIELD_ID] === $currentPlace;
+                    if ($event[EventRepositoryInterface::CONTENTFUL_RESOURCE_PLACE_FIELD_ID] !== $currentPlace) {
+                        return false;
+                    }
+                    if ($event[EventRepositoryInterface::CONTENTFUL_RESOURCE_RECURRING_WEEK_DAY_FIELD_ID]) {
+                        $recurringWeekDay = $event[EventRepositoryInterface::CONTENTFUL_RESOURCE_RECURRING_WEEK_DAY_FIELD_ID];
+                        return
+                            array_key_exists($recurringWeekDay, EventRepositoryInterface::CONTENTFUL_RECURRING_WEEK_DAY_FIELD_ID_MAPPING) &&
+                            EventRepositoryInterface::CONTENTFUL_RECURRING_WEEK_DAY_FIELD_ID_MAPPING[$recurringWeekDay] === $currentDate->format('w');
+                    }
+                    return $event[EventRepositoryInterface::CONTENTFUL_RESOURCE_DATE_FIELD_ID]->format('Y-m-d') === $currentDate->format('Y-m-d');
                 }
             )
         );
+    }
+
+    private function getDateOfTheDayFromToday(int $day): DateTimeInterface
+    {
+        $date = new DateTime();
+        return $date->modify('+' . $day . ' day');
     }
 }
