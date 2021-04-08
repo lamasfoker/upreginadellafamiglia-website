@@ -21,12 +21,14 @@
         </div>
     {% endif %}
 
-    <div class="container py-10">
+    <div class="container py-10 max-w-4xl">
         <h2 class="{{ h2 }} text-center mb-10">Calendario</h2>
         <div class="xt-row xt-row-y-6 flex-col items-center">
             {% for day in days %}
-                <div class="flex flex-col md:flex-row items-center border-b-2 border-color-1">
-                    <h3 class="w-full md:w-2/6 xt-h3 text-7xl uppercase text-center text-color-1">{{ week_day_mapping[day.date|date('w')] }}<br/>{{ day.date|date('j') }}</h3>
+                <div class="flex flex-col md:flex-row items-center border-b-2 border-color-1 w-full">
+                    <h3 class="w-full md:w-2/6 xt-h3 text-7xl uppercase text-center {% if day.date|date('w') == 0 %}text-red-600{% else %}text-color-1{% endif %}">
+                        {{ week_day_mapping[day.date|date('w')] }}<br/>{{ day.date|date('j') }}
+                    </h3>
                     <div class="w-full md:w-4/6 flex flex-col">
                         {% for section in day.sections %}
                             <div class="flex flex-col mb-6">
