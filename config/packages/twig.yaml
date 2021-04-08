@@ -1,2 +1,11 @@
 twig:
     default_path: '%kernel.project_dir%/templates'
+    globals:
+      week_day_mapping:
+        - DOM
+        - LUN
+        - MAR
+        - MER
+        - GIO
+        - VEN
+        - SAB

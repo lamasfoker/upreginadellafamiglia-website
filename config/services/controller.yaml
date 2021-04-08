@@ -25,6 +25,7 @@ services:
     class: App\Controller\Homepage
     arguments:
       - '@app.repository.news'
+      - '@app.repository.event'
 
   app.controller.news:
     class: App\Controller\News
