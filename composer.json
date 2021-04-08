@@ -21,6 +21,7 @@
         "contentful/core": "^3.1",
         "contentful/rich-text": "^3.2",
         "phpdocumentor/reflection-docblock": "^5.2",
+        "psr/log": "^1.1",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "5.2.*",
         "symfony/console": "5.2.*",
