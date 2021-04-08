@@ -6,8 +6,11 @@
         <h1 class="{{ h1 }} text-center">Notizie</h1>
     </div>
 
-    <div class="container py-10">
-        <div class="xt-list xt-list-y-8">
+    <div id="infinitescroll" class="container py-10">
+
+        <button type="button" data-xt-infinitescroll-up="-1"></button>
+
+        <div class="xt-list xt-list-y-8" data-page-count="{{ pageCount }}">
             {% for information in news %}
 
                 <div class="bg-color-1 rounded-3xl text-white">
@@ -28,5 +31,22 @@
 
             {% endfor %}
         </div>
+
+        <div class="mt-4">
+            <div class="xt-list xt-list-2 flex-col items-center">
+                <button type="button" class="{{ button }}" data-xt-infinitescroll-down="+1">
+                    <span class="content">Mostra più notizie</span>
+
+                    <span class="xt-loader absolute z-above inset-0 rounded-inherit overflow-hidden infinitescroll-spinner">
+                    <span class="xt-spinner absolute inset-0 m-auto w-6 h-6 text-white">
+                      <svg viewBox="0 0 240 240" class="absolute" preserveAspectRatio="xMinYMin meet"><circle class="stroke-current origin-center opacity-25" fill="none" stroke-width="30" cx="120" cy="120" r="100" stroke-dasharray="628" stroke-dashoffset="0" pathLength="628"></circle></svg><svg viewBox="0 0 240 240"><circle class="stroke-current origin-center relative animate-xt-spinner" fill="none" stroke-width="30" cx="120" cy="120" r="100" stroke-dasharray="628" stroke-dashoffset="628" pathLength="628"></circle></svg>
+                    </span>
+                  </span>
+                </button>
+
+                <div class="h6 uppercase" data-xt-infinitescroll-pagination>Pagina xt-num di xt-tot</div>
+            </div>
+        </div>
+
     </div>
 {% endblock %}

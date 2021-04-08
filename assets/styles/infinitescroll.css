@@ -1,0 +1,50 @@
+.xt-infinitescroll-first [data-xt-infinitescroll-up] {
+    display: none;
+}
+
+.xt-infinitescroll-last [data-xt-infinitescroll-down] {
+    display: none;
+}
+
+.infinitescroll-spinner {
+    opacity: 0;
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+.infinitescroll-spinner .xt-spinner {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    opacity: 0;
+    --tw-scale-x: .75;
+    --tw-scale-y: .75;
+}
+
+[data-xt-infinitescroll-up] > .content,
+[data-xt-infinitescroll-down] > .content {
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+.xt-infinitescroll-loading .infinitescroll-spinner {
+    opacity: 1;
+}
+
+.xt-infinitescroll-loading .infinitescroll-spinner .xt-spinner {
+    opacity: 1;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+}
+
+.xt-infinitescroll-loading [data-xt-infinitescroll-up],
+.xt-infinitescroll-loading [data-xt-infinitescroll-down] {
+    pointer-events: none;
+}
+
+.xt-infinitescroll-loading [data-xt-infinitescroll-up] > .content,
+.xt-infinitescroll-loading [data-xt-infinitescroll-down] > .content {
+    opacity: 0;
+}

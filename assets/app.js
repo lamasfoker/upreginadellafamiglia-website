@@ -7,7 +7,9 @@ import 'xtendui/src/form'
 import 'xtendui/src/slider'
 import 'xtendui/src/toggle'
 import 'xtendui/src/overlay'
+import 'xtendui/src/infinitescroll'
 import './scripts/mobile-menu'
+import './scripts/infinitescroll'
 
 /**
  * animations setup
