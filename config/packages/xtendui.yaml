@@ -6,3 +6,4 @@ twig:
     h4: 'xt-h4 text-xl'
     h5: 'xt-h5 text-lg'
     p: 'text-lg'
+    button: 'xt-button text-xl py-2 px-3.5 rounded-md text-white font-semibold leading-snug tracking-wider uppercase bg-color-1 hover:bg-color-1-dark active:bg-color-1-dark transition'
