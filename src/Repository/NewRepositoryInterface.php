@@ -19,7 +19,7 @@ interface NewRepositoryInterface extends RepositoryInterface
     /**
      * @return ResourceInterface[]
      */
-    public function getAllPaginated(int $page, int $size = 5): array;
+    public function getAllPaginated(int $page, int $size): array;
 
     public function getInHomepageNews(): ?ResourceInterface;
 

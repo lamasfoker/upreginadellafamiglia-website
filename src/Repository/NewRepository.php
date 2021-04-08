@@ -34,7 +34,7 @@ final class NewRepository implements NewRepositoryInterface
     /**
      * @inheritDoc
      */
-    public function getAllPaginated(int $page, int $size = 5): array
+    public function getAllPaginated(int $page, int $size): array
     {
         $query = $this->queryFactory->create()
             ->setContentType(self::CONTENTFUL_ENTITY_TYPE_ID)
