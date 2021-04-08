@@ -24,12 +24,12 @@ services:
   app.controller.homepage:
     class: App\Controller\Homepage
     arguments:
-      - '@app.repository.new'
+      - '@app.repository.news'
 
   app.controller.news:
     class: App\Controller\News
     arguments:
-      - '@app.repository.new'
+      - '@app.repository.news'
 
   app.controller.header:
     class: App\Controller\Header

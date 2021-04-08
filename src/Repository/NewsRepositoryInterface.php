@@ -6,7 +6,7 @@ namespace App\Repository;
 
 use Contentful\Core\Resource\ResourceInterface;
 
-interface NewRepositoryInterface extends RepositoryInterface
+interface NewsRepositoryInterface extends RepositoryInterface
 {
     public const CONTENTFUL_ENTITY_TYPE_ID = 'notizia';
 

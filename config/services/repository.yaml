@@ -16,8 +16,8 @@ services:
       - '@contentful.delivery.client'
       - '@app.contentful.query_factory'
 
-  app.repository.new:
-    class: App\Repository\NewRepository
+  app.repository.news:
+    class: App\Repository\NewsRepository
     arguments:
       - '@contentful.delivery.client'
       - '@app.contentful.query_factory'

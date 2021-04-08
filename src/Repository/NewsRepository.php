@@ -8,7 +8,7 @@ use App\Contentful\QueryFactory;
 use Contentful\Core\Resource\ResourceInterface;
 use Contentful\Delivery\Client\ClientInterface;
 
-final class NewRepository implements NewRepositoryInterface
+final class NewsRepository implements NewsRepositoryInterface
 {
     private ClientInterface $client;
 
