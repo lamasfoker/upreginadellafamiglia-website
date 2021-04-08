@@ -27,3 +27,4 @@ services:
     arguments:
       - '@contentful.delivery.client'
       - '@app.contentful.query_factory'
+      - '@monolog.logger'

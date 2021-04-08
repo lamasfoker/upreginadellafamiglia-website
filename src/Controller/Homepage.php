@@ -46,8 +46,8 @@ final class Homepage extends AbstractController
     }
 
     /**
-     * @param ResourceInterface[] $events
-     * @return array
+     * @param array<ResourceInterface> $events
+     * @return array<array>
      */
     private function groupEventsForDayAndPlace(array $events): array
     {
@@ -74,7 +74,8 @@ final class Homepage extends AbstractController
     }
 
     /**
-     * @param ResourceInterface[] $events
+     * @param array<ResourceInterface> $events
+     * @return array<string>
      */
     private function getPlaces(array $events): array
     {
