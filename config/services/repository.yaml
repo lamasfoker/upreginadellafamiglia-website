@@ -21,3 +21,9 @@ services:
     arguments:
       - '@contentful.delivery.client'
       - '@app.contentful.query_factory'
+
+  app.repository.event:
+    class: App\Repository\EventRepository
+    arguments:
+      - '@contentful.delivery.client'
+      - '@app.contentful.query_factory'
