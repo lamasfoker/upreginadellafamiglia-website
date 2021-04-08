@@ -56,4 +56,13 @@ final class NewRepository implements NewRepositoryInterface
 
         return $this->client->getEntries($query)->getIterator()->current();
     }
+
+    public function count(): int
+    {
+        $query = $this->queryFactory->create()
+            ->setContentType(self::CONTENTFUL_ENTITY_TYPE_ID)
+        ;
+
+        return $this->client->getEntries($query)->count();
+    }
 }

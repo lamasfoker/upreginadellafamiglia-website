@@ -22,4 +22,6 @@ interface NewRepositoryInterface extends RepositoryInterface
     public function getAllPaginated(int $page, int $size = 5): array;
 
     public function getInHomepageNews(): ?ResourceInterface;
+
+    public function count(): int;
 }
