@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Repository\NewsRepositoryInterface;
+use App\Service\BreadcrumbsGetter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,9 +17,12 @@ final class News extends AbstractController
 
     private NewsRepositoryInterface $newsRepository;
 
-    public function __construct(NewsRepositoryInterface $newsRepository)
+    private BreadcrumbsGetter $breadcrumbsGetter;
+
+    public function __construct(NewsRepositoryInterface $newsRepository, BreadcrumbsGetter $breadcrumbsGetter)
     {
         $this->newsRepository = $newsRepository;
+        $this->breadcrumbsGetter = $breadcrumbsGetter;
     }
 
     public function list(Request $request): Response
@@ -29,13 +33,25 @@ final class News extends AbstractController
             'news/list.html.twig',
             [
                 'news' => $this->newsRepository->getAllPaginated($page, self::NUMBER_OF_NEWS_PER_PAGE),
-                'pageCount' => ceil($this->newsRepository->count() / self::NUMBER_OF_NEWS_PER_PAGE)
+                'pageCount' => ceil($this->newsRepository->count() / self::NUMBER_OF_NEWS_PER_PAGE),
+                'breadcrumbs' => $this->breadcrumbsGetter->getNewsListingBreadcrumbs()
             ]
         );
     }
 
     public function index(string $slug): Response
     {
-        return $this->render('news/index.html.twig', ['news' => $this->newsRepository->getBySlug($slug)]);
+        $news = $this->newsRepository->getBySlug($slug);
+        if ($news === null) {
+            return $this->json('NOT FOUND');
+        }
+
+        return $this->render(
+            'news/index.html.twig',
+            [
+                'news' => $news,
+                'breadcrumbs' => $this->breadcrumbsGetter->getNewsBreadcrumbs($news[NewsRepositoryInterface::CONTENTFUL_RESOURCE_TITLE_FIELD_ID], $slug)
+            ]
+        );
     }
 }

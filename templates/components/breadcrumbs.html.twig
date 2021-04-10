@@ -1,13 +1,14 @@
 <nav class="breadcrumbs leading-none truncate text-center text-base lg:text-md">
-    <a href="#" class="xt-button py-2 px-0 text-black font-sans font-semibold leading-snug tracking-wider uppercase hover:text-opacity-60 active:text-opacity-100 transition">
-        Home
-    </a>
-    <span class="xt-separator xt-separator-slash mx-2"></span>
-    <a href="#" class="xt-button py-2 px-0 text-black font-sans font-semibold leading-snug tracking-wider uppercase hover:text-opacity-60 active:text-opacity-100 transition">
-        Lorem ipsum dolor sit amet
-    </a>
-    <span class="xt-separator xt-separator-slash mx-2"></span>
-    <div class="xt-button py-2 px-0 text-black font-sans font-semibold leading-snug tracking-wider uppercase hover:text-opacity-60 active:text-opacity-100 transition pointer-events-none">
-        Lorem ipsum
-    </div>
+    {% for node in breadcrumbs %}
+        {% if loop.last %}
+            <div class="xt-button py-2 px-0 text-black font-semibold leading-snug tracking-wider uppercase hover:text-opacity-60 active:text-opacity-100 transition pointer-events-none">
+                {{ node.name }}
+            </div>
+        {% else %}
+            <a href="{{ node.href }}" class="xt-button py-2 px-0 text-black font-semibold leading-snug tracking-wider uppercase hover:text-opacity-60 active:text-opacity-100 transition">
+                {{ node.name }}
+            </a>
+            <span class="xt-separator xt-separator-slash mx-2"></span>
+        {% endif %}
+    {% endfor %}
 </nav>

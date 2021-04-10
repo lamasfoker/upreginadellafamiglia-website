@@ -14,6 +14,8 @@ interface NewsRepositoryInterface extends RepositoryInterface
 
     public const CONTENTFUL_IN_HOMEPAGE_FIELD_ID = 'fields.inEvidenza';
 
+    public const CONTENTFUL_RESOURCE_TITLE_FIELD_ID = 'titolo';
+
     public function getBySlug(string $slug): ?ResourceInterface;
 
     /**

@@ -12,14 +12,18 @@ services:
     class: App\Controller\CmsPage
     arguments:
       - '@app.repository.cms_page'
+      - '@app.service.breadcrumbs'
 
   app.controller.contact:
     class: App\Controller\Contact
+    arguments:
+      - '@app.service.breadcrumbs'
 
   app.controller.forms:
     class: App\Controller\Forms
     arguments:
       - '@app.repository.form'
+      - '@app.service.breadcrumbs'
 
   app.controller.homepage:
     class: App\Controller\Homepage
@@ -31,13 +35,16 @@ services:
     class: App\Controller\News
     arguments:
       - '@app.repository.news'
+      - '@app.service.breadcrumbs'
 
   app.controller.header:
     class: App\Controller\Header
     arguments:
       - '@serializer.encoder.json'
+      - '@app.service.breadcrumbs'
 
   app.controller.footer:
     class: App\Controller\Footer
     arguments:
       - '@serializer.encoder.json'
+      - '@app.service.breadcrumbs'
