@@ -1,2 +1,14 @@
 imports:
-    - resource: "services/*.yaml"
+  - resource: "services/*.yaml"
+
+services:
+  _defaults:
+    autowire: false
+    autoconfigure: false
+    public: false
+
+  app.service.breadcrumbs:
+    class: App\Service\BreadcrumbsGetter
+    arguments:
+      - '@router.default'
+      - '@translator'
