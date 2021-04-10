@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Repository;
 
 use App\Contentful\QueryFactory;
+use Contentful\Core\Resource\ResourceInterface;
 use Contentful\Delivery\Client\ClientInterface;
 use Psr\Log\LoggerInterface;
 
@@ -54,8 +55,6 @@ final class EventRepository implements EventRepositoryInterface
             ->setContentType(self::CONTENTFUL_ENTITY_TYPE_ID)
             ->where(self::CONTENTFUL_RECURRING_WEEK_DAY_FIELD_ID . self::CONTENTFUL_EXISTS_OPERATOR, 'true')
         ;
-
-        $dara = $this->client->getEntries($query)->getItems();
 
         return $this->client->getEntries($query)->getItems();
     }
