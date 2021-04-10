@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Repository;
 
 use App\Contentful\QueryFactory;
-use Contentful\Core\Resource\ResourceInterface;
 use Contentful\Delivery\Client\ClientInterface;
 use Psr\Log\LoggerInterface;
 
