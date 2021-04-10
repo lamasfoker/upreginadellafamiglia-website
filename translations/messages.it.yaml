@@ -1,0 +1,9 @@
+app:
+  homepage:
+    breadcrumbs: 'homepage'
+  contact_page:
+    breadcrumbs: 'contatti'
+  news_listing:
+    breadcrumbs: 'notizie'
+  forms_listing:
+    breadcrumbs: 'modulistica'
