@@ -18,6 +18,7 @@
         <div class="overflow-hidden">
             {{ render(path('header')) }}
             <main>
+                {% include 'components/toast.html.twig' %}
                 {% block body %}{% endblock %}
             </main>
             {{ render(path('footer')) }}
