@@ -1,6 +1,9 @@
 imports:
   - resource: "services/*.yaml"
 
+parameters:
+  no_replay_mail: 'nonrispondermi@upreginadellafamiglia.it'
+
 services:
   _defaults:
     autowire: false

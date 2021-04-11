@@ -18,6 +18,11 @@ services:
     class: App\Controller\Contact
     arguments:
       - '@app.service.breadcrumbs'
+      - '@app.repository.cms_page'
+      - '@mailer'
+      - '@translator'
+      - '%no_replay_mail%'
+      - '%env(REGISTRY_MAIL)%'
 
   app.controller.forms:
     class: App\Controller\Forms

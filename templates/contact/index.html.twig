@@ -31,53 +31,34 @@
             </a>
         </div>
 
-        <form class="w-full md:w-3/6 text-xl lg:text-2xl p-10 bg-gray-200 rounded-md">
+        {{ form_start(form, {'attr': {'class': 'w-full md:w-3/6 text-xl lg:text-2xl p-10 bg-gray-200 rounded-md'}}) }}
             <div class="xt-row xt-row-x-6 xt-row-y-4">
 
                 <div class="w-full">
-                    <label class="xt-label mb-3 text-black text-opacity-75 font-semibold">
-                        Nome
-                    </label>
-                    <input type="text" class="xt-input rounded-md py-2.5 px-4 text-black border border-gray-50 focus:border-gray-500 transition" aria-label="nome" required>
+                    {{ form_label(form.name, 'app.contact_page.name_label', {'label_attr': {'class': 'xt-label mb-3 text-black text-opacity-75 font-semibold'}}) }}
+                    {{ form_widget(form.name, {'attr': {'class': 'xt-input rounded-md py-2.5 px-4 text-black border border-gray-50 focus:border-gray-500 transition'}}) }}
                 </div>
 
                 <div class="w-full">
-                    <label class="xt-label mb-3 text-black text-opacity-75 font-semibold">
-                        Email
-                    </label>
-                    <input type="email" class="xt-input rounded-md py-2.5 px-4 text-black border border-gray-50 focus:border-gray-500 transition" aria-label="email" required>
+                    {{ form_label(form.mail, 'app.contact_page.mail_label', {'label_attr': {'class': 'xt-label mb-3 text-black text-opacity-75 font-semibold'}}) }}
+                    {{ form_widget(form.mail, {'attr': {'class': 'xt-input rounded-md py-2.5 px-4 text-black border border-gray-50 focus:border-gray-500 transition'}}) }}
+                </div>
+
+                {{ form_widget(form.page) }}
+
+                <div class="w-full">
+                    {{ form_label(form.message, 'app.contact_page.message_label', {'label_attr': {'class': 'xt-label mb-3 text-black text-opacity-75 font-semibold'}}) }}
+                    {{ form_widget(form.message, {'attr': {'class': 'xt-input xt-textarea rounded-md py-2.5 px-4 text-black border-gray-50 focus:border-gray-500 transition h-64 resize-vertical'}}) }}
                 </div>
 
                 <div class="w-full">
-                    <label class="xt-label mb-3 text-black text-opacity-75 font-semibold">
-                        Argomento
-                    </label>
-                    <select class="xt-input xt-select rounded-md py-2.5 px-4 text-black border border-gray-50 focus:border-gray-500 transition" aria-label="Select" required>
-                        <option selected value>Selezione un argomento</option>
-                        <option>Test</option>
-                        <option>Test</option>
-                        <option>Test</option>
-                    </select>
-                </div>
-
-                <div class="w-full">
-                    <label class="xt-label mb-3 text-black text-opacity-75 font-semibold">
-                        Messaggio
-                    </label>
-                    <textarea class="xt-input xt-textarea rounded-md py-2.5 px-4 text-black border-gray-50 focus:border-gray-500 transition h-64 resize-vertical" aria-label="messaggio" required></textarea>
-                </div>
-
-                <div class="w-full">
-                    <button type="submit" class="{{ button }}">
-                        Invia
-                    </button>
+                    {{ form_row(form.submit, { 'label': 'app.contact_page.submit' , 'attr': {'class': button}}) }}
                 </div>
 
             </div>
-        </form>
+        {{ form_end(form) }}
 
     </div>
-
 {% endblock %}
 
 

@@ -3,7 +3,18 @@ app:
     breadcrumbs: 'homepage'
   contact_page:
     breadcrumbs: 'contatti'
+    flash: 'La tua richiesta è stata inviata con successo. Riceverai presto una risposta'
+    name_label: 'Nome'
+    mail_label: 'Mail'
+    message_label: 'Messaggio'
+    submit: 'Invia'
   news_listing:
     breadcrumbs: 'notizie'
   forms_listing:
     breadcrumbs: 'modulistica'
+  email:
+    subject: 'Richiesta di informazioni dal sito della Parrocchia'
+    paragraph: 'Questa email è stata inviata in modo automatico dal sito della parrocchia upreginadellafamiglia.it, dopo che un utente ha compilato il form di contatto. Non rispondere direttamente a questo indirizzo, ma alla mail che verrà indicata più in basso.'
+    name_label: 'Nome: '
+    mail_label: 'Mail: '
+    message_label: 'Messaggio: '
