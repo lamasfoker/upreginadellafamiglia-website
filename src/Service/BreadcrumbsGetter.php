@@ -19,26 +19,41 @@ final class BreadcrumbsGetter
         $this->translator = $translator;
     }
 
+    /**
+     * @return array<array<string>>
+     */
     public function getContactPageBreadcrumbs(): array
     {
         return $this->getFirstLevelPageBreadcrumbs('app.contact_page.breadcrumbs', 'contact_page');
     }
 
+    /**
+     * @return array<array<string>>
+     */
     public function getFormsListingBreadcrumbs(): array
     {
         return $this->getFirstLevelPageBreadcrumbs('app.forms_listing.breadcrumbs', 'forms_listing');
     }
 
+    /**
+     * @return array<array<string>>
+     */
     public function getNewsListingBreadcrumbs(): array
     {
         return $this->getFirstLevelPageBreadcrumbs('app.news_listing.breadcrumbs', 'news_listing');
     }
 
+    /**
+     * @return array<array<string>>
+     */
     public function getCmsPageBreadcrumbs(string $name, string $slug): array
     {
         return $this->getFirstLevelPageBreadcrumbs($name, 'news_listing', ['slug' => $slug]);
     }
 
+    /**
+     * @return array<array<string>>
+     */
     public function getNewsBreadcrumbs(string $name, string $slug): array
     {
         $breadcrumbs = $this->getNewsListingBreadcrumbs();
@@ -54,6 +69,10 @@ final class BreadcrumbsGetter
         return $breadcrumbs;
     }
 
+    /**
+     * @param array<string> $parameters
+     * @return array<array<string>>
+     */
     private function getFirstLevelPageBreadcrumbs(string $translation, string $route, array $parameters = []): array
     {
         $breadcrumbs = $this->getHomePageBreadcrumbs();
@@ -69,6 +88,9 @@ final class BreadcrumbsGetter
         return $breadcrumbs;
     }
 
+    /**
+     * @return array<array<string>>
+     */
     private function getHomePageBreadcrumbs(): array
     {
         return [

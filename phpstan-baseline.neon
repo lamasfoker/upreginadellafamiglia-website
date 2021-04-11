@@ -6,6 +6,16 @@ parameters:
 			path: src/Contentful/RichText/Image.php
 
 		-
+			message: "#^Cannot access offset 'titolo' on Contentful\\\\Core\\\\Resource\\\\ResourceInterface\\.$#"
+			count: 1
+			path: src/Controller/CmsPage.php
+
+		-
+			message: "#^Cannot access offset 'email' on Contentful\\\\Core\\\\Resource\\\\ResourceInterface\\.$#"
+			count: 1
+			path: src/Controller/Contact.php
+
+		-
 			message: "#^Cannot access offset 'luogo' on Contentful\\\\Core\\\\Resource\\\\ResourceInterface\\.$#"
 			count: 2
 			path: src/Controller/Homepage.php
@@ -19,3 +29,19 @@ parameters:
 			message: "#^Cannot access offset 'data' on Contentful\\\\Core\\\\Resource\\\\ResourceInterface\\.$#"
 			count: 1
 			path: src/Controller/Homepage.php
+
+		-
+			message: "#^Cannot access offset 'titolo' on Contentful\\\\Core\\\\Resource\\\\ResourceInterface\\.$#"
+			count: 1
+			path: src/Controller/News.php
+
+		-
+			message: "#^Method App\\\\Form\\\\ContactType\\:\\:buildForm\\(\\) has parameter \\$builder with no value type specified in iterable type Symfony\\\\Component\\\\Form\\\\FormBuilderInterface\\.$#"
+			count: 1
+			path: src/Form/ContactType.php
+
+		-
+			message: "#^Method App\\\\Form\\\\ContactType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Form/ContactType.php
+
