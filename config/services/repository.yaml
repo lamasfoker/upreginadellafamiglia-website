@@ -28,3 +28,9 @@ services:
       - '@contentful.delivery.client'
       - '@app.contentful.query_factory'
       - '@monolog.logger'
+
+  app.repository.informative_page:
+    class: App\Repository\InformativePageRepository
+    arguments:
+      - '@contentful.delivery.client'
+      - '@app.contentful.query_factory'

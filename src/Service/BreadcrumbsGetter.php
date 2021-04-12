@@ -54,6 +54,14 @@ final class BreadcrumbsGetter
     /**
      * @return array<array<string>>
      */
+    public function getInformativePageBreadcrumbs(string $name, string $slug): array
+    {
+        return $this->getFirstLevelPageBreadcrumbs($name, 'informative_page', ['slug' => $slug]);
+    }
+
+    /**
+     * @return array<array<string>>
+     */
     public function getNewsBreadcrumbs(string $name, string $slug): array
     {
         $breadcrumbs = $this->getNewsListingBreadcrumbs();

@@ -33,6 +33,11 @@ parameters:
 		-
 			message: "#^Cannot access offset 'titolo' on Contentful\\\\Core\\\\Resource\\\\ResourceInterface\\.$#"
 			count: 1
+			path: src/Controller/Informative.php
+
+		-
+			message: "#^Cannot access offset 'titolo' on Contentful\\\\Core\\\\Resource\\\\ResourceInterface\\.$#"
+			count: 1
 			path: src/Controller/News.php
 
 		-

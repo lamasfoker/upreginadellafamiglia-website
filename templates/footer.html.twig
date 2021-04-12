@@ -42,8 +42,8 @@
                 <div>
                     <h3 class="xt-h2 text-xl sm:text-2xl lg:text-3xl">Parrocchie</h3>
                     <div class="xt-list xt-list-y-2 md:xt-list-y-4 flex-col uppercase text-base sm:text-xl lg:text-2xl">
-                        {% for link in footer %}
-                            <a href="{{ link|lower|slug }}" class="no-underline hover:text-color-1-light capitalize">{{ link }}</a>
+                        {% for link in footer.villages %}
+                            <a href="{{ path('cms_page', {'slug': link|lower|slug}) }}" class="no-underline hover:text-color-1-light capitalize">{{ link }}</a>
                         {% endfor %}
                     </div>
                 </div>
@@ -54,8 +54,9 @@
         <div class="xt-list xt-list-x-4 sm:xt-list-x-8 uppercase text-xs sm:text-sm">
             <span>copyright @{{ 'now' | date('Y') }}</span>
             <a href="https://github.com/lamasfoker/upreginadellafamiglia-website" target="_blank" class="no-underline hover:text-color-1-light">github</a>
-            <a href="#" class="no-underline hover:text-color-1-light">privacy</a>
-            <a href="#" class="no-underline hover:text-color-1-light">cookie</a>
+            {% for link in footer.informative %}
+                <a href="{{ path('informative_page', {'slug': link|lower|slug})}}" class="no-underline hover:text-color-1-light">{{ link }}</a>
+            {% endfor %}
         </div>
 
     </div>

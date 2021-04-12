@@ -26,6 +26,10 @@ contact_page:
   path: /contatti
   controller: app.controller.contact::index
 
+informative_page:
+  path: /informativa/{slug}
+  controller: app.controller.informative::index
+
 cms_page:
   path: /{slug}
   controller: app.controller.cms_page::index

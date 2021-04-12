@@ -53,3 +53,9 @@ services:
     arguments:
       - '@serializer.encoder.json'
       - '@app.service.breadcrumbs'
+
+  app.controller.informative:
+    class: App\Controller\Informative
+    arguments:
+      - '@app.repository.informative_page'
+      - '@app.service.breadcrumbs'
