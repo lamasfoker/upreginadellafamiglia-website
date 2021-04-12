@@ -5,7 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}Benvenuto{% endblock %}</title>
 
-        <link rel="manifest" href="/manifest.json">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('build/assets/icons/apple-icon-180x180.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('build/assets/icons/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('build/assets/icons/favicon-16x16.png') }}">
+        <link rel="manifest" href="{{ asset('build/web-manifest.json') }}">
+        <link rel="mask-icon" href="{{ asset('build/assets/images/logo.svg') }}" color="#ffffff">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="theme-color" content="#165185">
 
         {% block stylesheets %}
             <link rel="preconnect" href="https://fonts.gstatic.com">
