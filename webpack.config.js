@@ -1,4 +1,5 @@
 const Encore = require('@symfony/webpack-encore')
+const WebpackPwaManifest = require('webpack-pwa-manifest')
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
@@ -60,6 +61,28 @@ Encore
     // uncomment to get integrity="..." attributes on your script & link tags
     // requires WebpackEncoreBundle 1.4 or higher
     //.enableIntegrityHashes(Encore.isProduction())
+
+    .addPlugin(new WebpackPwaManifest({
+        inject: false,
+        fingerprints: false,
+        filename: '../manifest.json',
+        name: 'Up Regina della Famiglia',
+        short_name: 'Up Regina della Famiglia',
+        lang: 'it',
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#5a94c7',
+        dir: 'ltr',
+        display: 'standalone',
+        orientation: 'any',
+        prefer_related_applications: false,
+        icons: [
+            {
+                src: 'assets/icons/pwa-icon.png',
+                sizes: [192, 180, 152, 144, 120, 114, 96, 76, 72, 60, 57, 32, 16]
+            }
+        ]
+    },))
 ;
 
 module.exports = Encore.getWebpackConfig();
