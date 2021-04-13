@@ -10,3 +10,4 @@ twig:
         - VEN
         - SAB
       registry_mail: '%env(REGISTRY_MAIL)%'
+      registry_telephone: '%env(REGISTRY_TELEPHONE)%'
