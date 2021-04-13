@@ -9,3 +9,4 @@ twig:
         - GIO
         - VEN
         - SAB
+      registry_mail: '%env(REGISTRY_MAIL)%'
