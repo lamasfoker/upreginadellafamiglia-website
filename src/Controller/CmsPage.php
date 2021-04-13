@@ -25,7 +25,7 @@ final class CmsPage extends AbstractController
     {
         $page = $this->cmsPageRepository->getBySlug($slug);
         if ($page === null) {
-            return $this->json('NOT FOUND');
+            throw $this->createNotFoundException(sprintf('The Cms Page with slug %s does not exist', $slug));
         }
         $breadcrumbs = $this->breadcrumbsGetter->getCmsPageBreadcrumbs(
             $page[CmsPageRepositoryInterface::CONTENTFUL_RESOURCE_TITLE_FIELD_ID],

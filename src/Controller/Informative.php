@@ -25,7 +25,7 @@ final class Informative extends AbstractController
     {
         $page = $this->textPageRepository->getBySlug($slug);
         if ($page === null) {
-            return $this->json('NOT FOUND');
+            throw $this->createNotFoundException(sprintf('The Informative Page with slug %s does not exist', $slug));
         }
         $breadcrumbs = $this->breadcrumbsGetter->getInformativePageBreadcrumbs(
             $page[InformativePageRepositoryInterface::CONTENTFUL_RESOURCE_TITLE_FIELD_ID],

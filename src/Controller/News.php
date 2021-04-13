@@ -43,7 +43,7 @@ final class News extends AbstractController
     {
         $news = $this->newsRepository->getBySlug($slug);
         if ($news === null) {
-            return $this->json('NOT FOUND');
+            throw $this->createNotFoundException(sprintf('The News with slug %s does not exist', $slug));
         }
 
         return $this->render(
