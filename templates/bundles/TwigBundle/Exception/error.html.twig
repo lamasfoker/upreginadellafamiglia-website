@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title('app.server_error.title'|trans) }}</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('build/assets/icons/apple-icon-180x180.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('build/assets/icons/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('build/assets/icons/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('build/web-manifest.json') }}">
+    <link rel="mask-icon" href="{{ asset('build/assets/images/logo.svg') }}" color="#ffffff">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#165185">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+    {{ encore_entry_link_tags('app') }}
+
+    {{ encore_entry_script_tags('app') }}
+</head>
+<body>
+<div class="overflow-hidden">
+    <div class="container py-20 max-w-4xl">
+        <div class="xt-h1 text-7xl md:text-9xl text-center text-color-1 uppercase">{{ 'app.server_error.ops'|trans }}</div>
+        <div class="text-3xl md:text-5xl text-center">
+            {{ 'app.server_error.text'|trans }}
+        </div>
+    </div>
+</div>
+</body>
+</html>

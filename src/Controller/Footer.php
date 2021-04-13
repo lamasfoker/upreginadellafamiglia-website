@@ -7,6 +7,7 @@ namespace App\Controller;
 use App\Repository\CmsPageRepositoryInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\Serializer\Encoder\DecoderInterface;
 use Symfony\Component\Serializer\Encoder\JsonDecode;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
@@ -24,7 +25,7 @@ final class Footer extends AbstractController
     {
         $contents = file_get_contents(CmsPageRepositoryInterface::CMS_PAGE_FILE_LOCATION);
         if (!is_string($contents)) {
-            return $this->json('NOT FOUND');
+            throw new HttpException(500, sprintf('The content of %s is not a string', CmsPageRepositoryInterface::CMS_PAGE_FILE_LOCATION));
         }
 
         $json = $this->decoder->decode(
@@ -34,7 +35,7 @@ final class Footer extends AbstractController
         );
 
         if (!is_array($json)) {
-            return $this->json('NOT FOUND');
+            throw new HttpException(500, sprintf('The content of %s is not a valid json', CmsPageRepositoryInterface::CMS_PAGE_FILE_LOCATION));
         }
 
         return $this->render('footer.html.twig', ['footer' => $json['footer']]);

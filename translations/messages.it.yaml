@@ -22,3 +22,11 @@ app:
     name_label: 'Nome: '
     mail_label: 'Mail: '
     message_label: 'Messaggio: '
+  not_found:
+    title: 'Pagina non trovata'
+    ops: 'ooops!'
+    text: '... sembra che la pagina che stai cercando non sia più qui.'
+  server_error:
+    title: 'Errore'
+    ops: 'ooops!'
+    text: '... qui le cose sono leggermente instabili, ti chiediamo di tornare più tardi.'
