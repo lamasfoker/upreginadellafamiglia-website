@@ -1,7 +1,9 @@
 app:
   homepage:
+    title: 'Up Regina della Famiglia'
     breadcrumbs: 'homepage'
   contact_page:
+    title: 'Contatti'
     breadcrumbs: 'contatti'
     flash: 'La tua richiesta è stata inviata con successo. Riceverai presto una risposta'
     name_label: 'Nome'
@@ -9,8 +11,10 @@ app:
     message_label: 'Messaggio'
     submit: 'Invia'
   news_listing:
+    title: 'Notizie'
     breadcrumbs: 'notizie'
   forms_listing:
+    title: 'Modulistica'
     breadcrumbs: 'modulistica'
   email:
     subject: 'Richiesta di informazioni dal sito della Parrocchia'

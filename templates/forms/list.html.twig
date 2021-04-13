@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{{ title('app.forms_listing.title'|trans) }}{% endblock %}
+
 {% block body %}
     <div class="container pt-10">
         {% include 'components/breadcrumbs.html.twig' %}

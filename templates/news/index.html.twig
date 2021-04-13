@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{{ title(news.titolo) }}{% endblock %}
+
 {% block body %}
     <div class="container pt-10">
         {% include 'components/breadcrumbs.html.twig' %}
