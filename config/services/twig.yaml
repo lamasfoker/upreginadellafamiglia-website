@@ -20,3 +20,8 @@ services:
     class: App\Twig\SlugExtension
     arguments:
       - '@slugger'
+
+  app.twig.title:
+    class: App\Twig\TitleExtension
+    arguments:
+      - '@translator'
