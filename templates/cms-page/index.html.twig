@@ -12,7 +12,7 @@
         {% if page.immagine is not null %}
             <div class="xt-media-container mb-10 xt-ratio-75">
                 <div class="xt-media-inner">
-                    <img class="xt-media object-cover object-center" src="{{ contentful_image_render(page.immagine.file.url) }}" loading="lazy" alt>
+                    <img class="xt-media object-cover object-center" src="{{ contentful_image_render(page.immagine.file.url) }}" loading="lazy" alt />
                 </div>
             </div>
         {% endif %}
@@ -24,9 +24,9 @@
     </div>
 
     <div class="container pb-10 max-w-4xl">
-        <h2 class="{{ h2 }} mb-5 text-center">Vuoi Saperne di più?</h2>
+        <h2 class="{{ h2 }} mb-5 text-center">{{ 'app.cms_page.contact_title'|trans }}</h2>
         <div class="flex justify-center">
-            <a href="{{ path('contact_page', {'page': page.slug}) }}" class="{{ button }}">Contattaci</a>
+            <a href="{{ path('contact_page', {'page': page.slug}) }}" class="{{ button }}">{{ 'app.cms_page.contact_button'|trans }}</a>
         </div>
     </div>
 {% endblock %}

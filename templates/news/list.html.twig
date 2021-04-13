@@ -37,7 +37,7 @@
         <div class="mt-4">
             <div class="xt-list xt-list-2 flex-col items-center">
                 <button type="button" class="{{ button }}" data-xt-infinitescroll-down="+1">
-                    <span class="content">Mostra più notizie</span>
+                    <span class="content">{{ 'app.news_listing.show_more'|trans }}</span>
 
                     <span class="xt-loader absolute z-above inset-0 rounded-inherit overflow-hidden infinitescroll-spinner">
                     <span class="xt-spinner absolute inset-0 m-auto w-6 h-6 text-white">
@@ -46,7 +46,7 @@
                   </span>
                 </button>
 
-                <div class="h6 uppercase" data-xt-infinitescroll-pagination>Pagina xt-num di xt-tot</div>
+                <div class="h6 uppercase" data-xt-infinitescroll-pagination>{{ 'app.news_listing.page_numer'|trans }}</div>
             </div>
         </div>
 

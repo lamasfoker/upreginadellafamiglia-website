@@ -3,22 +3,22 @@
         <div class="xt-row xt-row-y-8 md:xt-row-y-0 items-center justify-center mb-10">
             <div class="w-full md:w-1/2 xt-list items-center justify-center text-white">
 
-                <img src="{{ asset('build/assets/images/logo-white.png') }}" loading="eager" alt="upreginadellafamiglia logo" class="h-16 sm:h-24 lg:h-32"/>
+                <img src="{{ asset('build/assets/images/logo-white.png') }}" loading="eager" alt="{{ 'app.homepage.alt_logo'|trans }}" class="h-16 sm:h-24 lg:h-32"/>
                 <div class="leading-none text-xl sm:text-2xl lg:text-3xl">
-                    <span class="uppercase">unità pastorale</span><br/>
-                    <span class="uppercase font-bold">maria</span><br/>
-                    <span class="uppercase font-bold">regina <span class="lowercase font-normal">della</span> famiglia</span>
+                    <span class="uppercase">{{ 'app.homepage.logo_part1'|trans }}</span><br/>
+                    <span class="uppercase font-bold">{{ 'app.homepage.logo_part2'|trans }}</span><br/>
+                    <span class="uppercase font-bold">{{ 'app.homepage.logo_part3'|trans({'%class%': 'lowercase font-normal'})|raw }}</span>
                 </div>
 
             </div>
             <div class="w-full md:w-1/2 xt-row justify-around">
 
                 <div>
-                    <h3 class="xt-h2 text-xl sm:text-2xl lg:text-3xl">Contatti</h3>
+                    <h3 class="xt-h2 text-xl sm:text-2xl lg:text-3xl">{{ 'app.homepage.contact'|trans }}</h3>
                     <div class="xt-list xt-list-y-2 md:xt-list-y-4 flex-col uppercase text-base sm:text-xl lg:text-2xl">
                         <a href="mailto:{{ registry_mail }}" class="no-underline xt-list xt-list-x-1 items-center hover:text-color-1-light">
                             <svg xmlns="http://www.w3.org/2000/svg" class="xt-icon xt-icon-md" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                            <span>Mail</span>
+                            <span>{{ 'app.homepage.mail'|trans }}</span>
                         </a>
                         <a href="tel:{{ registry_telephone }}" class="no-underline xt-list xt-list-x-1 items-center hover:text-color-1-light">
                             <svg xmlns="http://www.w3.org/2000/svg" class="xt-icon xt-icon-md" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
@@ -26,21 +26,21 @@
                         </a>
                         <a href="https://goo.gl/maps/c1wwWTiJvhaMe82a6" target="_blank" class="no-underline xt-list xt-list-x-1 items-center hover:text-color-1-light">
                             <svg xmlns="http://www.w3.org/2000/svg" class="xt-icon xt-icon-md" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                            <span>Posizione</span>
+                            <span>{{ 'app.homepage.location'|trans }}</span>
                         </a>
                         <a href="https://www.youtube.com/channel/UCokVt1a0MdujMzYcKVKLTKg" target="_blank" class="no-underline xt-list xt-list-x-1 items-center hover:text-color-1-light">
                             <svg xmlns="http://www.w3.org/2000/svg" class="xt-icon xt-icon-md feather feather-youtube" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
-                            <span>Youtube</span>
+                            <span>{{ 'app.homepage.youtube'|trans }}</span>
                         </a>
                         <a href="https://www.facebook.com/upmariareginafamiglia" target="_blank" class="no-underline xt-list xt-list-x-1 items-center hover:text-color-1-light">
                             <svg xmlns="http://www.w3.org/2000/svg" class="xt-icon xt-icon-md feather feather-facebook" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                            <span>Facebook</span>
+                            <span>{{ 'app.homepage.facebook'|trans }}</span>
                         </a>
                     </div>
                 </div>
 
                 <div>
-                    <h3 class="xt-h2 text-xl sm:text-2xl lg:text-3xl">Parrocchie</h3>
+                    <h3 class="xt-h2 text-xl sm:text-2xl lg:text-3xl">{{ 'app.homepage.villages'|trans }}</h3>
                     <div class="xt-list xt-list-y-2 md:xt-list-y-4 flex-col uppercase text-base sm:text-xl lg:text-2xl">
                         {% for link in footer.villages %}
                             <a href="{{ path('cms_page', {'slug': link|lower|slug}) }}" class="no-underline hover:text-color-1-light capitalize">{{ link }}</a>
@@ -53,7 +53,7 @@
 
         <div class="xt-list xt-list-x-4 sm:xt-list-x-8 uppercase text-xs sm:text-sm">
             <span>copyright @{{ 'now' | date('Y') }}</span>
-            <a href="https://github.com/lamasfoker/upreginadellafamiglia-website" target="_blank" class="no-underline hover:text-color-1-light">github</a>
+            <a href="https://github.com/lamasfoker/upreginadellafamiglia-website" target="_blank" class="no-underline hover:text-color-1-light">{{ 'app.homepage.github'|trans }}</a>
             {% for link in footer.informative %}
                 <a href="{{ path('informative_page', {'slug': link|lower|slug})}}" class="no-underline hover:text-color-1-light">{{ link }}</a>
             {% endfor %}
