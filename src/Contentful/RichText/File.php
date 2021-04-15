@@ -19,7 +19,7 @@ class File implements NodeRendererInterface
 
     public function render(RendererInterface $renderer, NodeInterface $node, array $context = []): string
     {
-        /* @var NodeClass $node */
+        /** @var NodeClass $node */
         if (!$node instanceof NodeClass) {
             throw new LogicException(sprintf('Trying to use node renderer "%s" to render unsupported node of class "%s".', static::class, get_class($node)));
         }
