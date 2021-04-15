@@ -36,10 +36,7 @@ final class Homepage extends AbstractController
                 'news' => $this->newsRepository->getInHomepageNews(),
                 'slider' => $this->newsRepository->getAllPaginated(1, self::NUMBER_OF_NEWS_IN_THE_SLIDER),
                 'days' => $this->groupEventsForDayAndPlace(
-                    array_merge(
-                        $this->eventRepository->getNextEvents(self::NUMBER_OF_DAYS_IN_HOMEPAGE_CALENDAR),
-                        $this->eventRepository->getNextRecurringEvents()
-                    )
+                    $this->eventRepository->getNextEvents(self::NUMBER_OF_DAYS_IN_HOMEPAGE_CALENDAR),
                 )
             ]
         );
@@ -101,12 +98,6 @@ final class Homepage extends AbstractController
                 static function (ResourceInterface $event) use ($currentDate, $currentPlace) {
                     if ($event[EventRepositoryInterface::CONTENTFUL_RESOURCE_PLACE_FIELD_ID] !== $currentPlace) {
                         return false;
-                    }
-                    if ($event[EventRepositoryInterface::CONTENTFUL_RESOURCE_RECURRING_WEEK_DAY_FIELD_ID]) {
-                        $recurringWeekDay = $event[EventRepositoryInterface::CONTENTFUL_RESOURCE_RECURRING_WEEK_DAY_FIELD_ID];
-                        return
-                            array_key_exists($recurringWeekDay, EventRepositoryInterface::CONTENTFUL_RECURRING_WEEK_DAY_FIELD_ID_MAPPING) &&
-                            EventRepositoryInterface::CONTENTFUL_RECURRING_WEEK_DAY_FIELD_ID_MAPPING[$recurringWeekDay] === $currentDate->format('w');
                     }
                     return $event[EventRepositoryInterface::CONTENTFUL_RESOURCE_DATE_FIELD_ID]->format('Y-m-d') === $currentDate->format('Y-m-d');
                 }
