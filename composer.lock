@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8e7d96cdf2739f954ed9a0063a7418b8",
+    "content-hash": "7b6f51d5ef7eee97e066e6cd67b97b55",
     "packages": [
         {
             "name": "cache/adapter-common",
@@ -448,6 +448,57 @@
                 "source": "https://github.com/contentful/ContentfulBundle/tree/6.2.0"
             },
             "time": "2021-03-26T04:21:23+00:00"
+        },
+        {
+            "name": "contentful/contentful-management",
+            "version": "3.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/contentful/contentful-management.php.git",
+                "reference": "318a41f7b2358843f2fcb3eb8c10a67307f3e719"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/contentful/contentful-management.php/zipball/318a41f7b2358843f2fcb3eb8c10a67307f3e719",
+                "reference": "318a41f7b2358843f2fcb3eb8c10a67307f3e719",
+                "shasum": ""
+            },
+            "require": {
+                "contentful/core": "^3.0",
+                "php": "^7.2",
+                "symfony/console": "^3.0|^4.0|~4.0|^5.0",
+                "symfony/filesystem": "^3.0|^4.0|~4.0|~5.0"
+            },
+            "require-dev": {
+                "nikic/php-parser": "^3.1",
+                "php-vcr/php-vcr": "dev-issues/289 as 1.4.5",
+                "php-vcr/phpunit-testlistener-vcr": "3.0.0|^3.2",
+                "phpunit/phpunit": "^8.5"
+            },
+            "suggest": {
+                "nikic/php-parser": "Allows generating content type classes"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Contentful\\Management\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "SDK for the Contentful Content Management API",
+            "support": {
+                "issues": "https://github.com/contentful/contentful-management.php/issues",
+                "source": "https://github.com/contentful/contentful-management.php/tree/3.1.4"
+            },
+            "time": "2020-07-29T14:15:02+00:00"
         },
         {
             "name": "contentful/core",

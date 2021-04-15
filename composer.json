@@ -18,6 +18,7 @@
         "ext-json": "*",
         "contentful/contentful": "^6.1",
         "contentful/contentful-bundle": "^6.2",
+        "contentful/contentful-management": "^3.1",
         "contentful/core": "^3.1",
         "contentful/rich-text": "^3.2",
         "phpdocumentor/reflection-docblock": "^5.2",

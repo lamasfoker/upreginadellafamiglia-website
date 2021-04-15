@@ -26,6 +26,9 @@
             "config/packages/contentful.yaml"
         ]
     },
+    "contentful/contentful-management": {
+        "version": "3.1.4"
+    },
     "contentful/rich-text": {
         "version": "3.2.0"
     },
