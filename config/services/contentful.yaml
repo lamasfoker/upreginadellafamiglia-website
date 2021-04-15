@@ -10,7 +10,10 @@ services:
   app.contentful.rich_text.node_renderer.image:
     class: App\Contentful\RichText\Image
 
+  app.contentful.rich_text.node_renderer.file:
+    class: App\Contentful\RichText\File
+
   app.contentful.rich_text.renderer:
     class: Contentful\RichText\Renderer
     arguments:
-      - ['@app.contentful.rich_text.node_renderer.image']
+      - ['@app.contentful.rich_text.node_renderer.file', '@app.contentful.rich_text.node_renderer.image']
