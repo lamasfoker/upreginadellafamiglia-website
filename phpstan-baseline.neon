@@ -1,6 +1,11 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Method App\\\\Contentful\\\\RichText\\\\File\\:\\:render\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Contentful/RichText/File.php
+
+		-
 			message: "#^Method App\\\\Contentful\\\\RichText\\\\Image\\:\\:render\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Contentful/RichText/Image.php
