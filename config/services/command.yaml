@@ -14,3 +14,9 @@ services:
       - '%env(CONTENTFUL_MASTER_SPACE_ID)%'
       - '@app.contentful.delivery.main_client'
       - '@app.contentful.entry_factory'
+
+  app.command.delete_events:
+    class: App\Command\DeleteEventsOnContentfulCommand
+    arguments:
+      - '%env(CONTENTFUL_MASTER_SPACE_ID)%'
+      - '@app.contentful.delivery.main_client'
