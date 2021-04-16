@@ -12,9 +12,11 @@ interface EventRepositoryInterface extends RepositoryInterface
 
     public const CONTENTFUL_DATE_FIELD_ID = 'fields.data';
 
-    public const CONTENTFUL_RESOURCE_DATE_FIELD_ID = 'data';
+    public const CONTENTFUL_RESOURCE_TITLE_FIELD_ID = 'titolo';
 
     public const CONTENTFUL_RESOURCE_PLACE_FIELD_ID = 'luogo';
+
+    public const CONTENTFUL_RESOURCE_DATE_FIELD_ID = 'data';
 
     /**
      * @return ResourceInterface[]

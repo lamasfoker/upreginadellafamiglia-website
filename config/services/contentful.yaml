@@ -4,8 +4,16 @@ services:
     autoconfigure: false
     public: false
 
+  app.contentful.delivery.main_client:
+    class: Contentful\Management\Client
+    arguments:
+      - '%env(CONTENTFUL_MANAGEMENT_ACCESS_TOKEN)%'
+
   app.contentful.query_factory:
     class: App\Contentful\QueryFactory
+
+  app.contentful.entry_factory:
+    class: App\Contentful\EntryFactory
 
   app.contentful.rich_text.node_renderer.image:
     class: App\Contentful\RichText\Image

@@ -1,0 +1,16 @@
+services:
+  _defaults:
+    autowire: false
+    autoconfigure: false
+    public: false
+
+  _instanceof:
+    Symfony\Component\Console\Command\Command:
+      tags: ['console.command']
+
+  app.command.create_events:
+    class: App\Command\CreateEventsOnContentfulCommand
+    arguments:
+      - '%env(CONTENTFUL_MASTER_SPACE_ID)%'
+      - '@app.contentful.delivery.main_client'
+      - '@app.contentful.entry_factory'
