@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title('app.calendar.title'|trans) }}{% endblock %}
+
+{% block body %}
+    <div class="container pt-10">
+        {% include 'components/breadcrumbs.html.twig' %}
+        <h1 class="{{ h1 }} text-center">{{ 'app.calendar.title'|trans }}</h1>
+    </div>
+
+    <div class="container py-20">
+        <div class="p-3 rounded-3xl" style="background-color: #E3E9FF">
+            <iframe class="w-full h-screen hidden md:block" src="https://calendar.google.com/calendar/embed?wkst=2&amp;bgcolor=%23E3E9FF&amp;ctz=Europe%2FRome&amp;src=dXByZWdpbmFkZWxsYWZhbWlnbGlhc21yQGdtYWlsLmNvbQ&amp;color=%23E3E9FF&amp;showTz=0&amp;showCalendars=0&amp;showTabs=0&amp;showPrint=0&amp;showDate=1&amp;showNav=1&amp;showTitle=0"></iframe>
+            <iframe class="w-full h-screen md:hidden" src="https://calendar.google.com/calendar/embed?wkst=2&amp;bgcolor=%23E3E9FF&amp;ctz=Europe%2FRome&amp;src=dXByZWdpbmFkZWxsYWZhbWlnbGlhc21yQGdtYWlsLmNvbQ&amp;color=%23E3E9FF&amp;showTz=0&amp;showCalendars=0&amp;showTabs=0&amp;showPrint=0&amp;showDate=1&amp;showNav=1&amp;showTitle=0&amp;mode=AGENDA"></iframe>
+        </div>
+    </div>
+{% endblock %}
+
+
+

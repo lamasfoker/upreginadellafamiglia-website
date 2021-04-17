@@ -2,6 +2,8 @@ imports:
   - resource: "services/*.yaml"
 
 parameters:
+  router.request_context.host: www.upreginadellafamiglia.it
+  router.request_context.scheme: https
   no_replay_mail: 'nonrispondermi@upreginadellafamiglia.it'
 
 services:
@@ -15,3 +17,14 @@ services:
     arguments:
       - '@router.default'
       - '@translator'
+
+  app.service.google_calendar_service_factory:
+    class: App\Service\GoogleCalendarServiceFactory
+    arguments:
+      - '%env(GOOGLE_CALENDAR_AUTHORIZATION_KEYS)%'
+
+  app.service.google_calendar_event_factory:
+    class: App\Service\GoogleCalendarEventFactory
+
+  app.service.event_id_resolver:
+    class: App\Service\EventIdResolver

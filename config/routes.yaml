@@ -1,3 +1,7 @@
+delete_google_calendar_event_webhook:
+  path: /delete-google-calendar-event/{contenfulId}
+  controller: app.controller.web_hook_delete_event::index
+
 header:
   path: /_header
   controller: app.controller.header::index
@@ -29,6 +33,10 @@ contact_page:
 informative_page:
   path: /informativa/{slug}
   controller: app.controller.informative::index
+
+calendar_page:
+  path: /calendario
+  controller: app.controller.calendar::index
 
 cms_page:
   path: /{slug}

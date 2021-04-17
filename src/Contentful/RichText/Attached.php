@@ -4,18 +4,17 @@ declare(strict_types=1);
 
 namespace App\Contentful\RichText;
 
-use Contentful\Core\File\ImageFile;
 use Contentful\RichText\Node\EmbeddedAssetBlock;
 use Contentful\RichText\Node\NodeInterface;
 use Contentful\RichText\NodeRenderer\NodeRendererInterface;
 use Contentful\RichText\RendererInterface;
 use LogicException;
 
-final class Image implements NodeRendererInterface
+final class Attached implements NodeRendererInterface
 {
     public function supports(NodeInterface $node): bool
     {
-        return $node instanceof EmbeddedAssetBlock && $node->getAsset()->jsonSerialize()['fields']->file instanceof ImageFile;
+        return $node instanceof EmbeddedAssetBlock;
     }
 
     public function render(RendererInterface $renderer, NodeInterface $node, array $context = []): string
@@ -30,8 +29,9 @@ final class Image implements NodeRendererInterface
         }
 
         return sprintf(
-            '<img src="%s" alt="" loading="lazy"/>',
-            $node->getAsset()->jsonSerialize()['fields']->file->getUrl()
+            '<p><a href="%s" target="_blank">%s</a></p>',
+            $node->getAsset()->jsonSerialize()['fields']->file->getUrl(),
+            $node->getAsset()->jsonSerialize()['fields']->file->getFileName()
         );
     }
 }

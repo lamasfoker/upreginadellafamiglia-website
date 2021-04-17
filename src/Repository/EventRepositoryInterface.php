@@ -12,23 +12,17 @@ interface EventRepositoryInterface extends RepositoryInterface
 
     public const CONTENTFUL_DATE_FIELD_ID = 'fields.data';
 
-    public const CONTENTFUL_RECURRING_WEEK_DAY_FIELD_ID = 'fields.ricorrenza';
+    public const CONTENTFUL_RESOURCE_TITLE_FIELD_ID = 'titolo';
 
-    public const CONTENTFUL_RESOURCE_DATE_FIELD_ID = 'data';
-
-    public const CONTENTFUL_RESOURCE_RECURRING_WEEK_DAY_FIELD_ID = 'ricorrenza';
+    public const CONTENTFUL_RESOURCE_DESCRIPTION_FIELD_ID = 'descrizione';
 
     public const CONTENTFUL_RESOURCE_PLACE_FIELD_ID = 'luogo';
 
-    public const CONTENTFUL_RECURRING_WEEK_DAY_FIELD_ID_MAPPING = [
-        'Domenica' => '0',
-        'Lunedì' => '1',
-        'Martedì' => '2',
-        'Mercoledì' => '3',
-        'Giovedì' => '4',
-        'Venerdì' => '5',
-        'Sabato' => '6'
-    ];
+    public const CONTENTFUL_RESOURCE_DATE_FIELD_ID = 'data';
+
+    public const CONTENTFUL_RESOURCE_NEWS_FIELD_ID = 'notizia';
+
+    public const CONTENTFUL_RESOURCE_GOOGLE_CALENDAR_ID_FIELD_ID = 'googleCalendarId';
 
     /**
      * @return ResourceInterface[]
@@ -38,5 +32,5 @@ interface EventRepositoryInterface extends RepositoryInterface
     /**
      * @return ResourceInterface[]
      */
-    public function getNextRecurringEvents(): array;
+    public function getUpdatedFutureEvents(): array;
 }
