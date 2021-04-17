@@ -1,6 +1,56 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Cannot access offset 'googleCalendarId' on Contentful\\\\Core\\\\Resource\\\\ResourceInterface\\.$#"
+			count: 2
+			path: src/Command/CreateEventsOnGoogleCalendarCommand.php
+
+		-
+			message: "#^Cannot access offset 'descrizione' on Contentful\\\\Core\\\\Resource\\\\ResourceInterface\\.$#"
+			count: 2
+			path: src/Command/CreateEventsOnGoogleCalendarCommand.php
+
+		-
+			message: "#^Cannot access offset 'notizia' on Contentful\\\\Core\\\\Resource\\\\ResourceInterface\\.$#"
+			count: 2
+			path: src/Command/CreateEventsOnGoogleCalendarCommand.php
+
+		-
+			message: "#^Cannot access offset 'slug' on Contentful\\\\Core\\\\Resource\\\\ResourceInterface\\.$#"
+			count: 1
+			path: src/Command/CreateEventsOnGoogleCalendarCommand.php
+
+		-
+			message: "#^Method App\\\\Command\\\\CreateEventsOnGoogleCalendarCommand\\:\\:copyDataFromContentfulToCalendar\\(\\) has parameter \\$calendarEvent with no value type specified in iterable type Google_Service_Calendar_Event\\.$#"
+			count: 1
+			path: src/Command/CreateEventsOnGoogleCalendarCommand.php
+
+		-
+			message: "#^Method App\\\\Command\\\\CreateEventsOnGoogleCalendarCommand\\:\\:copyDataFromContentfulToCalendar\\(\\) return type has no value type specified in iterable type Google_Service_Calendar_Event\\.$#"
+			count: 1
+			path: src/Command/CreateEventsOnGoogleCalendarCommand.php
+
+		-
+			message: "#^Cannot access offset 'titolo' on Contentful\\\\Core\\\\Resource\\\\ResourceInterface\\.$#"
+			count: 1
+			path: src/Command/CreateEventsOnGoogleCalendarCommand.php
+
+		-
+			message: "#^Cannot access offset 'data' on Contentful\\\\Core\\\\Resource\\\\ResourceInterface\\.$#"
+			count: 4
+			path: src/Command/CreateEventsOnGoogleCalendarCommand.php
+
+		-
+			message: "#^Cannot access offset 'luogo' on Contentful\\\\Core\\\\Resource\\\\ResourceInterface\\.$#"
+			count: 1
+			path: src/Command/CreateEventsOnGoogleCalendarCommand.php
+
+		-
+			message: "#^Method App\\\\Contentful\\\\RichText\\\\Attached\\:\\:render\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Contentful/RichText/Attached.php
+
+		-
 			message: "#^Method App\\\\Contentful\\\\RichText\\\\File\\:\\:render\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Contentful/RichText/File.php
@@ -22,11 +72,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'luogo' on Contentful\\\\Core\\\\Resource\\\\ResourceInterface\\.$#"
-			count: 2
-			path: src/Controller/Homepage.php
-
-		-
-			message: "#^Cannot access offset 'ricorrenza' on Contentful\\\\Core\\\\Resource\\\\ResourceInterface\\.$#"
 			count: 2
 			path: src/Controller/Homepage.php
 
@@ -54,4 +99,9 @@ parameters:
 			message: "#^Method App\\\\Form\\\\ContactType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Form/ContactType.php
+
+		-
+			message: "#^Method App\\\\Service\\\\GoogleCalendarEventFactory\\:\\:create\\(\\) return type has no value type specified in iterable type Google_Service_Calendar_Event\\.$#"
+			count: 1
+			path: src/Service/GoogleCalendarEventFactory.php
 

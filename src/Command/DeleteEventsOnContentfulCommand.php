@@ -44,6 +44,11 @@ final class DeleteEventsOnContentfulCommand extends Command
     {
         $fileName = self::CSV_FILE_FOLDER_LOCATION . self::CSV_FILE_NAME;
         $file = fopen($fileName, 'rb');
+        if (!$file) {
+            $output->writeln('Error during the opening of the file');
+
+            return self::FAILURE;
+        }
 
         for ($index = 1; !feof($file); $index++) {
             $row = fgetcsv($file);
@@ -69,6 +74,9 @@ final class DeleteEventsOnContentfulCommand extends Command
         return self::SUCCESS;
     }
 
+    /**
+     * @param array<string> $data
+     */
     private function deleteEvent(array $data): void
     {
         $event = $this->environmentProxy->getEntry($data[0]);

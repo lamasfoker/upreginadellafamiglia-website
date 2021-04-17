@@ -57,6 +57,12 @@ final class CreateEventsOnContentfulCommand extends Command
         $import = fopen($importFileName, 'rb');
         $export = fopen($exportFileName, 'wb');
 
+        if (!$import || !$export) {
+            $output->writeln('Error during the opening of the files');
+
+            return self::FAILURE;
+        }
+
         for ($index = 1; !feof($import); $index++) {
             $row = fgetcsv($import);
             if (!is_array($row)) {
@@ -74,6 +80,9 @@ final class CreateEventsOnContentfulCommand extends Command
         return self::SUCCESS;
     }
 
+    /**
+     * @param array<string> $data
+     */
     private function createEvent(array $data): string
     {
         $event =
