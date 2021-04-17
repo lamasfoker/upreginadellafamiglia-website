@@ -32,7 +32,7 @@ final class EventIdResolver
 
         while (!feof($file)) {
             $row = fgetcsv($file);
-            if (!is_array($row)|| $row[0] === $contentfulId) {
+            if (!is_array($row) || $row[0] === $contentfulId) {
                 continue;
             }
             fputcsv($tmpFile, $row);

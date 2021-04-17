@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Command;
@@ -63,7 +64,7 @@ final class DeleteEventsOnContentfulCommand extends Command
         }
 
         fclose($file);
-        $output->writeln(sprintf('The process is completed, %s events deleted', $index-1));
+        $output->writeln(sprintf('The process is completed, %s events deleted', $index - 1));
 
         return self::SUCCESS;
     }

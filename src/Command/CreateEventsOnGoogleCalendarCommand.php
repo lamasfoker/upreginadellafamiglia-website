@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Command;
@@ -168,7 +169,7 @@ final class CreateEventsOnGoogleCalendarCommand extends Command
             ->update()
         ;
 
-        if ($isPublished && !$isUpdated &&!$isDraft) {
+        if ($isPublished && !$isUpdated && !$isDraft) {
             $event->publish();
         }
     }
