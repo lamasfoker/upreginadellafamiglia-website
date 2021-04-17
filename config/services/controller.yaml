@@ -67,3 +67,8 @@ services:
       - '%env(WEBHOOK_SECRET_TOKEN_VALUE)%'
       - '@app.service.google_calendar_service_factory'
       - '@app.service.event_id_resolver'
+
+  app.controller.calendar:
+    class: App\Controller\Calendar
+    arguments:
+      - '@app.service.breadcrumbs'

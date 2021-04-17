@@ -6,6 +6,7 @@ app:
     cta_news: 'Vai alla Notizia'
     news: 'Notizie'
     show_all: 'Vedi Tutto'
+    show_calendar: 'Vai al Calendario Completo'
     news_number: 'Notizia xt-num'
     alt_logo: 'upreginadellafamiglia logo'
     logo_part1: 'unità pastorale'
@@ -63,3 +64,5 @@ app:
   calendar:
     link: 'Per maggiori informazioni clicca <a href="%s">qui</a>.'
     location: '%location%, RE'
+    breadcrumbs: 'Calendario'
+    title: 'Calendario'

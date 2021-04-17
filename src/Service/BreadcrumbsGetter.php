@@ -22,6 +22,14 @@ final class BreadcrumbsGetter
     /**
      * @return array<array<string>>
      */
+    public function getCalendarPageBreadcrumbs(): array
+    {
+        return $this->getFirstLevelPageBreadcrumbs('app.calendar.breadcrumbs', 'calendar_page');
+    }
+
+    /**
+     * @return array<array<string>>
+     */
     public function getContactPageBreadcrumbs(): array
     {
         return $this->getFirstLevelPageBreadcrumbs('app.contact_page.breadcrumbs', 'contact_page');
