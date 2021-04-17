@@ -6,6 +6,7 @@ namespace App\Command;
 use App\Repository\EventRepositoryInterface;
 use App\Repository\NewsRepositoryInterface;
 use App\Repository\RepositoryInterface;
+use App\Service\EventIdResolver;
 use App\Service\GoogleCalendarEventFactory;
 use App\Service\GoogleCalendarServiceFactory;
 use Contentful\Core\Resource\ResourceInterface;
@@ -38,7 +39,10 @@ final class CreateEventsOnGoogleCalendarCommand extends Command
 
     private EnvironmentProxy $environmentProxy;
 
+    private EventIdResolver $eventIdResolver;
+
     public function __construct(
+        EventIdResolver $eventIdResolver,
         Client $client,
         string $spaceId,
         TranslatorInterface $translator,
@@ -56,6 +60,7 @@ final class CreateEventsOnGoogleCalendarCommand extends Command
         $this->eventRepository = $eventRepository;
         $this->urlGenerator = $urlGenerator;
         $this->translator = $translator;
+        $this->eventIdResolver = $eventIdResolver;
         parent::__construct($name);
     }
 
@@ -77,6 +82,7 @@ final class CreateEventsOnGoogleCalendarCommand extends Command
             } else {
                 $googleEventId = $this->createEventOnCalendar($event);
                 $this->addGoogleCalendarIdInContentfulEvent($event->getId(), $googleEventId);
+                $this->eventIdResolver->storeAssociation($event->getId(), $googleEventId);
             }
         }
 

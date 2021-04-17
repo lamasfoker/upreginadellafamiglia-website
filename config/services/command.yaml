@@ -24,6 +24,7 @@ services:
   app.command.syncronyze_google_calendar:
     class: App\Command\CreateEventsOnGoogleCalendarCommand
     arguments:
+      - '@app.service.event_id_resolver'
       - '@app.contentful.delivery.main_client'
       - '%env(CONTENTFUL_MASTER_SPACE_ID)%'
       - '@translator'

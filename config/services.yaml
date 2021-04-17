@@ -25,3 +25,6 @@ services:
 
   app.service.google_calendar_event_factory:
     class: App\Service\GoogleCalendarEventFactory
+
+  app.service.event_id_resolver:
+    class: App\Service\EventIdResolver

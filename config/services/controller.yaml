@@ -59,3 +59,11 @@ services:
     arguments:
       - '@app.repository.informative_page'
       - '@app.service.breadcrumbs'
+
+  app.controller.web_hook_delete_event:
+    class: App\Controller\DeleteGoogleCalendarEventWebHook
+    arguments:
+      - '%env(GOOGLE_CALENDAR_ID)%'
+      - '%env(WEBHOOK_SECRET_TOKEN_VALUE)%'
+      - '@app.service.google_calendar_service_factory'
+      - '@app.service.event_id_resolver'
