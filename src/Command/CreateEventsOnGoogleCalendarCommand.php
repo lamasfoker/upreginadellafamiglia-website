@@ -131,7 +131,7 @@ final class CreateEventsOnGoogleCalendarCommand extends Command
     private function copyDataFromContentfulToCalendar(ResourceInterface $contentfulEvent, Google_Service_Calendar_Event $calendarEvent): Google_Service_Calendar_Event
     {
         $calendarEvent->setSummary($contentfulEvent[EventRepositoryInterface::CONTENTFUL_RESOURCE_TITLE_FIELD_ID]);
-        $calendarEvent->setLocation($contentfulEvent[EventRepositoryInterface::CONTENTFUL_RESOURCE_PLACE_FIELD_ID]);
+        $calendarEvent->setLocation($this->formatLocation($contentfulEvent));
         $calendarEvent->setDescription($this->formatDescription($contentfulEvent));
         $calendarEvent->setStart(new Google_Service_Calendar_EventDateTime(
             [
@@ -165,5 +165,10 @@ final class CreateEventsOnGoogleCalendarCommand extends Command
         if ($isPublished && !$isUpdated &&!$isDraft) {
             $event->publish();
         }
+    }
+
+    private function formatLocation(ResourceInterface $contentfulEvent): string
+    {
+        return $this->translator->trans('app.calendar.location', ['%location%' => $contentfulEvent[EventRepositoryInterface::CONTENTFUL_RESOURCE_PLACE_FIELD_ID]]);
     }
 }

@@ -62,3 +62,4 @@ app:
     contact_button: 'Contattaci'
   calendar:
     link: 'Per maggiori informazioni clicca <a href="%s">qui</a>.'
+    location: '%location%, RE'
