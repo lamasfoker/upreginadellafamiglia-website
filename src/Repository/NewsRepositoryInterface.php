@@ -16,6 +16,8 @@ interface NewsRepositoryInterface extends RepositoryInterface
 
     public const CONTENTFUL_RESOURCE_TITLE_FIELD_ID = 'titolo';
 
+    public const CONTENTFUL_RESOURCE_SLUG_FIELD_ID = 'slug';
+
     public function getBySlug(string $slug): ?ResourceInterface;
 
     /**

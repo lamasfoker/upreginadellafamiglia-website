@@ -60,3 +60,5 @@ app:
   cms_page:
     contact_title: 'Vuoi Saperne di più?'
     contact_button: 'Contattaci'
+  calendar:
+    link: 'Per maggiori informazioni clicca <a href="%s">qui</a>.'

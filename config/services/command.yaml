@@ -20,3 +20,15 @@ services:
     arguments:
       - '%env(CONTENTFUL_MASTER_SPACE_ID)%'
       - '@app.contentful.delivery.main_client'
+
+  app.command.syncronyze_google_calendar:
+    class: App\Command\CreateEventsOnGoogleCalendarCommand
+    arguments:
+      - '@app.contentful.delivery.main_client'
+      - '%env(CONTENTFUL_MASTER_SPACE_ID)%'
+      - '@translator'
+      - '@router.default'
+      - '@app.repository.event'
+      - '@app.service.google_calendar_event_factory'
+      - '@app.service.google_calendar_service_factory'
+      - '%env(GOOGLE_CALENDAR_ID)%'
