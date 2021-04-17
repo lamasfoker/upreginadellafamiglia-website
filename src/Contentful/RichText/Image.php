@@ -29,6 +29,9 @@ final class Image implements NodeRendererInterface
             ));
         }
 
-        return '<img src="' . $node->getAsset()->jsonSerialize()['fields']->file->getUrl() . '" alt="' . $node->getAsset()->jsonSerialize()['fields']->title . '" loading="lazy" />';
+        return sprintf(
+            '<img src="%s" alt="" loading="lazy"/>',
+            $node->getAsset()->jsonSerialize()['fields']->file->getUrl()
+        );
     }
 }
