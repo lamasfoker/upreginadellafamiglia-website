@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Repository;
 
 use Contentful\Core\Resource\ResourceInterface;
+use Contentful\Management\Resource\Behavior\CreatableInterface;
+use Contentful\Management\Resource\Entry;
 
 interface EventRepositoryInterface extends RepositoryInterface
 {
@@ -33,4 +35,12 @@ interface EventRepositoryInterface extends RepositoryInterface
      * @return ResourceInterface[]
      */
     public function getUpdatedFutureEvents(): array;
+
+    public function getById(string $eventId): ResourceInterface;
+
+    public function addGoogleCalendarId(ResourceInterface $event, string $googleEventId);
+
+    public function create(CreatableInterface $event);
+
+    public function getManagementEventById(string $eventId): Entry;
 }

@@ -4,7 +4,7 @@ services:
     autoconfigure: false
     public: false
 
-  app.contentful.delivery.main_client:
+  app.contentful.management_client:
     class: Contentful\Management\Client
     arguments:
       - '%env(CONTENTFUL_MANAGEMENT_ACCESS_TOKEN)%'

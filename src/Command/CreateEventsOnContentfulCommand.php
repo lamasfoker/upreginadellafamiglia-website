@@ -25,12 +25,12 @@ final class CreateEventsOnContentfulCommand extends Command
 
     private EntryFactory $entryFactory;
 
-    private EnvironmentProxy $environmentProxy;
+    private EventRepositoryInterface $eventRepository;
 
-    public function __construct(string $spaceId, Client $client, EntryFactory $entryFactory, string $name = null)
+    public function __construct(EventRepositoryInterface $eventRepository, EntryFactory $entryFactory, string $name = null)
     {
         $this->entryFactory = $entryFactory;
-        $this->environmentProxy = $client->getEnvironmentProxy($spaceId);
+        $this->eventRepository = $eventRepository;
         parent::__construct($name);
     }
 
@@ -92,7 +92,7 @@ final class CreateEventsOnContentfulCommand extends Command
             ->setField(EventRepositoryInterface::CONTENTFUL_RESOURCE_DATE_FIELD_ID, RepositoryInterface::CONTENTFUL_ITALIAN_LOCALE_CODE, $data[2])
         ;
 
-        $this->environmentProxy->create($event);
+        $this->eventRepository->create($event);
         $event->publish();
 
         return $event->getId();

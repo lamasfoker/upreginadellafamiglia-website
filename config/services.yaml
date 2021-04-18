@@ -15,7 +15,7 @@ services:
   app.service.breadcrumbs:
     class: App\Service\BreadcrumbsGetter
     arguments:
-      - '@router.default'
+      - '@router'
       - '@translator'
 
   app.service.google_calendar_service_factory:

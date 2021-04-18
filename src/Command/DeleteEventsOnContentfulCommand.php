@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Command;
 
+use App\Repository\EventRepositoryInterface;
 use Contentful\Management\Client;
 use Contentful\Management\Proxy\EnvironmentProxy;
 use Exception;
@@ -19,11 +20,11 @@ final class DeleteEventsOnContentfulCommand extends Command
 
     private const CSV_FILE_FOLDER_LOCATION = __DIR__ . '/../../var/';
 
-    private EnvironmentProxy $environmentProxy;
+    private EventRepositoryInterface $eventRepository;
 
-    public function __construct(string $spaceId, Client $client, string $name = null)
+    public function __construct(EventRepositoryInterface $eventRepository, string $name = null)
     {
-        $this->environmentProxy = $client->getEnvironmentProxy($spaceId);
+        $this->eventRepository = $eventRepository;
         parent::__construct($name);
     }
 
@@ -79,7 +80,7 @@ final class DeleteEventsOnContentfulCommand extends Command
      */
     private function deleteEvent(array $data): void
     {
-        $event = $this->environmentProxy->getEntry($data[0]);
+        $event = $this->eventRepository->getManagementEventById($data[0]);
         $event->unpublish();
         $event->delete();
     }

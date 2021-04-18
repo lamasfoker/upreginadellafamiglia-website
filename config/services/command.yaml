@@ -11,25 +11,16 @@ services:
   app.command.create_events:
     class: App\Command\CreateEventsOnContentfulCommand
     arguments:
-      - '%env(CONTENTFUL_MASTER_SPACE_ID)%'
-      - '@app.contentful.delivery.main_client'
+      - '@app.repository.event'
       - '@app.contentful.entry_factory'
 
   app.command.delete_events:
     class: App\Command\DeleteEventsOnContentfulCommand
     arguments:
-      - '%env(CONTENTFUL_MASTER_SPACE_ID)%'
-      - '@app.contentful.delivery.main_client'
+      - '@app.repository.event'
 
   app.command.syncronyze_google_calendar:
     class: App\Command\CreateEventsOnGoogleCalendarCommand
     arguments:
-      - '@app.service.event_id_resolver'
-      - '@app.contentful.delivery.main_client'
-      - '%env(CONTENTFUL_MASTER_SPACE_ID)%'
-      - '@translator'
-      - '@router.default'
+      - '@app.repository.google_calendar_event'
       - '@app.repository.event'
-      - '@app.service.google_calendar_event_factory'
-      - '@app.service.google_calendar_service_factory'
-      - '%env(GOOGLE_CALENDAR_ID)%'

@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Service\EventIdResolver;
-use App\Service\GoogleCalendarServiceFactory;
-use Google_Service_Calendar;
+use App\Repository\GoogleEventCalendarRepositoryInterface;
+use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,22 +16,12 @@ final class DeleteGoogleCalendarEventWebHook extends AbstractController
 
     private string $tokenValue;
 
-    private Google_Service_Calendar $calendarService;
+    private GoogleEventCalendarRepositoryInterface $googleEventCalendarRepository;
 
-    private EventIdResolver $eventIdResolver;
-
-    private string $calendarId;
-
-    public function __construct(
-        string $calendarId,
-        string $tokenValue,
-        GoogleCalendarServiceFactory $calendarServiceFactory,
-        EventIdResolver $eventIdResolver
-    ) {
+    public function __construct(GoogleEventCalendarRepositoryInterface $googleEventCalendarRepository, string $tokenValue)
+    {
         $this->tokenValue = $tokenValue;
-        $this->calendarService = $calendarServiceFactory->create();
-        $this->eventIdResolver = $eventIdResolver;
-        $this->calendarId = $calendarId;
+        $this->googleEventCalendarRepository = $googleEventCalendarRepository;
     }
 
     public function index(Request $request): Response
@@ -45,15 +34,12 @@ final class DeleteGoogleCalendarEventWebHook extends AbstractController
         if (!$contentfulId) {
             return $this->json(['message' => 'No contenful event Id provided'], 400);
         }
-        $calendarEventId = $this->eventIdResolver->resolveCalendarId($contentfulId);
-        if (!$calendarEventId) {
-            return $this->json(
-                ['message' => sprintf('No calendar google event Id correspond with contentful event Id %s', $contentfulId)],
-                404
-            );
+
+        try {
+            $this->googleEventCalendarRepository->delete($contentfulId);
+        } catch (Exception $e) {
+            return $this->json(['message' => $e->getMessage()], 404);
         }
-        $this->calendarService->events->delete($this->calendarId, $calendarEventId);
-        $this->eventIdResolver->deleteAssociation($contentfulId);
 
         return $this->json(['message' => 'Event deleted successfully from Google Calendar']);
     }

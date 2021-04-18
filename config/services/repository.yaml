@@ -27,10 +27,21 @@ services:
     arguments:
       - '@contentful.delivery.client'
       - '@app.contentful.query_factory'
-      - '@monolog.logger'
+      - '%env(CONTENTFUL_SPACE_ID)%'
+      - '@app.contentful.management_client'
 
   app.repository.informative_page:
     class: App\Repository\InformativePageRepository
     arguments:
       - '@contentful.delivery.client'
       - '@app.contentful.query_factory'
+
+  app.repository.google_calendar_event:
+    class: App\Repository\GoogleEventCalendarRepository
+    arguments:
+      - '@app.service.event_id_resolver'
+      - '@app.service.google_calendar_service_factory'
+      - '%env(GOOGLE_CALENDAR_ID)%'
+      - '@app.service.google_calendar_event_factory'
+      - '@router'
+      - '@translator'
