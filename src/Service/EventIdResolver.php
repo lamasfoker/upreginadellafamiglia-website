@@ -10,7 +10,10 @@ final class EventIdResolver
 {
     public const EVENT_ASSOCIATION_FILE_LOCATION = __DIR__ . '/../../var/data/event-association.csv';
 
-    public function resolveCalendarId(string $contentfulId): ?string
+    /**
+     * @throws Exception
+     */
+    public function resolveCalendarId(string $contentfulId): string
     {
         $file = fopen(self::EVENT_ASSOCIATION_FILE_LOCATION, 'rb');
         if (!$file) {
@@ -26,9 +29,12 @@ final class EventIdResolver
         }
 
         fclose($file);
-        return null;
+        throw new Exception('None google calendar event is associated with the contentful event id provided');
     }
 
+    /**
+     * @throws Exception
+     */
     public function deleteAssociation(string $contentfulId): void
     {
         $tmpFileLocation = self::EVENT_ASSOCIATION_FILE_LOCATION . 'tmp';
@@ -52,6 +58,9 @@ final class EventIdResolver
         rename($tmpFileLocation, self::EVENT_ASSOCIATION_FILE_LOCATION);
     }
 
+    /**
+     * @throws Exception
+     */
     public function storeAssociation(string $contentfulId, string $calendarId): void
     {
         $file = fopen(self::EVENT_ASSOCIATION_FILE_LOCATION, 'ab+');

@@ -2,6 +2,10 @@ delete_google_calendar_event_webhook:
   path: /delete-google-calendar-event/{contenfulId}
   controller: app.controller.web_hook_delete_event::index
 
+save_google_calendar_event_webhook:
+  path: /save-google-calendar-event/{contenfulId}
+  controller: app.controller.web_hook_save_event::index
+
 header:
   path: /_header
   controller: app.controller.header::index
