@@ -38,9 +38,9 @@ interface EventRepositoryInterface extends RepositoryInterface
 
     public function getById(string $eventId): ResourceInterface;
 
-    public function addGoogleCalendarId(ResourceInterface $event, string $googleEventId);
+    public function addGoogleCalendarId(ResourceInterface $event, string $googleEventId): void;
 
-    public function create(CreatableInterface $event);
+    public function create(CreatableInterface $event): void;
 
     public function getManagementEventById(string $eventId): Entry;
 }

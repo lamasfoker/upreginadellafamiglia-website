@@ -90,7 +90,7 @@ final class EventRepository implements EventRepositoryInterface
         }
     }
 
-    public function create(CreatableInterface $event)
+    public function create(CreatableInterface $event): void
     {
         $this->environmentProxy->create($event);
     }
