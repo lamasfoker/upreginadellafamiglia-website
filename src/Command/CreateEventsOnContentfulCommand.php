@@ -7,8 +7,6 @@ namespace App\Command;
 use App\Contentful\EntryFactory;
 use App\Repository\EventRepositoryInterface;
 use App\Repository\RepositoryInterface;
-use Contentful\Management\Client;
-use Contentful\Management\Proxy\EnvironmentProxy;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

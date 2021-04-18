@@ -6,22 +6,9 @@ namespace App\Command;
 
 use App\Repository\EventRepositoryInterface;
 use App\Repository\GoogleEventCalendarRepositoryInterface;
-use App\Repository\NewsRepositoryInterface;
-use App\Repository\RepositoryInterface;
-use App\Service\EventIdResolver;
-use App\Service\GoogleCalendarEventFactory;
-use App\Service\GoogleCalendarServiceFactory;
-use Contentful\Core\Resource\ResourceInterface;
-use Contentful\Management\Client;
-use Contentful\Management\Proxy\EnvironmentProxy;
-use Google_Service_Calendar;
-use Google_Service_Calendar_Event;
-use Google_Service_Calendar_EventDateTime;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Contracts\Translation\TranslatorInterface;
 
 final class CreateEventsOnGoogleCalendarCommand extends Command
 {
