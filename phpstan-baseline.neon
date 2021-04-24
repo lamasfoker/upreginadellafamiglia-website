@@ -1,11 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Cannot access offset 'googleCalendarId' on Contentful\\\\Core\\\\Resource\\\\ResourceInterface\\.$#"
-			count: 1
-			path: src/Command/CreateEventsOnGoogleCalendarCommand.php
-
-		-
 			message: "#^Method App\\\\Contentful\\\\RichText\\\\Attached\\:\\:render\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Contentful/RichText/Attached.php
@@ -51,11 +46,6 @@ parameters:
 			path: src/Controller/News.php
 
 		-
-			message: "#^Cannot access offset 'googleCalendarId' on Contentful\\\\Core\\\\Resource\\\\ResourceInterface\\.$#"
-			count: 1
-			path: src/Controller/SaveGoogleCalendarEventWebHook.php
-
-		-
 			message: "#^Method App\\\\Form\\\\ContactType\\:\\:buildForm\\(\\) has parameter \\$builder with no value type specified in iterable type Symfony\\\\Component\\\\Form\\\\FormBuilderInterface\\.$#"
 			count: 1
 			path: src/Form/ContactType.php
@@ -64,16 +54,6 @@ parameters:
 			message: "#^Method App\\\\Form\\\\ContactType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Form/ContactType.php
-
-		-
-			message: "#^Method App\\\\Repository\\\\GoogleEventCalendarRepository\\:\\:save\\(\\) return type has no value type specified in iterable type Google_Service_Calendar_Event\\.$#"
-			count: 1
-			path: src/Repository/GoogleEventCalendarRepository.php
-
-		-
-			message: "#^Cannot access offset 'googleCalendarId' on Contentful\\\\Core\\\\Resource\\\\ResourceInterface\\.$#"
-			count: 1
-			path: src/Repository/GoogleEventCalendarRepository.php
 
 		-
 			message: "#^Method App\\\\Repository\\\\GoogleEventCalendarRepository\\:\\:copyDataFromContentfulToCalendar\\(\\) has parameter \\$calendarEvent with no value type specified in iterable type Google_Service_Calendar_Event\\.$#"
@@ -114,11 +94,6 @@ parameters:
 			message: "#^Cannot access offset 'slug' on Contentful\\\\Core\\\\Resource\\\\ResourceInterface\\.$#"
 			count: 1
 			path: src/Repository/GoogleEventCalendarRepository.php
-
-		-
-			message: "#^Method App\\\\Repository\\\\GoogleEventCalendarRepositoryInterface\\:\\:save\\(\\) return type has no value type specified in iterable type Google_Service_Calendar_Event\\.$#"
-			count: 1
-			path: src/Repository/GoogleEventCalendarRepositoryInterface.php
 
 		-
 			message: "#^Method App\\\\Service\\\\GoogleCalendarEventFactory\\:\\:create\\(\\) return type has no value type specified in iterable type Google_Service_Calendar_Event\\.$#"

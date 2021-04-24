@@ -28,3 +28,7 @@ services:
 
   app.service.event_id_resolver:
     class: App\Service\EventIdResolver
+    arguments:
+      - '%env(DATABASE_DSN)%'
+      - '%env(DATABASE_USER)%'
+      - '%env(DATABASE_PASSWORD)%'

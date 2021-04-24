@@ -40,10 +40,7 @@ final class CreateEventsOnGoogleCalendarCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         foreach ($this->eventRepository->getUpdatedFutureEvents() as $event) {
-            $googleEvent = $this->googleEventCalendarRepository->save($event);
-            if (!$event[EventRepositoryInterface::CONTENTFUL_RESOURCE_GOOGLE_CALENDAR_ID_FIELD_ID]) {
-                $this->eventRepository->addGoogleCalendarId($event, $googleEvent->getId());
-            }
+            $this->googleEventCalendarRepository->save($event);
         }
 
         return self::SUCCESS;

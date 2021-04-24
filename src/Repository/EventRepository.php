@@ -72,24 +72,6 @@ final class EventRepository implements EventRepositoryInterface
         return $this->deliveryClient->getEntry($eventId);
     }
 
-    public function addGoogleCalendarId(ResourceInterface $event, string $googleEventId): void
-    {
-        $event = $this->environmentProxy->getEntry($event->getId());
-
-        $isPublished = $event->getSystemProperties()->isPublished();
-        $isDraft = $event->getSystemProperties()->isDraft();
-        $isUpdated = $event->getSystemProperties()->isUpdated();
-
-        $event
-            ->setField(EventRepositoryInterface::CONTENTFUL_RESOURCE_GOOGLE_CALENDAR_ID_FIELD_ID, RepositoryInterface::CONTENTFUL_ITALIAN_LOCALE_CODE, $googleEventId)
-            ->update()
-        ;
-
-        if ($isPublished && !$isUpdated && !$isDraft) {
-            $event->publish();
-        }
-    }
-
     public function create(CreatableInterface $event): void
     {
         $this->environmentProxy->create($event);

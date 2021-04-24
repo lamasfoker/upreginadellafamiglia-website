@@ -24,8 +24,6 @@ interface EventRepositoryInterface extends RepositoryInterface
 
     public const CONTENTFUL_RESOURCE_NEWS_FIELD_ID = 'notizia';
 
-    public const CONTENTFUL_RESOURCE_GOOGLE_CALENDAR_ID_FIELD_ID = 'googleCalendarId';
-
     /**
      * @return ResourceInterface[]
      */
@@ -37,8 +35,6 @@ interface EventRepositoryInterface extends RepositoryInterface
     public function getUpdatedFutureEvents(): array;
 
     public function getById(string $eventId): ResourceInterface;
-
-    public function addGoogleCalendarId(ResourceInterface $event, string $googleEventId): void;
 
     public function create(CreatableInterface $event): void;
 

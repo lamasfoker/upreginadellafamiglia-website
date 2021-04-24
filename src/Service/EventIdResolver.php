@@ -5,69 +5,64 @@ declare(strict_types=1);
 namespace App\Service;
 
 use Exception;
+use PDO;
 
 final class EventIdResolver
 {
-    public const EVENT_ASSOCIATION_FILE_LOCATION = __DIR__ . '/../../var/data/event-association.csv';
+    private string $databaseDsn;
 
-    /**
-     * @throws Exception
-     */
-    public function resolveCalendarId(string $contentfulId): string
+    private string $databaseUser;
+
+    private string $databasePassword;
+
+    private PDO $db;
+
+    public function __construct(string $databaseDsn, string $databaseUser, string $databasePassword)
     {
-        $file = fopen(self::EVENT_ASSOCIATION_FILE_LOCATION, 'rb');
-        if (!$file) {
-            throw new Exception('Error during the opening of the file');
-        }
-
-        while (!feof($file)) {
-            $row = fgetcsv($file);
-            if (is_array($row) && $row[0] === $contentfulId) {
-                fclose($file);
-                return $row[1];
-            }
-        }
-
-        fclose($file);
-        throw new Exception('None google calendar event is associated with the contentful event id provided');
+        $this->databaseDsn = $databaseDsn;
+        $this->databaseUser = $databaseUser;
+        $this->databasePassword = $databasePassword;
     }
 
     /**
      * @throws Exception
      */
-    public function deleteAssociation(string $contentfulId): void
+    public function getGoogleCalendarEventId(string $contentfulEventId): string
     {
-        $tmpFileLocation = self::EVENT_ASSOCIATION_FILE_LOCATION . 'tmp';
-        $file = fopen(self::EVENT_ASSOCIATION_FILE_LOCATION, 'rb');
-        $tmpFile = fopen($tmpFileLocation, 'wb');
-        if (!$file || !$tmpFile) {
-            throw new Exception('Error during the opening of the files');
+        $stmt = $this->getDb()->prepare(
+            'SELECT * FROM Event WHERE contentful_event_id = ? LIMIT 1'
+        );
+        $stmt->execute([$contentfulEventId]);
+        $row = $stmt->fetch();
+        if (!is_array($row) || !array_key_exists('google_calendar_event_id', $row)) {
+            throw new Exception('None google calendar event is associated with the contentful event id provided');
         }
 
-        while (!feof($file)) {
-            $row = fgetcsv($file);
-            if (!is_array($row) || $row[0] === $contentfulId) {
-                continue;
-            }
-            fputcsv($tmpFile, $row);
-        }
-
-        fclose($file);
-        fclose($tmpFile);
-        unlink(self::EVENT_ASSOCIATION_FILE_LOCATION);
-        rename($tmpFileLocation, self::EVENT_ASSOCIATION_FILE_LOCATION);
+        return $row['google_calendar_event_id'];
     }
 
-    /**
-     * @throws Exception
-     */
-    public function storeAssociation(string $contentfulId, string $calendarId): void
+    public function deleteAssociation(string $contentfulEventId): void
     {
-        $file = fopen(self::EVENT_ASSOCIATION_FILE_LOCATION, 'ab+');
-        if (!$file) {
-            throw new Exception('Error during the opening of the file');
+        $stmt = $this->getDb()->prepare(
+            'DELETE FROM Event WHERE contentful_event_id = ?'
+        );
+        $stmt->execute([$contentfulEventId]);
+    }
+
+    public function storeAssociation(string $contentfulEventId, string $googleCalendarEventId): void
+    {
+        $stmt = $this->getDb()->prepare(
+            'INSERT INTO Event (contentful_event_id, google_calendar_event_id) VALUES (?, ?)'
+        );
+        $stmt->execute([$contentfulEventId, $googleCalendarEventId]);
+    }
+
+    private function getDB(): PDO
+    {
+        if (!isset($this->db)) {
+            $this->db = new PDO($this->databaseDsn, $this->databaseUser, $this->databasePassword);
         }
-        fputcsv($file, [$contentfulId, $calendarId]);
-        fclose($file);
+
+        return $this->db;
     }
 }

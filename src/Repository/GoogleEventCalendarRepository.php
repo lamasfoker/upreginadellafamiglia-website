@@ -45,24 +45,19 @@ final class GoogleEventCalendarRepository implements GoogleEventCalendarReposito
         $this->translator = $translator;
     }
 
-    /**
-     * @throws Exception
-     */
-    public function save(ResourceInterface $contentfulEvent): Google_Service_Calendar_Event
+    public function save(ResourceInterface $contentfulEvent): void
     {
-        $googleEventId = $contentfulEvent[EventRepositoryInterface::CONTENTFUL_RESOURCE_GOOGLE_CALENDAR_ID_FIELD_ID];
-        if ($googleEventId) {
+        try {
+            $googleEventId = $this->eventIdResolver->getGoogleCalendarEventId($contentfulEvent->getId());
             $calendarEvent = $this->calendarService->events->get($this->calendarId, $googleEventId);
             $calendarEvent = $this->copyDataFromContentfulToCalendar($contentfulEvent, $calendarEvent);
             $this->calendarService->events->update($this->calendarId, $googleEventId, $calendarEvent);
-        } else {
+        } catch (Exception $e) {
             $calendarEvent = $this->calendarEventFactory->create();
             $calendarEvent = $this->copyDataFromContentfulToCalendar($contentfulEvent, $calendarEvent);
             $calendarEvent = $this->calendarService->events->insert($this->calendarId, $calendarEvent);
             $this->eventIdResolver->storeAssociation($contentfulEvent->getId(), $calendarEvent->getId());
         }
-
-        return $calendarEvent;
     }
 
     /**
@@ -70,7 +65,7 @@ final class GoogleEventCalendarRepository implements GoogleEventCalendarReposito
      */
     public function delete(string $contentfulEventId): void
     {
-        $calendarEventId = $this->eventIdResolver->resolveCalendarId($contentfulEventId);
+        $calendarEventId = $this->eventIdResolver->getGoogleCalendarEventId($contentfulEventId);
         $this->calendarService->events->delete($this->calendarId, $calendarEventId);
         $this->eventIdResolver->deleteAssociation($contentfulEventId);
     }

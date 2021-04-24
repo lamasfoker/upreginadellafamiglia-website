@@ -42,12 +42,7 @@ final class SaveGoogleCalendarEventWebHook extends AbstractController
         }
 
         $contentfulEvent = $this->eventRepository->getById($contentfulId);
-        $googleEvent = $this->googleEventCalendarRepository->save($contentfulEvent);
-        $googleEventId = $contentfulEvent[EventRepositoryInterface::CONTENTFUL_RESOURCE_GOOGLE_CALENDAR_ID_FIELD_ID];
-
-        if (!$googleEventId) {
-            $this->eventRepository->addGoogleCalendarId($contentfulEvent, $googleEvent->getId());
-        }
+        $this->googleEventCalendarRepository->save($contentfulEvent);
 
         return $this->json(['message' => 'Event successfully updated in Google Calendar']);
     }
