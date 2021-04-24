@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
+use App\Exception\NotFoundException;
 use App\Service\EventIdResolver;
 use App\Service\GoogleCalendarEventFactory;
 use App\Service\GoogleCalendarServiceFactory;
 use Contentful\Core\Resource\ResourceInterface;
-use Exception;
 use Google_Service_Calendar;
 use Google_Service_Calendar_Event;
 use Google_Service_Calendar_EventDateTime;
@@ -52,7 +52,7 @@ final class GoogleEventCalendarRepository implements GoogleEventCalendarReposito
             $calendarEvent = $this->calendarService->events->get($this->calendarId, $googleEventId);
             $calendarEvent = $this->copyDataFromContentfulToCalendar($contentfulEvent, $calendarEvent);
             $this->calendarService->events->update($this->calendarId, $googleEventId, $calendarEvent);
-        } catch (Exception $e) {
+        } catch (NotFoundException $e) {
             $calendarEvent = $this->calendarEventFactory->create();
             $calendarEvent = $this->copyDataFromContentfulToCalendar($contentfulEvent, $calendarEvent);
             $calendarEvent = $this->calendarService->events->insert($this->calendarId, $calendarEvent);
@@ -61,7 +61,7 @@ final class GoogleEventCalendarRepository implements GoogleEventCalendarReposito
     }
 
     /**
-     * @throws Exception
+     * @throws NotFoundException
      */
     public function delete(string $contentfulEventId): void
     {

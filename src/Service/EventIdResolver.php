@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Service;
 
-use Exception;
+use App\Exception\NotFoundException;
 use PDO;
 
 final class EventIdResolver
@@ -25,7 +25,7 @@ final class EventIdResolver
     }
 
     /**
-     * @throws Exception
+     * @throws NotFoundException
      */
     public function getGoogleCalendarEventId(string $contentfulEventId): string
     {
@@ -35,7 +35,7 @@ final class EventIdResolver
         $stmt->execute([$contentfulEventId]);
         $row = $stmt->fetch();
         if (!is_array($row) || !array_key_exists('google_calendar_event_id', $row)) {
-            throw new Exception('None google calendar event is associated with the contentful event id provided');
+            throw new NotFoundException('None google calendar event is associated with the contentful event id provided');
         }
 
         return $row['google_calendar_event_id'];
