@@ -35,7 +35,6 @@ jobs:
         run: |
           composer install --verbose --prefer-dist --no-progress --no-interaction --no-dev --optimize-autoloader
           bin/console assets:install public --no-debug -vvv
-          composer dump-env prod
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
