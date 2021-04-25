@@ -25,7 +25,7 @@ app:
     title: 'Contatti'
     h1: 'Contattaci'
     breadcrumbs: 'contatti'
-    flash: 'La tua richiesta è stata inviata con successo. Riceverai presto una risposta'
+    flash: 'La tua richiesta è stata inviata con successo. Riceverai presto una risposta.'
     name_label: 'Nome'
     mail_label: 'Mail'
     message_label: 'Messaggio'
@@ -70,3 +70,5 @@ app:
     text: 'Questo sito utilizza cookie tecnici necessari per il funzionamento e per una corretta navigazione. Per maggiori informazioni puoi leggere la '
     page: 'Cookie Policy'
     button: 'Accetta'
+  session_banner:
+    button: 'Ok'

@@ -1,0 +1,24 @@
+{% if app.session.flashBag.has('notice') %}
+    <div class="xt-overlay in" data-xt-overlay>
+        <div class="md:max-w-xl absolute bottom-0 right-0 md:bottom-8 md:right-9">
+            <div class="xt-overlay-inner">
+                <div class="xt-card rounded-md shadow-overlay text-black xt-links-default bg-white">
+                    <div class="{{ p }} py-8 px-9">
+                        {% for message in app.flashes('notice') %}
+                            <p>
+                                {{ message }}
+                            </p>
+                        {% endfor %}
+                        <button
+                                type="button"
+                                class="xt-button xt-dismiss {{ button }}"
+                                aria-label="{{ 'app.session_banner.button'|trans }}"
+                        >
+                            {{ 'app.session_banner.button'|trans }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
