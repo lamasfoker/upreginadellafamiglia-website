@@ -21,7 +21,7 @@ task('deploy:cache:clear', function () {
 
 desc('Dump env');
 task('deploy:dump:env', function () {
-    run('{{bin/composer}} dump-env prod');
+    run('cd {{release_path}} && {{bin/composer}} dump-env prod');
 });
 
 desc('Deploy the project');
