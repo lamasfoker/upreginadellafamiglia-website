@@ -1,0 +1,22 @@
+<div data-xt-overlay>
+    <div class="xt-overlay" id="overlay-cookie-banner">
+        <div class="md:max-w-xl absolute bottom-0 right-0 md:bottom-8 md:right-9">
+            <div class="xt-overlay-inner">
+                <div class="xt-card rounded-md shadow-overlay text-black xt-links-default bg-white">
+                    <div class="{{ p }} py-8 px-9">
+                        <p>
+                            {{ 'app.cookie_banner.text'|trans }}<a href="{{ path('informative_page', {'slug': 'cookie'})}}">{{ 'app.cookie_banner.page'|trans }}</a>
+                        </p>
+                        <button
+                                type="button"
+                                class="xt-button xt-dismiss {{ button }}"
+                                aria-label="{{ 'app.cookie_banner.button'|trans }}"
+                        >
+                            {{ 'app.cookie_banner.button'|trans }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

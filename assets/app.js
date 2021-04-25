@@ -11,6 +11,7 @@ import 'xtendui/src/infinitescroll'
 import './scripts/mobile-menu'
 import './scripts/infinitescroll'
 import './scripts/slider'
+import './scripts/cookie-banner'
 
 /**
  * animations setup

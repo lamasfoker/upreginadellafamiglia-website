@@ -66,3 +66,7 @@ app:
     location: '%location%, RE'
     breadcrumbs: 'Calendario'
     title: 'Calendario'
+  cookie_banner:
+    text: 'Questo sito utilizza cookie tecnici necessari per il funzionamento e per una corretta navigazione. Per maggiori informazioni puoi leggere la '
+    page: 'Cookie Policy'
+    button: 'Accetta'
