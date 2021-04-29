@@ -95,7 +95,7 @@ final class GoogleEventCalendarRepository implements GoogleEventCalendarReposito
     {
         $description = '';
         if ($contentfulEvent[EventRepositoryInterface::CONTENTFUL_RESOURCE_DESCRIPTION_FIELD_ID]) {
-            $description = $contentfulEvent[EventRepositoryInterface::CONTENTFUL_RESOURCE_DESCRIPTION_FIELD_ID] . '<br/>';
+            $description = $contentfulEvent[EventRepositoryInterface::CONTENTFUL_RESOURCE_DESCRIPTION_FIELD_ID] . PHP_EOL;
         }
         if ($contentfulEvent[EventRepositoryInterface::CONTENTFUL_RESOURCE_NEWS_FIELD_ID]) {
             $description .= sprintf(
