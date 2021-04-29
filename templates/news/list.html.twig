@@ -15,7 +15,7 @@
         <div class="xt-list xt-list-y-8" data-page-count="{{ pageCount }}">
             {% for information in news %}
 
-                <div class="bg-color-1 rounded-3xl text-white">
+                <div class="bg-color-1 rounded-3xl text-white w-full">
                     <a href="{{ path('news_index', {slug: information.slug}) }}" class="xt-row items-center {{ (loop.index%2 == 0 ? 'md:flex-row' : 'md:flex-row-reverse') }}">
                         <div class="w-full md:w-4/12">
                             <div class="xt-media-container xt-ratio-50 md:xt-ratio-75">
