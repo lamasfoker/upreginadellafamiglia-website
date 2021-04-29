@@ -7285,10 +7285,10 @@ xtend@^4.0.0, xtend@^4.0.2:
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.2.tgz#bb72779f5fa465186b1f438f674fa347fdb5db54"
   integrity sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==
 
-xtendui@^1.0.0-beta.10:
-  version "1.0.0-beta.10"
-  resolved "https://registry.yarnpkg.com/xtendui/-/xtendui-1.0.0-beta.10.tgz#2a4931026bd219bf5f3efc0125e49983834e696f"
-  integrity sha512-nuzPUWq1WAfGwyHVlZxlNsY08XuD4mVCUe+vcR6Hpb3RoU3NqnfLamQ3F7LobPM/36EIAqYdwBE7s/Zr4s3+aw==
+xtendui@^1.0.0-beta.15:
+  version "1.0.0-beta.15"
+  resolved "https://registry.yarnpkg.com/xtendui/-/xtendui-1.0.0-beta.15.tgz#741c8f5e83671156b0962f56fb4dadbfd155839a"
+  integrity sha512-WEWbuAT76qrxpiLKdbXZH7AA60Vi9USEd1TxFfkdFC01DE+j/kd0JT7MYCNqUuSWthBN4cPb6HGwnYlvBuagMg==
   dependencies:
     "@googlemaps/markerclustererplus" "^1.1.0"
     "@popperjs/core" "^2.9.2"
