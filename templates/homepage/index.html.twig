@@ -7,9 +7,7 @@
                 <a href="{{ path('news_index', {slug: news.slug}) }}" class="xt-row items-center md:flex-row">
                     <div class="w-full md:w-4/12">
                         <div class="xt-media-container rounded-md xt-ratio-50 md:xt-ratio-75">
-                            <div class="xt-media-inner">
-                                <img class="xt-media object-cover object-center rounded-3xl" src="{{ contentful_image_render(news.immagine.file.url) }}" loading="lazy" alt/>
-                            </div>
+                            <img class="xt-media object-cover object-center rounded-3xl" src="{{ contentful_image_render(news.immagine.file.url) }}" loading="lazy" alt/>
                         </div>
                     </div>
                     <div class="w-full md:w-8/12 pt-4 md:pt-0 md:p-4">
@@ -78,33 +76,29 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="xt-icon text-base ml-1"  width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
             </div>
-            <div class="xt-slider" data-xt-slider="{ wheel: { selector: '.xt-slides-inner', jump: false, loop: false } }">
+            <div class="xt-slider">
 
-                <div class="xt-slides">
-                    <div class="xt-slides-inner xt-row xt-row-x-8">
+                <div class="xt-slides xt-row xt-row-x-8">
 
-                        {% for slide in slider %}
-                            <div class="xt-slide w-full md:w-1/2 lg:w-1/4 opacity-100 {{ loop.index is same as 2 ? 'in-slider' : '' }}">
+                    {% for slide in slider %}
+                        <div class="xt-slide w-full md:w-1/2 lg:w-1/4 opacity-100">
 
-                                <a href="{{ path('news_index', {slug: slide.slug}) }}" class="xt-card rounded-md text-black links-default bg-white">
-                                    <div class="xt-media-container xt-ratio-75">
-                                        <div class="xt-media-inner">
-                                            <img class="xt-media object-cover object-center rounded-t-md" src="{{ contentful_image_render(slide.immagine.file.url) }}" loading="lazy" alt/>
-                                        </div>
-                                    </div>
-                                    <div class="py-6 lg:py-8 px-7 lg:px-9">
-                                        <h3 class="{{ h3 }}">{{ slide.titolo }}</h3>
-                                    </div>
-                                </a>
+                            <a href="{{ path('news_index', {slug: slide.slug}) }}" class="xt-card rounded-md text-black links-default bg-white">
+                                <div class="xt-media-container xt-ratio-75">
+                                    <img class="xt-media object-cover object-center rounded-t-md" src="{{ contentful_image_render(slide.immagine.file.url) }}" loading="lazy" alt/>
+                                </div>
+                                <div class="py-6 lg:py-8 px-7 lg:px-9">
+                                    <h3 class="{{ h3 }}">{{ slide.titolo }}</h3>
+                                </div>
+                            </a>
 
-                            </div>
-                        {% endfor %}
+                        </div>
+                    {% endfor %}
 
-                    </div>
                 </div>
 
                 <nav class="xt-slider-pagination w-full xt-list xt-list-2">
-                    <button type="button" class="xt-button text-black bg-gray-200 hover:bg-gray-300 active:bg-gray-400 xt-ignore" data-xt-pag title="{{ 'app.homepage.news_number'|trans }}"></button>
+                    <button type="button" class="xt-button text-black bg-gray-200 hover:bg-gray-300 on:bg-gray-400 hidden" data-xt-pag title="{{ 'app.homepage.news_number'|trans }}"></button>
                 </nav>
 
             </div>
