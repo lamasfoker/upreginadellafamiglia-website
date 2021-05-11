@@ -13,7 +13,7 @@
                         </div>
                     </a>
 
-                    <button type="button" class="xt-button py-2 px-3.5 rounded-md text-black font-semibold leading-snug tracking-wider uppercase hover:text-opacity-60 active:text-opacity-100 transition lg:hidden items-baseline" data-xt-overlay="{ targets: '#mobile-overlay-menu'}">
+                    <button type="button" class="xt-button py-2 px-3.5 rounded-md text-black font-semibold leading-snug tracking-wider uppercase hover:text-opacity-60 on:text-opacity-100 transition lg:hidden items-baseline" data-xt-overlay="{ targets: '#mobile-overlay-menu'}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
                     </button>
                 </div>
@@ -41,7 +41,7 @@
         </div>
     </div>
 
-    <div class="absolute xt-card xt-toggle xt-links-default bg-white z-10 transform transition ease-out duration-500 opacity-0 -translate-y-4 active:opacity-100 active:translate-y-0" data-xt-duration="500" id="desktop-dropdown-menu">
+    <div class="absolute xt-card xt-toggle xt-links-default bg-white z-10 transform transition ease-out duration-500 opacity-0 -translate-y-4 in:opacity-100 in:translate-y-0" data-xt-duration="500" id="desktop-dropdown-menu">
         <div class="container py-10">
             <div class="xt-list flex-col" style="max-height: 60vh;">
                 {% for section in header.menu %}
@@ -67,15 +67,15 @@
             </button>
 
             <div class="xt-overlay-inner absolute top-24">
-                <div class="xt-card text-3xl xt-links-default text-white text-center" data-xt-toggle>
+                <div class="xt-card text-3xl xt-links-inverse text-white text-center" data-xt-toggle>
                     {% for section in header.menu %}
                         <button type="button" class="xt-button text-4xl font-semibold leading-snug tracking-wider justify-center capitalize">
                             {{ section.name }}
                         </button>
 
-                        <div class="xt-toggle transform transition ease-out duration-300 opacity-0 -translate-y-4 active:opacity-100 active:translate-y-0">
+                        <div class="xt-toggle transform transition ease-out duration-300 opacity-0 -translate-y-4 in:opacity-100 in:translate-y-0">
                             {% for link in section.subMenu %}
-                                <a class="xt-card justify-center capitalize" href="{{ path('cms_page', {'slug': link|lower|slug}) }}">{{ link }}</a>
+                                <a class="xt-button w-full capitalize" href="{{ path('cms_page', {'slug': link|lower|slug}) }}">{{ link }}</a>
                             {% endfor %}
                         </div>
                     {% endfor %}

@@ -37,20 +37,20 @@
             <div class="xt-row xt-row-x-6 xt-row-y-4">
 
                 <div class="w-full">
-                    {{ form_label(form.name, 'app.contact_page.name_label', {'label_attr': {'class': 'xt-label mb-3 text-black text-opacity-75 font-semibold'}}) }}
-                    {{ form_widget(form.name, {'attr': {'class': 'xt-input rounded-md py-2.5 px-4 text-black border border-gray-50 focus:border-gray-500 transition'}}) }}
+                    {{ form_label(form.name, 'app.contact_page.name_label', {'label_attr': {'class': 'flex mb-3 text-black text-opacity-75 font-semibold'}}) }}
+                    {{ form_widget(form.name, {'attr': {'class': 'w-full block rounded-md py-2.5 px-4 text-black border border-gray-50 focus:border-gray-500 transition'}}) }}
                 </div>
 
                 <div class="w-full">
-                    {{ form_label(form.mail, 'app.contact_page.mail_label', {'label_attr': {'class': 'xt-label mb-3 text-black text-opacity-75 font-semibold'}}) }}
-                    {{ form_widget(form.mail, {'attr': {'class': 'xt-input rounded-md py-2.5 px-4 text-black border border-gray-50 focus:border-gray-500 transition'}}) }}
+                    {{ form_label(form.mail, 'app.contact_page.mail_label', {'label_attr': {'class': 'flex mb-3 text-black text-opacity-75 font-semibold'}}) }}
+                    {{ form_widget(form.mail, {'attr': {'class': 'w-full block rounded-md py-2.5 px-4 text-black border border-gray-50 focus:border-gray-500 transition'}}) }}
                 </div>
 
                 {{ form_widget(form.page) }}
 
                 <div class="w-full">
-                    {{ form_label(form.message, 'app.contact_page.message_label', {'label_attr': {'class': 'xt-label mb-3 text-black text-opacity-75 font-semibold'}}) }}
-                    {{ form_widget(form.message, {'attr': {'class': 'xt-input xt-textarea rounded-md py-2.5 px-4 text-black border-gray-50 focus:border-gray-500 transition h-64 resize-vertical'}}) }}
+                    {{ form_label(form.message, 'app.contact_page.message_label', {'label_attr': {'class': 'flex mb-3 text-black text-opacity-75 font-semibold'}}) }}
+                    {{ form_widget(form.message, {'attr': {'class': 'w-full block xt-textarea rounded-md py-2.5 px-4 text-black border-gray-50 focus:border-gray-500 transition h-64 resize-vertical'}}) }}
                 </div>
 
                 <div class="w-full">
