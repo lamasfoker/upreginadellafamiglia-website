@@ -16,13 +16,13 @@
             {% for information in news %}
 
                 <div class="bg-color-1 rounded-3xl text-white w-full">
-                    <a href="{{ path('news_index', {slug: information.slug}) }}" class="xt-row items-center {{ (loop.index%2 == 0 ? 'md:flex-row' : 'md:flex-row-reverse') }}">
-                        <div class="w-full md:w-4/12">
-                            <div class="xt-media-container xt-ratio-50 md:xt-ratio-75">
+                    <a href="{{ path('news_index', {slug: information.slug}) }}" class="xt-row items-center md:h-full {{ (loop.index%2 == 0 ? 'md:flex-row' : 'md:flex-row-reverse') }}">
+                        <div class="w-full md:h-full md:w-4/12">
+                            <div class="xt-media-container md:h-full xt-ratio-75">
                                 <img class="xt-media object-cover object-center rounded-t-3xl md:rounded-3xl" src="{{ contentful_image_render(information.immagine.file.url) }}" loading="lazy" alt/>
                             </div>
                         </div>
-                        <div class="w-full md:w-8/12 p-4">
+                        <div class="w-full md:w-8/12 p-8">
                             <h2 class="{{ h2 }}">{{ information.titolo }}</h2>
                             <p class="{{ p }}">{{ information.sintesi }}</p>
                         </div>

@@ -6,11 +6,11 @@
             <div class="container py-10">
                 <a href="{{ path('news_index', {slug: news.slug}) }}" class="xt-row items-center md:flex-row">
                     <div class="w-full md:w-4/12">
-                        <div class="xt-media-container rounded-md xt-ratio-50 md:xt-ratio-75">
+                        <div class="xt-media-container rounded-md xt-ratio-75">
                             <img class="xt-media object-cover object-center rounded-3xl" src="{{ contentful_image_render(news.immagine.file.url) }}" loading="lazy" alt/>
                         </div>
                     </div>
-                    <div class="w-full md:w-8/12 pt-4 md:pt-0 md:p-4">
+                    <div class="w-full md:w-8/12 pt-8 md:pt-0 md:p-8">
                         <h2 class="{{ h2 }}">{{ news.titolo }}</h2>
                         <p class="{{ p }}">{{ news.sintesi }}</p>
                     </div>
