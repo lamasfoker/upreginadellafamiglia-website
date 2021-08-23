@@ -99,7 +99,7 @@
                     <a href="{{ path('forms_listing') }}" class="xt-button text-4xl font-semibold leading-snug tracking-wider justify-center capitalize">
                         {{ 'app.homepage.forms'|trans }}
                     </a>
-                    {% for section in header.menu|merge([header.celebrations]) %}
+                    {% for section in [header.celebrations]|merge(header.menu) %}
                         <button type="button" class="xt-button text-4xl font-semibold leading-snug tracking-wider justify-center capitalize">
                             {{ section.name }}
                         </button>
