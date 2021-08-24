@@ -40,7 +40,7 @@ final class NewsRepository implements NewsRepositoryInterface
             ->setContentType(self::CONTENTFUL_ENTITY_TYPE_ID)
             ->setSkip(($page - 1) * $size)
             ->setLimit($size)
-            ->orderBy(self::CONTENTFUL_ENTITY_UPDATED_AT_FIELD_ID, true)
+            ->orderBy(self::CONTENTFUL_ENTITY_CREATED_AT_FIELD_ID, true)
         ;
 
         return $this->client->getEntries($query)->getItems();
@@ -51,7 +51,7 @@ final class NewsRepository implements NewsRepositoryInterface
         $query = $this->queryFactory->create()
             ->setContentType(self::CONTENTFUL_ENTITY_TYPE_ID)
             ->where(self::CONTENTFUL_IN_HOMEPAGE_FIELD_ID, 'true')
-            ->orderBy(self::CONTENTFUL_ENTITY_UPDATED_AT_FIELD_ID, true)
+            ->orderBy(self::CONTENTFUL_ENTITY_CREATED_AT_FIELD_ID, true)
         ;
 
         return $this->client->getEntries($query)->getIterator()->current();
