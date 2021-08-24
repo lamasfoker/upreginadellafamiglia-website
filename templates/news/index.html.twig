@@ -14,8 +14,8 @@
         </div>
 
         <div class="{{ p }} mb-10">
-            <p>{{ news.sintesi }}</p>
-            {{ rich_text_render(news.corpo)|raw }}
+            <p class="{{ p }} mb-10">{{ news.sintesi|nl2br }}</p>
+            {{ rich_text_render(news.corpo)|raw|nl2br }}
         </div>
     </div>
 

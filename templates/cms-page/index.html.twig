@@ -5,7 +5,7 @@
 {% block body %}
     <div class="container pt-10">
         {% include 'components/breadcrumbs.html.twig' %}
-        <h1 class="{{ h1 }} text-center">{{ page.titolo }}</h1>
+        <h1 class="{{ h1 }} text-center capitalize">{{ page.titolo }}</h1>
     </div>
 
     <div class="container py-10 max-w-4xl">
@@ -14,11 +14,11 @@
         </div>
 
         <div class="{{ p }}">
-            {{ rich_text_render(page.descrizione)|raw }}
+            {{ rich_text_render(page.descrizione)|raw|nl2br }}
         </div>
     </div>
 
-    <div class="container pb-10 max-w-4xl">
+    <div class="container pb-20 max-w-4xl">
         <h2 class="{{ h2 }} mb-5 text-center">{{ 'app.cms_page.contact_title'|trans }}</h2>
         <div class="flex justify-center">
             <a href="{{ path('contact_page', {'page': page.slug}) }}" class="{{ button }}">{{ 'app.cms_page.contact_button'|trans }}</a>

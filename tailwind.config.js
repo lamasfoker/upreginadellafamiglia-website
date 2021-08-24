@@ -4,7 +4,14 @@ module.exports = {
     mode: 'jit',
     presets: [require('tailwindcss/defaultConfig'), require('xtendui/tailwind.preset')],
     purge: {
-        content: ['./node_modules/xtendui/src/**/*[!.css].js', './templates/**/*.html.twig', './assets/**/*.css', './assets/**/*.js', './config/packages/xtendui.yaml'],
+        content: [
+            './node_modules/xtendui/src/**/*[!.css].js',
+            './templates/**/*.html.twig',
+            './assets/**/*.css',
+            './assets/**/*.js',
+            './config/packages/xtendui.yaml',
+            './src/Contentful/RichText/Image.php'
+        ],
         options: {
             safelist: {
                 greedy: [
