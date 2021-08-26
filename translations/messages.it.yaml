@@ -40,6 +40,8 @@ app:
     breadcrumbs: 'notizie'
     show_more: 'Mostra più notizie'
     page_numer: 'Pagina xt-num di xt-tot'
+  news_page:
+    published_at: 'Notizia pubblicata il date'
   forms_listing:
     title: 'Modulistica'
     breadcrumbs: 'modulistica'

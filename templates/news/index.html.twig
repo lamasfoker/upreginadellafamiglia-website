@@ -10,7 +10,7 @@
 
     <div class="container py-10 max-w-4xl">
         <p class="{{ p }} mb-4 font-bold">{{ news.sintesi|nl2br }}</p>
-        <p class="{{ p }} text-right">{{ news.systemProperties.createdAt|date('d/m/Y') }}</p>
+        <p class="{{ p }} text-right">{{ 'app.news_page.published_at'|trans({'date': news.systemProperties.createdAt|date('d/m/Y')}) }}</p>
 
         <div class="xt-media-container my-10 xt-ratio-75">
             <img class="xt-media object-cover object-center" src="{{ contentful_image_render(news.immagine.file.url) }}" loading="lazy" alt />
