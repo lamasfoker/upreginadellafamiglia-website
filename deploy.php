@@ -3,7 +3,7 @@ namespace Deployer;
 
 require 'recipe/composer.php';
 
-set('shared_files', ['.env.local', 'public/robots.txt', 'public/.htaccess', 'public/.htusers', 'public/google63d4e5bf020fe1b0.html']);
+set('shared_files', ['.env.local', 'public/robots.txt', 'public/.htaccess', 'public/.htusers', 'public/google63d4e5bf020fe1b0.html', 'public/sitemap.xml']);
 set('shared_dirs', ['var/data']);
 inventory('hosts.yml');
 after('deploy:failed', 'deploy:unlock');
