@@ -1,5 +1,6 @@
 const Encore = require('@symfony/webpack-encore')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
+const WorkboxPlugin = require('workbox-webpack-plugin')
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
@@ -83,6 +84,13 @@ Encore
             }
         ]
     },))
+    .addPlugin(new WorkboxPlugin.GenerateSW({
+        // these options encourage the ServiceWorkers to get in there fast
+        // and not allow any straggling "old" SWs to hang around
+        clientsClaim: true,
+        skipWaiting: true,
+        swDest: '../service-worker.js'
+    }),)
 ;
 
 module.exports = Encore.getWebpackConfig();

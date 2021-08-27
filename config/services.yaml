@@ -5,6 +5,7 @@ parameters:
   router.request_context.host: www.upreginadellafamiglia.it
   router.request_context.scheme: https
   no_replay_mail: 'nonrispondermi@upreginadellafamiglia.it'
+  asset.request_context.secure: true
 
 services:
   _defaults:
