@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Controller;
@@ -155,11 +156,13 @@ final class MenuSagra extends AbstractController
         $breadcrumbs = $this->breadcrumbsGetter->getMenuSagraPageBreadcrumbs();
 
         return $this->render(
-            'menu-sagra/index.html.twig', [
+            'menu-sagra/index.html.twig',
+            [
                 'breadcrumbs' => $breadcrumbs,
                 'menuFood' => self::MENU_FOOD,
                 'menuSweets' => self::MENU_SWEETS,
                 'menuBeverages' => self::MENU_BEVERAGES,
-            ]);
+            ]
+        );
     }
 }
