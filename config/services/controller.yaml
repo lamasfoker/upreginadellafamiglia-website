@@ -77,3 +77,8 @@ services:
       - '@app.repository.event'
       - '%env(WEBHOOK_SECRET_TOKEN_VALUE)%'
       - '@app.repository.google_calendar_event'
+
+  app.controller.menu_sagra:
+    class: App\Controller\MenuSagra
+    arguments:
+      - '@app.service.breadcrumbs'
