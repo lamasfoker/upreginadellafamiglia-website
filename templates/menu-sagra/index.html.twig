@@ -52,7 +52,7 @@
                                     <h3 class="{{ h3 }}">{{ food.name }}</h3>
                                     <p class="{{ p }}">
                                         {% if (food.description) %}{{ food.description }}<br/>{% endif %}
-                                        Prezzo: {{ food.price|format_currency('EUR', locale='it') }}
+                                        Prezzo: {{ food.price|number_format(2, ',', '.') }} €
                                     </p>
                                 </div>
                             </div>
@@ -73,7 +73,7 @@
                                     <h3 class="{{ h3 }}">{{ food.name }}</h3>
                                     <p class="{{ p }}">
                                         {% if (food.description) %}{{ food.description }}<br/>{% endif %}
-                                        Prezzo: {{ food.price|format_currency('EUR', locale='it') }}
+                                        Prezzo: {{ food.price|number_format(2, ',', '.') }} €
                                     </p>
                                 </div>
                             </div>
@@ -94,7 +94,7 @@
                                     <h3 class="{{ h3 }}">{{ food.name }}</h3>
                                     <p class="{{ p }}">
                                         {% if (food.description) %}{{ food.description }}<br/>{% endif %}
-                                        Prezzo: {{ food.price|format_currency('EUR', locale='it') }}
+                                        Prezzo: {{ food.price|number_format(2, ',', '.') }} €
                                     </p>
                                 </div>
                             </div>
