@@ -1,6 +1,7 @@
 app:
   homepage:
     title: 'Up Regina della Famiglia'
+    description: 'Parrocchie di San Martino in Rio, Gazzata, Prato, Stiolo, Lemizzone e Trignano'
     breadcrumbs: 'homepage'
     calendar: 'Calendario'
     cta_news: 'Vai alla Notizia'
