@@ -32,9 +32,8 @@ app:
     message_label: 'Messaggio'
     submit: 'Invia'
     registry: 'Segreteria'
-    timetable: 'Dal Martedì al Sabato<br/>9:30 - 12:00'
-    address: 'Via Facci 16,<br/>42018 San Martino In Rio RE'
-    telephone: 'Telefono: %tel%'
+    timetable: 'Dal Lunedì al Venerdì<br/>9:00 - 12:00<br/>16:30 - 18:00<br/>Sabato<br/>9:00 - 12:00'
+    address: 'Via Facci 16,<br/>San Martino In Rio,<br/>42018 (RE)'
     mail: 'Mail'
   news_listing:
     title: 'Notizie'
