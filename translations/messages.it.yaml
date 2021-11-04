@@ -31,7 +31,7 @@ app:
     mail_label: 'Mail'
     message_label: 'Messaggio'
     submit: 'Invia'
-    registry: 'Segreteria'
+    registry: 'Segreteria Parrocchiale'
     timetable: 'Dal Lunedì al Venerdì<br/>9:00 - 12:00<br/>16:30 - 18:00<br/>Sabato<br/>9:00 - 12:00'
     address: 'Via Facci 16,<br/>San Martino In Rio,<br/>42018 (RE)'
     mail: 'Mail'
