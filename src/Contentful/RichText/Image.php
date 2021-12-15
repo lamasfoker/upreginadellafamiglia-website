@@ -30,9 +30,7 @@ final class Image implements NodeRendererInterface
         }
 
         return sprintf(
-            '<div class="xt-media-container xt-ratio-75 my-12">
-                        <img class="xt-media object-cover object-center" src="%s?fm=webp&q=80" loading="lazy" alt />
-                    </div>',
+            '<p><img class="responsive" src="%s?fm=webp&q=80" loading="lazy" alt /></p>',
             $node->getAsset()->jsonSerialize()['fields']->file->getUrl()
         );
     }
