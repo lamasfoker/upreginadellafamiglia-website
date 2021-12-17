@@ -95,6 +95,9 @@ final class Contact extends AbstractController
         );
     }
 
+    /**
+     * @param mixed $formData
+     */
     private function getRecipient($formData): string
     {
         $recipient = $this->defaultRecipient;
@@ -110,7 +113,7 @@ final class Contact extends AbstractController
     private function getContactInfo(?string $slug): string
     {
         $contactInfo = self::DEFAULT_CONTACT_INFORMATION;
-        if (array_key_exists($slug, self::SLUG_TO_CONTACT_INFORMATION_MAPPING)) {
+        if ($slug && array_key_exists($slug, self::SLUG_TO_CONTACT_INFORMATION_MAPPING)) {
             $contactInfo = self::SLUG_TO_CONTACT_INFORMATION_MAPPING[$slug];
         }
         return $contactInfo;
