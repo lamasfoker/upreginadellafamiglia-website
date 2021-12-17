@@ -107,7 +107,7 @@ jobs:
         run: |
           composer validate --no-check-publish
           composer-require-checker check
-          symfony security:check
+          symfony security:check --disable-exit-code
           vendor/bin/ecs check src
           vendor/bin/phpstan analyse -c phpstan.neon
           bin/console lint:twig templates/
