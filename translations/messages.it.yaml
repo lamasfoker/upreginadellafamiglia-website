@@ -22,6 +22,7 @@ app:
     facebook: 'Facebook'
     villages: 'Parrocchie'
     github: 'github'
+    show_weekly_bulletin: 'Leggi il Bollettino'
   contact_page:
     title: 'Contatti'
     h1: 'Contattaci'

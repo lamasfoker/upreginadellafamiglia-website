@@ -7,6 +7,7 @@ namespace App\Controller;
 use App\Repository\EventRepositoryInterface;
 use App\Repository\NewsRepositoryInterface;
 use Contentful\Core\Resource\ResourceInterface;
+use Contentful\Delivery\Client\ClientInterface;
 use DateTime;
 use DateTimeInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,14 +19,22 @@ final class Homepage extends AbstractController
 
     private const NUMBER_OF_DAYS_IN_HOMEPAGE_CALENDAR = 7;
 
+    private const WEEKLY_BULLETIN_CONTENTFUL_ENTRY_ID = 'eCUWnHkHZ9hznSf1HFWwW';
+
     private NewsRepositoryInterface $newsRepository;
 
     private EventRepositoryInterface $eventRepository;
 
-    public function __construct(NewsRepositoryInterface $newsRepository, EventRepositoryInterface $eventRepository)
-    {
+    private ClientInterface $client;
+
+    public function __construct(
+        NewsRepositoryInterface $newsRepository,
+        EventRepositoryInterface $eventRepository,
+        ClientInterface $client
+    ) {
         $this->newsRepository = $newsRepository;
         $this->eventRepository = $eventRepository;
+        $this->client = $client;
     }
 
     public function index(): Response
@@ -33,6 +42,7 @@ final class Homepage extends AbstractController
         return $this->render(
             'homepage/index.html.twig',
             [
+                'weeklyBulletin' => $this->client->getEntry(self::WEEKLY_BULLETIN_CONTENTFUL_ENTRY_ID),
                 'news' => $this->newsRepository->getInHomepageNews(),
                 'slider' => $this->newsRepository->getAllPaginated(1, self::NUMBER_OF_NEWS_IN_THE_SLIDER),
                 'days' => $this->groupEventsForDayAndPlace(
@@ -90,8 +100,11 @@ final class Homepage extends AbstractController
      * @param ResourceInterface[] $events
      * @return ResourceInterface[]
      */
-    private function getEventsForCurrentPlaceAndDate(array $events, DateTimeInterface $currentDate, string $currentPlace): array
-    {
+    private function getEventsForCurrentPlaceAndDate(
+        array $events,
+        DateTimeInterface $currentDate,
+        string $currentPlace
+    ): array {
         return array_values(
             array_filter(
                 $events,
@@ -107,7 +120,6 @@ final class Homepage extends AbstractController
 
     private function getDateOfTheDayFromToday(int $day): DateTimeInterface
     {
-        $date = new DateTime();
-        return $date->modify('+' . $day . ' day');
+        return (new DateTime())->modify('+' . $day . ' day');
     }
 }

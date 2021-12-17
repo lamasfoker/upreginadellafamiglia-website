@@ -35,6 +35,7 @@ services:
     arguments:
       - '@app.repository.news'
       - '@app.repository.event'
+      - '@contentful.delivery.client'
 
   app.controller.news:
     class: App\Controller\News

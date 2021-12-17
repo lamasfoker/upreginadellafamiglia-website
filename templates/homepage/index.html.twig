@@ -21,6 +21,13 @@
 
     <div class="container py-10 max-w-4xl">
         <h2 class="{{ h2 }} text-center mb-10">{{ 'app.homepage.calendar'|trans }}</h2>
+
+        <div class="pb-10">
+            <div class="flex justify-center">
+                <a href="{{ weeklyBulletin.pdf.file.url }}" class="{{ button }} text-center" target="_blank">{{ 'app.homepage.show_weekly_bulletin'|trans }}</a>
+            </div>
+        </div>
+
         <div class="xt-row xt-row-y-6 flex-col items-center">
             {% for day in days %}
                 <div class="flex flex-col md:flex-row items-center border-b-2 border-color-1 w-full">
