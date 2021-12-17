@@ -9,5 +9,13 @@ twig:
         - GIO
         - VEN
         - SAB
-      registry_mail: '%env(REGISTRY_MAIL)%'
-      registry_telephone: '%env(REGISTRY_TELEPHONE)%'
+      contacts_info:
+        parish_registry:
+          email: '%env(PARISH_REGISTRY_MAIL)%'
+          telephone: '%env(PARISH_REGISTRY_TELEPHONE)%'
+        regina_pacis:
+          email: '%env(REGINA_PACIS_MAIL)%'
+          telephone: '%env(REGINA_PACIS_TELEPHONE)%'
+        santa_maria_assunta:
+          email: '%env(SANTA_MARIA_ASSUNTA_MAIL)%'
+          telephone: '%env(SANTA_MARIA_ASSUNTA_TELEPHONE)%'

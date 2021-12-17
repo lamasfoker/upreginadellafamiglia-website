@@ -32,9 +32,18 @@ app:
     mail_label: 'Mail'
     message_label: 'Messaggio'
     submit: 'Invia'
-    registry: 'Segreteria Parrocchiale'
-    timetable: 'Dal Lunedì al Venerdì<br/>9:00 - 12:00<br/>16:30 - 18:00<br/>Sabato<br/>9:00 - 12:00'
-    address: 'Via Facci 16,<br/>San Martino In Rio,<br/>42018 (RE)'
+    parish_registry:
+      label: 'Segreteria Parrocchiale'
+      timetable: 'Dal Lunedì al Venerdì<br/>9:00 - 12:00<br/>16:30 - 18:00<br/>Sabato<br/>9:00 - 12:00'
+      address: 'Via Facci 16,<br/>San Martino In Rio,<br/>42018 (RE)'
+    regina_pacis:
+      label: 'Regina Pacis'
+      timetable: 'Dal Lunedì al Venerdì<br/>7:30 - 16:30<br/>'
+      address: 'Via Rivone 25,<br/>San Martino In Rio RE,<br/>42018 (RE)'
+    santa_maria_assunta:
+      label: 'Santa Maria Assunta'
+      timetable: 'Dal Lunedì al Venerdì<br/>8:00 - 16:00<br/>'
+      address: 'Via Pozzo Pontuto 4,<br/>Prato,<br/>42015 (RE)'
     mail: 'Mail'
   news_listing:
     title: 'Notizie'

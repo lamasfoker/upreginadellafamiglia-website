@@ -22,7 +22,7 @@ services:
       - '@mailer'
       - '@translator'
       - '%no_replay_mail%'
-      - '%env(REGISTRY_MAIL)%'
+      - '%env(PARISH_REGISTRY_MAIL)%'
 
   app.controller.forms:
     class: App\Controller\Forms
