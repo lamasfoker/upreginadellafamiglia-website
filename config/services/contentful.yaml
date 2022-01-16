@@ -24,7 +24,10 @@ services:
   app.contentful.rich_text.node_renderer.attached:
     class: App\Contentful\RichText\Attached
 
+  app.contentful.rich_text.node_renderer.embedded_video:
+    class: App\Contentful\RichText\EmbeddedVideo
+
   app.contentful.rich_text.renderer:
     class: Contentful\RichText\Renderer
     arguments:
-      - [ '@app.contentful.rich_text.node_renderer.attached', '@app.contentful.rich_text.node_renderer.file', '@app.contentful.rich_text.node_renderer.image' ]
+      - [ '@app.contentful.rich_text.node_renderer.attached', '@app.contentful.rich_text.node_renderer.file', '@app.contentful.rich_text.node_renderer.image', '@app.contentful.rich_text.node_renderer.embedded_video' ]

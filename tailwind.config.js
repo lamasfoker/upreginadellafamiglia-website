@@ -10,7 +10,8 @@ module.exports = {
             './assets/**/*.css',
             './assets/**/*.js',
             './config/packages/xtendui.yaml',
-            './src/Contentful/RichText/Image.php'
+            './src/Contentful/RichText/Image.php',
+            './src/Contentful/RichText/EmbeddedVideo.php',
         ],
         options: {
             safelist: {
