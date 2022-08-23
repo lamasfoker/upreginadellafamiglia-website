@@ -1,5 +1,5 @@
 ewz_recaptcha:
   version: 3
-  public_key: 6Lc6j58hAAAAACPTrmhx-oJd50laN6PSBW-7l3k5
+  public_key: 6LeXzaUdAAAAAM7sB1pi-Mu9P54WyDuml4H1vVHj
   private_key: "%env(GOOGLE_RECAPTCHA_PRIVATE_KEY)%"
   hide_badge: true
