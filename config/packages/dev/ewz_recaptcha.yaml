@@ -1,0 +1,3 @@
+ewz_recaptcha:
+    enabled: false
+    score_threshold: 1
