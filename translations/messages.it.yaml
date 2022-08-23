@@ -32,6 +32,7 @@ app:
     mail_label: 'Mail'
     message_label: 'Messaggio'
     submit: 'Invia'
+    recaptcha: 'Questo sito è protetto da reCAPTCHA e si applicano le <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Norme sulla privacy</a> e i <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Termini di servizio</a> di Google.'
     parish_registry:
       label: 'Segreteria Parrocchiale'
       timetable: 'Dal Lunedì al Venerdì<br/>9:00 - 12:00<br/>16:30 - 18:00<br/>Sabato<br/>9:00 - 12:00'
