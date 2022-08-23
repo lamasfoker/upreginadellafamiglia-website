@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\Email;
 
 final class ContactType extends AbstractType
 {
@@ -20,7 +21,7 @@ final class ContactType extends AbstractType
     {
         $builder
             ->add('name', TextType::class)
-            ->add('mail', EmailType::class)
+            ->add('mail', EmailType::class, ['constraints' => [new Email()]])
             ->add('page', HiddenType::class)
             ->add('message', TextareaType::class)
             ->add('recaptcha', EWZRecaptchaV3Type::class, ['constraints' => [new IsTrueV3()]])
