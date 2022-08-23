@@ -3,3 +3,4 @@ ewz_recaptcha:
   public_key: 6LeXzaUdAAAAAM7sB1pi-Mu9P54WyDuml4H1vVHj
   private_key: "%env(GOOGLE_RECAPTCHA_PRIVATE_KEY)%"
   hide_badge: true
+  score_threshold: 0.5

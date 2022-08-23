@@ -36,6 +36,10 @@
         {{ form_start(form, {'attr': {'class': 'w-full md:w-3/6 text-xl lg:text-2xl p-10 bg-gray-200 rounded-md'}}) }}
             <div class="xt-row xt-row-x-6 xt-row-y-4">
 
+                <div class="w-full text-red-600">
+                    {{ form_errors(form) }}
+                </div>
+
                 <div class="w-full">
                     {{ form_label(form.name, 'app.contact_page.name_label', {'label_attr': {'class': 'flex mb-3 text-black text-opacity-75 font-semibold'}}) }}
                     {{ form_widget(form.name, {'attr': {'class': 'w-full block rounded-md py-2.5 px-4 text-black border border-gray-50 focus:border-gray-500 transition'}}) }}

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Form;
 
+use EWZ\Bundle\RecaptchaBundle\Form\Type\EWZRecaptchaV3Type;
+use EWZ\Bundle\RecaptchaBundle\Validator\Constraints\IsTrueV3;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
@@ -21,6 +23,7 @@ final class ContactType extends AbstractType
             ->add('mail', EmailType::class)
             ->add('page', HiddenType::class)
             ->add('message', TextareaType::class)
+            ->add('recaptcha', EWZRecaptchaV3Type::class, ['constraints' => [new IsTrueV3()]])
             ->add('submit', SubmitType::class)
         ;
     }
