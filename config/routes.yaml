@@ -42,6 +42,10 @@ calendar_page:
   path: /calendario
   controller: app.controller.calendar::index
 
+menu_sagra_page:
+  path: /menu-sagra
+  controller: app.controller.menu_sagra::index
+
 cms_page:
   path: /{slug}
   controller: app.controller.cms_page::index

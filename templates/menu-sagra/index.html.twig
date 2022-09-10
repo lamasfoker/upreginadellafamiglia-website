@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title('Menù Sagra di Gazzata') }}{% endblock %}
+
+{% block body %}
+    <div class="container pt-10">
+        {% include 'components/breadcrumbs.html.twig' %}
+        <h1 class="{{ h1 }} text-center">Menù Sagra di Gazzata</h1>
+    </div>
+
+    <div class="container py-20 max-w-4xl">
+        <p class="xt-p mb-8">Per ordinare si raccomanda di andare <strong>solo uno per tavolo alla cassa</strong>, così da non formare assembramenti.</p>
+        <p class="xt-p mb-8">Per evitare di consumare il cibo avanzato è possibile chiedere ai camerieri dei sacchetti per portarlo a casa.</p>
+        <p class="xt-p mb-8">Il <strong>coperto</strong> ha il costo di 1,00 €</p>
+
+        <div data-xt-toggle="{ elements: '[data-xt-element]', targets: '[data-xt-target]', on: 'click', off: false, min: 1 }">
+            <div class="flex justify-center flex-col mb-10">
+                <button
+                        type="button"
+                        class="xt-button text-black font-sans font-semibold text-lg leading-snug tracking-wider uppercase bg-white transition active:bg-gray-100 on:bg-gray-100 border-t border-b border-black border-opacity-20 -my-px px-3.5 py-4 on"
+                        data-xt-element
+                >
+                    Cibi
+                </button>
+                <button
+                        type="button"
+                        class="xt-button text-black font-sans font-semibold text-lg leading-snug tracking-wider uppercase bg-white transition active:bg-gray-100 on:bg-gray-100 border-t border-b border-black border-opacity-20 -my-px px-3.5 py-4"
+                        data-xt-element
+                >
+                    Dolci
+                </button>
+                <button
+                        type="button"
+                        class="xt-button text-black font-sans font-semibold text-lg leading-snug tracking-wider uppercase bg-white transition active:bg-gray-100 on:bg-gray-100 border-t border-b border-black border-opacity-20 -my-px px-3.5 py-4"
+                        data-xt-element
+                >
+                    Bevande
+                </button>
+            </div>
+
+            <div>
+                <div class="xt-toggle xt-list xt-list-y-8" data-xt-target>
+                    {% for food in menuFood %}
+                        <div class="bg-color-1 rounded-3xl text-white w-full">
+                            <div class="xt-row items-center md:h-full {{ (loop.index%2 == 0 ? 'md:flex-row' : 'md:flex-row-reverse') }}">
+                                <div class="w-full md:h-full md:w-4/12">
+                                    <div class="xt-media-container md:h-full xt-ratio-75">
+                                        <img class="xt-media object-cover object-center rounded-t-3xl md:rounded-3xl" src="{{ food.image }}?fit=fill&w=500&h=375" loading="lazy" alt="{{ food.name }}"/>
+                                    </div>
+                                </div>
+                                <div class="w-full md:w-8/12 p-10">
+                                    <h3 class="{{ h3 }}">{{ food.name }}</h3>
+                                    <p class="{{ p }}">
+                                        {% if (food.description) %}{{ food.description }}<br/>{% endif %}
+                                        Prezzo: {{ food.price|number_format(2, ',', '.') }} €
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="xt-toggle xt-list xt-list-y-8" data-xt-target>
+                    {% for food in menuSweets %}
+                        <div class="bg-color-1 rounded-3xl text-white w-full">
+                            <div class="xt-row items-center md:h-full {{ (loop.index%2 == 0 ? 'md:flex-row' : 'md:flex-row-reverse') }}">
+                                <div class="w-full md:h-full md:w-4/12">
+                                    <div class="xt-media-container md:h-full xt-ratio-75">
+                                        <img class="xt-media object-cover object-center rounded-t-3xl md:rounded-3xl" src="{{ food.image }}?fit=fill&w=500&h=375" loading="lazy" alt="{{ food.name }}"/>
+                                    </div>
+                                </div>
+                                <div class="w-full md:w-8/12 p-10">
+                                    <h3 class="{{ h3 }}">{{ food.name }}</h3>
+                                    <p class="{{ p }}">
+                                        {% if (food.description) %}{{ food.description }}<br/>{% endif %}
+                                        Prezzo: {{ food.price|number_format(2, ',', '.') }} €
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="xt-toggle xt-list xt-list-y-8" data-xt-target>
+                    {% for food in menuBeverages %}
+                        <div class="bg-color-1 rounded-3xl text-white w-full">
+                            <div class="xt-row items-center md:h-full {{ (loop.index%2 == 0 ? 'md:flex-row' : 'md:flex-row-reverse') }}">
+                                <div class="w-full md:h-full md:w-4/12">
+                                    <div class="xt-media-container md:h-full xt-ratio-75">
+                                        <img class="xt-media object-cover object-center" src="{{ food.image }}?fit=pad&w=500&h=375&bg=rgb:ffffff" loading="lazy" alt="{{ food.name }}"/>
+                                    </div>
+                                </div>
+                                <div class="w-full md:w-8/12 p-10">
+                                    <h3 class="{{ h3 }}">{{ food.name }}</h3>
+                                    <p class="{{ p }}">
+                                        {% if (food.description) %}{{ food.description }}<br/>{% endif %}
+                                        Prezzo: {{ food.price|number_format(2, ',', '.') }} €
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

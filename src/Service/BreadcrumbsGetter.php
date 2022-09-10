@@ -86,6 +86,14 @@ final class BreadcrumbsGetter
     }
 
     /**
+     * @return array<array<string>>
+     */
+    public function getMenuSagraPageBreadcrumbs(): array
+    {
+        return $this->getFirstLevelPageBreadcrumbs('Menù Sagra', 'menu_sagra_page');
+    }
+
+    /**
      * @param array<string> $parameters
      * @return array<array<string>>
      */
