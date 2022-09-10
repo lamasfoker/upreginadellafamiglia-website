@@ -131,13 +131,13 @@ final class MenuSagra extends AbstractController
             'name' => 'Vino Bianco Frizzante 1L',
             'description' => 'Cantina Medici Ermete',
             'price' => 5,
-            'image' => 'https://images.ctfassets.net/zv2aec8nnyd1/BkX2m0h6stOao5Q5KEnnO/b1c59cedddff9b9a90a6453c83217f16/Frizzantino-secco.png',
+            'image' => 'https://images.ctfassets.net/zv2aec8nnyd1/8K1KhvGHX5Xpe1KMfjhBq/fd89196515b02456c889decf39522eab/wine-decanter-0.5l.jpg',
         ],
         [
             'name' => 'Vino Bianco Frizzante ½L',
             'description' => 'Cantina Medici Ermete',
             'price' => 3.5,
-            'image' => 'https://images.ctfassets.net/zv2aec8nnyd1/BkX2m0h6stOao5Q5KEnnO/b1c59cedddff9b9a90a6453c83217f16/Frizzantino-secco.png',
+            'image' => 'https://images.ctfassets.net/zv2aec8nnyd1/8K1KhvGHX5Xpe1KMfjhBq/fd89196515b02456c889decf39522eab/wine-decanter-0.5l.jpg',
         ],
         [
             'name' => 'Lambrusco il Correggio',
