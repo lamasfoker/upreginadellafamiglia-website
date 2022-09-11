@@ -108,7 +108,7 @@ final class MenuSagra extends AbstractController
         ],
         [
             'name' => 'Caffè',
-            'description' => 'A scelta tra Espresso, Orzo e Decaffeinato',
+            'description' => 'A scelta tra Espresso, Orzo e Ginseng',
             'price' => 1,
             'image' => 'https://images.ctfassets.net/zv2aec8nnyd1/2oVxkhTo2bv01DzH5sJhrJ/9026d3e65135970a13c4a9566a899734/caffe.jpg',
         ],
