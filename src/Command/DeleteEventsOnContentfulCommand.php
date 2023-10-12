@@ -60,10 +60,8 @@ final class DeleteEventsOnContentfulCommand extends Command
             try {
                 $this->deleteEvent($row);
             } catch (Exception $exception) {
-                $output->writeln(sprintf('There is a problem in your CSV, check the line number %s. ' .
-                    'Probably the id does not exist on Contentful.', $index));
-
-                return self::FAILURE;
+                $output->writeln(sprintf('Check the event with ID %s' . PHP_EOL  .
+                    'Probably it does not exsist or it is unpuplished.', $index));
             }
         }
 
