@@ -39,3 +39,5 @@ task('deploy', [
     'deploy:unlock',
     'cleanup',
 ]);
+
+after('deploy:failed', 'deploy:unlock');
