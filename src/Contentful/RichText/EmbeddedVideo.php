@@ -14,7 +14,7 @@ use LogicException;
 
 final class EmbeddedVideo implements NodeRendererInterface
 {
-    public const EMBEDDED_VIDEO_CONTENT_TYPE_ID = 'embeddedVideo';
+    public const CONTENT_TYPE_ID = 'embeddedVideo';
 
     public function supports(NodeInterface $node): bool
     {
@@ -23,7 +23,7 @@ final class EmbeddedVideo implements NodeRendererInterface
         }
         /** @var Entry $entry */
         $entry = $node->getEntry();
-        return $entry->getContentType()->getId() === self::EMBEDDED_VIDEO_CONTENT_TYPE_ID;
+        return $entry->getContentType()->getId() === self::CONTENT_TYPE_ID;
     }
 
     public function render(RendererInterface $renderer, NodeInterface $node, array $context = []): string
