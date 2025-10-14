@@ -56,7 +56,7 @@ jobs:
       - name: Compress the artifact
         run: zip --symlinks -q -r build.zip . -x "./node_modules/*" "./tests/*" "./assets/*" "./.github/*"
       - name: Archive the artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: artifact-build
           path: build.zip
