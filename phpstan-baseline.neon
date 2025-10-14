@@ -6,6 +6,11 @@ parameters:
 			path: src/Contentful/RichText/Attached.php
 
 		-
+			message: "#^Method App\\\\Contentful\\\\RichText\\\\Audio\\:\\:render\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Contentful/RichText/Audio.php
+
+		-
 			message: "#^Method App\\\\Contentful\\\\RichText\\\\EmbeddedVideo\\:\\:render\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Contentful/RichText/EmbeddedVideo.php

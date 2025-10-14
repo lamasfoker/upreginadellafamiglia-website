@@ -60,7 +60,7 @@ final class DeleteEventsOnContentfulCommand extends Command
             try {
                 $this->deleteEvent($row);
             } catch (Exception $exception) {
-                $output->writeln(sprintf('Check the event with ID %s' . PHP_EOL  .
+                $output->writeln(sprintf('Check the event with ID %s' . PHP_EOL .
                     'Probably it does not exsist or it is unpuplished.', $index));
             }
         }
