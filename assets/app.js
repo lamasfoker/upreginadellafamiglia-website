@@ -12,6 +12,7 @@ import './scripts/mobile-menu'
 import './scripts/infinitescroll'
 import './scripts/slider'
 import './scripts/cookie-banner'
+import './scripts/autogenerate-heading-id'
 
 /**
  * animations setup
