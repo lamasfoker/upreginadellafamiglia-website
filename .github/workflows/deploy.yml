@@ -136,7 +136,7 @@ jobs:
           ssh-private-key: ${{ secrets.PRIVATE_KEY }}
 
       - name: Download artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v5
         with:
           name: artifact-build
 
