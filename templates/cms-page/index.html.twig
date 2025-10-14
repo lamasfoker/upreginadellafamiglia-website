@@ -18,10 +18,12 @@
         </div>
     </div>
 
-    <div class="container pb-20 max-w-4xl">
-        <h2 class="{{ h2 }} mb-5 text-center">{{ 'app.cms_page.contact_title'|trans }}</h2>
-        <div class="flex justify-center">
-            <a href="{{ path('contact_page', {'page': page.slug}) }}" class="{{ button }}">{{ 'app.cms_page.contact_button'|trans }}</a>
+    {% if page.email %}
+        <div class="container pb-20 max-w-4xl">
+            <h2 class="{{ h2 }} mb-5 text-center">{{ 'app.cms_page.contact_title'|trans }}</h2>
+            <div class="flex justify-center">
+                <a href="{{ path('contact_page', {'page': page.slug}) }}" class="{{ button }}">{{ 'app.cms_page.contact_button'|trans }}</a>
+            </div>
         </div>
-    </div>
+    {% endif %}
 {% endblock %}
