@@ -63,8 +63,13 @@ final class CreateEventsOnContentfulCommand extends Command
             return Command::FAILURE;
         }
 
-        $days = max(1, (int)$input->getOption('days'));
-        $skip = max(1, (int)$input->getOption('skip'));
+        $days = $input->getOption('days');
+        $skip = $input->getOption('skip');
+        if (!is_numeric($days) || !is_numeric($skip)) {
+            throw new InvalidArgumentException('Parameters days and skip must be numeric');
+        }
+        $days = max(1, (int)$days);
+        $skip = max(1, (int)$skip);
         $tz = new DateTimeZone('Europe/Rome');
         $dryRun = (bool)$input->getOption('dry-run');
 
@@ -78,7 +83,7 @@ final class CreateEventsOnContentfulCommand extends Command
         $io->section(sprintf('Generating events from %s to %s (TZ %s)', $today->format('Y-m-d'), $until->sub(new DateInterval('P1D'))->format('Y-m-d'), $tz->getName()));
 
         $existingKeys = array_map(
-            fn(ResourceInterface $e) => $this->buildDedupeKey(
+            fn (ResourceInterface $e) => $this->buildDedupeKey(
                 $e[EventRepositoryInterface::CONTENTFUL_RESOURCE_TITLE_FIELD_ID],
                 $e[EventRepositoryInterface::CONTENTFUL_RESOURCE_PLACE_FIELD_ID],
                 $e[EventRepositoryInterface::CONTENTFUL_RESOURCE_DATE_FIELD_ID]
@@ -198,9 +203,8 @@ final class CreateEventsOnContentfulCommand extends Command
             throw new InvalidArgumentException(sprintf('Invalid hour format (expected HH:MM or HH:MM:SS): %s', $hour));
         }
         [$h, $m, $s] = array_map('intval', array_pad(explode(':', $hour), 3, '0'));
-        $base = new DateTimeImmutable($day->format('Y-m-d'), $tz);
 
-        return $base->setTime($h, $m, $s) ?: $base;
+        return (new DateTimeImmutable($day->format('Y-m-d'), $tz))->setTime($h, $m, $s);
     }
 
     /**

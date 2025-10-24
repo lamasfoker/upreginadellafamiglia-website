@@ -1,6 +1,21 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Cannot access offset 'titolo' on Contentful\\\\Core\\\\Resource\\\\ResourceInterface\\.$#"
+			count: 1
+			path: src/Command/CreateEventsOnContentfulCommand.php
+
+		-
+			message: "#^Cannot access offset 'luogo' on Contentful\\\\Core\\\\Resource\\\\ResourceInterface\\.$#"
+			count: 1
+			path: src/Command/CreateEventsOnContentfulCommand.php
+
+		-
+			message: "#^Cannot access offset 'data' on Contentful\\\\Core\\\\Resource\\\\ResourceInterface\\.$#"
+			count: 1
+			path: src/Command/CreateEventsOnContentfulCommand.php
+
+		-
 			message: "#^Method App\\\\Contentful\\\\RichText\\\\Attached\\:\\:render\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Contentful/RichText/Attached.php
